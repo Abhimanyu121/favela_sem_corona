@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>90083384916-tcul85e2i51mp5rd3udc57e67468n59q.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.90083384916-tcul85e2i51mp5rd3udc57e67468n59q</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBsW6BIu9K3IqpVc9fkTp5GzRlX71fJxAg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>90083384916</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.itsencrypted.favelasemcorona</string>
+	<key>PROJECT_ID</key>
+	<string>favelasemcorona</string>
+	<key>STORAGE_BUCKET</key>
+	<string>favelasemcorona.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:90083384916:ios:e5f3a50004045327d717c1</string>
+	<key>DATABASE_URL</key>
+	<string>https://favelasemcorona.firebaseio.com</string>
+</dict>
+</plist>

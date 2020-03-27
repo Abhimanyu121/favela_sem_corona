@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "90083384916",
+    "firebase_url": "https://favelasemcorona.firebaseio.com",
+    "project_id": "favelasemcorona",
+    "storage_bucket": "favelasemcorona.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90083384916:android:55dab6961645bdb9d717c1",
+        "android_client_info": {
+          "package_name": "com.itsencrypted.favelasemcorona"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "90083384916-046osigut85b91n18q8333barrcoouuh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACCkTS64NyCXXgW365oQPn9UQSUQhTqVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "90083384916-046osigut85b91n18q8333barrcoouuh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "90083384916-tcul85e2i51mp5rd3udc57e67468n59q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.itsencrypted.favelasemcorona"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
