@@ -1,3 +1,5 @@
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import 'posto_de_saude.dart';
 
 class Favela {
@@ -95,3 +97,27 @@ List<PostoDeSaude> postosdesaude = [
 //
 //*Mapa com data e hora da última atualização
 //**Esse dado será utilizado para o tomador de decisão decidir quais favelas terão prioridade no recebimento de doações.
+
+
+Marker gramercyMarker = Marker(
+  markerId: MarkerId('gramercy'),
+  position: LatLng(40.738380, -73.988426),
+  infoWindow: InfoWindow(title: 'Gramercy Tavern'),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
+);
+
+Marker bernardinMarker = Marker(
+  markerId: MarkerId('bernardin'),
+  position: LatLng(40.761421, -73.981667),
+  infoWindow: InfoWindow(title: 'Le Bernardin'),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet,),
+);
+
+Marker blueMarker = Marker(
+  markerId: MarkerId('bluehill'),
+  position: LatLng(40.732128, -73.999619),
+  infoWindow: InfoWindow(title: 'Blue Hill'),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet,),
+);
+
+

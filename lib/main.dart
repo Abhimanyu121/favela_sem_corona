@@ -1,9 +1,10 @@
-import 'package:favelasemcorona/screens/ice_cream_shop_screen.dart';
-import 'package:favelasemcorona/screens/map_screen_2.dart';
+import 'package:favelasemcorona/screens/map_demo.dart';
 import 'package:favelasemcorona/screens/menu_screen.dart';
 import 'package:favelasemcorona/screens/quiz_screen.dart';
 import 'package:favelasemcorona/screens/welcome_screen.dart';
+import 'package:favelasemcorona/screens/wikipedia_reader_screen.dart';
 import 'package:flutter/material.dart';
+
 
 void main() => runApp(FavelaSemCorona());
 
@@ -16,9 +17,9 @@ class FavelaSemCorona extends StatelessWidget {
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         MenuScreen.id: (context) => MenuScreen(),
-        MapScreen.id: (context) => MapScreen(),
-        IceCreamScreen.id: (context) => IceCreamScreen(),
         QuizScreen.id: (context) => QuizScreen(),
+        WikipediaExplorer.id: (context) => WikipediaExplorer(),
+        MapsDemo.id: (context) => MapsDemo(),
       },
     );
   }

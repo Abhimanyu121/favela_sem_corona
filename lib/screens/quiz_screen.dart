@@ -40,11 +40,10 @@ class _QuizPageState extends State<QuizPage> {
         Alert(
           context: context,
           title: 'Fim!',
-          desc: 'Parabéns você terminou o jogo.'
-        ).show();
-        quizBrain.reset();
-        scoreKeeper = [];
-      }
+          desc: 'Parabéns você terminou o jogo.').show();
+          quizBrain.reset();
+          scoreKeeper = [];
+        }
       else {
         if (userPickedAnswer == correctAnswer){
           scoreKeeper.add(Icon(Icons.thumb_up, color: Colors.green, size: 15,));

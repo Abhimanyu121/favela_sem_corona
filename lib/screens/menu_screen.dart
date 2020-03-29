@@ -1,12 +1,14 @@
 import 'package:favelasemcorona/components/dharma_button.dart';
 import 'package:favelasemcorona/components/dharma_card.dart';
+import 'package:favelasemcorona/screens/wikipedia_reader_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:favelasemcorona/screens/map_screen_2.dart';
+import 'package:favelasemcorona/screens/map_demo.dart';
 import 'package:favelasemcorona/screens/quiz_screen.dart';
 
 class MenuScreen extends StatefulWidget {
   static const String id = 'menu_screen';
+
 
   @override
   _MenuScreenState createState() => _MenuScreenState();
@@ -56,7 +58,7 @@ class _MenuScreenState extends State<MenuScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             DharmaCard(titleOfButton: 'Fato ou Fake', onPressed: (){Navigator.pushNamed(context, QuizScreen.id);},),
-                            DharmaCard(titleOfButton: 'Eventos', onPressed: (){Navigator.pop(context);},),
+                            DharmaCard(titleOfButton: 'Em caso de Morte', onPressed: (){Navigator.pop(context);},),
                           ],
                         ),
                       ),
@@ -65,8 +67,8 @@ class _MenuScreenState extends State<MenuScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            DharmaCard(titleOfButton: 'Cuidados Básicos', onPressed: (){Navigator.pop(context);},),
-                            DharmaCard(titleOfButton: 'Disk Denúncia', onPressed: (){Navigator.pop(context);},),
+                            DharmaCard(titleOfButton: 'SAMU', onPressed: (){Navigator.pushNamed(context, WikipediaExplorer.id);},),
+                            DharmaCard(titleOfButton: 'Violencia Domestica', onPressed: (){Navigator.pop(context);},),
                           ],
                         ),
                       ),
@@ -82,9 +84,9 @@ class _MenuScreenState extends State<MenuScreen> {
                       ),
                       SizedBox(height: 10),
                       DharmaButton(
-                        titleOfButton: 'Mapa do Coronavirus',
+                        titleOfButton: 'Google Map Demo',
                         onPressed: (){
-                          Navigator.pushNamed(context, MapScreen.id);
+                          Navigator.pushNamed(context, MapsDemo.id);
                         },
                       ),
                       SizedBox(height: 50,),
