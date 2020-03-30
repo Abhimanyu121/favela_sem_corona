@@ -9,7 +9,7 @@ import 'package:favelasemcorona/constants.dart';
 void main() => runApp(MaterialApp(home: WikipediaExplorer()));
 
 class WikipediaExplorer extends StatefulWidget {
-  static const String id = 'wikipedia_screen';
+  static const String id = 'iml_screen';
 
   @override
   _WikipediaExplorerState createState() => _WikipediaExplorerState();
@@ -24,7 +24,7 @@ class _WikipediaExplorerState extends State<WikipediaExplorer> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepOrange,
-        title: const Text('Sobre o Coronavirus'),
+        title: const Text('IML do Rio de Janeiro'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -44,7 +44,7 @@ class _WikipediaExplorerState extends State<WikipediaExplorer> {
         ],
       ),
       body: WebView(
-        initialUrl: 'https://coronavirus.saude.gov.br/sobre-a-doenca#definicaodecaso',
+        initialUrl: 'https://noticias.uol.com.br/cotidiano/ultimas-noticias/2020/03/24/covid-19-iml-rj-corta-autopsia-de-presos-e-a-oab-investiga-subnotificacao.htm',
         onWebViewCreated: (WebViewController webViewController) {
           _controller.complete(webViewController);
         },

@@ -3,19 +3,15 @@ class PostoDeSaude {
   PostoDeSaude({
     this.nome,
     this.endereco,
-    this.leitosDisponiveis,
-    this.testesDisponiveis,
-    this.testesEmFalta,
-    this.respiradoresEmFalta,
+    this.telefone,
     this.horariosDeFuncionamento,
-    this.totalDeMedicos});
+  });
 
   String nome;
   String endereco;
-  int leitosDisponiveis;
-  int testesDisponiveis;
-  int testesEmFalta;
-  int respiradoresEmFalta;
+  String telefone;
   List<String> horariosDeFuncionamento;
   int totalDeMedicos;
 }
+
+

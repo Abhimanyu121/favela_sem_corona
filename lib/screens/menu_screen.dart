@@ -67,7 +67,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            DharmaCard(titleOfButton: 'SAMU', onPressed: (){Navigator.pushNamed(context, WikipediaExplorer.id);},),
+                            DharmaCard(titleOfButton: 'Saiba Mais sobre o Coronavirus', onPressed: (){Navigator.pushNamed(context, WikipediaExplorer.id);},),
                             DharmaCard(titleOfButton: 'Violencia Domestica', onPressed: (){Navigator.pop(context);},),
                           ],
                         ),

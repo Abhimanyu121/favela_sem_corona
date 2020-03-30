@@ -69,25 +69,132 @@ const List<String> favelas = [
 
 List<PostoDeSaude> postosdesaude = [
   PostoDeSaude(
-    nome: 'Unidade de Saude da Cidade de Deus',
-    endereco: 'Rua SemNome, 23',
-    leitosDisponiveis: 2,
-    testesDisponiveis: 240,
-    testesEmFalta: 700,
-    respiradoresEmFalta: 20,
-    horariosDeFuncionamento: ['08:00am', '21:00'],
-    totalDeMedicos: 5,
+    nome: 'UPA Rocinha',
+    endereco: 'Estrada da Gávea, 520 (curva do S) - Rocinha',
+    telefone: '3322-7190',
+    horariosDeFuncionamento: ['24 horas'],
   ),
   PostoDeSaude(
-    nome: 'Clinica da Familia Maria do Socorro Silva e Souza',
-    endereco: 'Estrada da Gavea, 522',
-    leitosDisponiveis: 2,
-    testesDisponiveis: 240,
-    testesEmFalta: 700,
-    respiradoresEmFalta: 20,
-    horariosDeFuncionamento: ['08:00am', '19:00'],
-    totalDeMedicos: 5,
+    nome: 'UPA Alemão',
+    endereco: 'Estrada Itararé, 951 - Ramos',
+    telefone: '3881-1656',
+    horariosDeFuncionamento: ['24 horas'],
   ),
+  PostoDeSaude(
+    nome: 'UPA Manguinhos',
+    endereco: 'Av. Dom Helder Câmara, 1390 - Manguinhos',
+    telefone: '2332-2405',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'UPA Engenho de Dentro',
+    endereco: 'Rua Bernardo, s/n - Engenho de Dentro',
+    telefone: '2592-0502',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'UPA Madureira',
+    endereco: 'Praça dos Lavradores, s/n - Campinho',
+    telefone: '3358-2994',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'UPA Costa Barros',
+    endereco: 'Estrada Botafogo, s/n - Costa Barros',
+    telefone: '2508-6990',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'UPA Rocha Miranda',
+    endereco: 'Estrada do Barro Vermelho, s/n - Rocha Miranda',
+    telefone: '3015-6259',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'UPA Cidade de Deus',
+    endereco: 'Rua Edgar Werneck, s/n - Cidade de Deus',
+    telefone: '2232-3173',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'UPA Vila Kennedy',
+    endereco: 'Praça Dolomitas, s/n - Vila Kennedy',
+    telefone: '2405-0303 / 2405-0447',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'UPA Senador Camará',
+    endereco: 'Av. Santa Cruz, 6486 - Senador Camará',
+    telefone: '3839-3688 / 3839-5847',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'UPA Magalhães Bastos',
+    endereco: 'Estrada Manoel Nogueira de Sá c/ Rua Professor José Rodrigues s/n - Magalhães Bastos',
+    telefone: '3550-7080',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'UPA Sepetiba',
+    endereco: 'Rua José Fernandes, s/n - Alagados - Sepetiba',
+    telefone: '3404-7250',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'UPA Santa Cruz',
+    endereco: 'Avenida João XXIII, s/n (em frente ao CIEP Papa João XXIII) - Santa Cruz',
+    telefone: '2416-5719',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'UPA Paciência',
+    endereco: 'Estrada Santa Eugênia, s/n - Jardim 7 de Abril - Paciência',
+    telefone: '3406-7697 / 3426-4410',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'CER Centro (Souza Aguiar)',
+    endereco: 'Rua Frei Caneca, s/n (ao lado do n 52) - Centro',
+    telefone: '2507-1311',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'CER Leblon (Miguel Couto)',
+    endereco: 'Rua Mário Ribeiro, 1080 - Leblon',
+    telefone: '2529-9200',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'CER Barra da Tijuca (Lourenço Jorge)',
+    endereco: 'Av. Ayrton Senna, 2000 - Barra da Tijuca',
+    telefone: '3870-3716',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'CER Ilha do Governador (Evandro Freire)',
+    endereco: 'Estrada do Galeão, 2920 - Ilha do Governador',
+    telefone: '3353-6179',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'CER Pedro II (Pedro II)',
+    endereco: 'Rua do Prado, 325 Santa Cruz',
+    telefone: '2419-4792',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'CER Realengo (Albert Schweitzer)',
+    endereco: 'Rua Nilópolis, 239 - Realengo',
+    telefone: 'nao informado',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+  PostoDeSaude(
+    nome: 'CER Campo Grande (Rocha Faria)',
+    endereco: 'Av. Cesário de Melo, 3215 - Campo Grande',
+    telefone: '2233-6791 / 2233-6797',
+    horariosDeFuncionamento: ['24 horas'],
+  ),
+
 ];
 
 //Fazer mapa do COVID-19 nas favelas do município do Rio de Janeiro*
@@ -97,6 +204,9 @@ List<PostoDeSaude> postosdesaude = [
 //
 //*Mapa com data e hora da última atualização
 //**Esse dado será utilizado para o tomador de decisão decidir quais favelas terão prioridade no recebimento de doações.
+
+// TODO: Duvida Bruno: Consigo colocar esses markers como itens dentro da Classe, Postos de Saude?
+// ou devo criar um Marker para cada posto de saude?
 
 
 Marker gramercyMarker = Marker(
@@ -119,5 +229,10 @@ Marker blueMarker = Marker(
   infoWindow: InfoWindow(title: 'Blue Hill'),
   icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet,),
 );
+
+
+
+// Source de dados dos postos de saude: https://www.rio.rj.gov.br/web/sms/exibeconteudo?id=4206759
+
 
 
