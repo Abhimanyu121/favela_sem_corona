@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
 import 'package:favelasemcorona/constants.dart';
@@ -19,6 +20,28 @@ class _MapsDemoState extends State<MapsDemo> {
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
 
+  Marker riodeJaneiroMarker = Marker(
+    markerId: MarkerId('teste'),
+    position: LatLng(-22.8952092,-43.5332072),
+    infoWindow: InfoWindow(title: 'MarkerRio'),
+    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
+  );
+
+  Marker bernardinMarker = Marker(
+    markerId: MarkerId('bernardin'),
+    position: LatLng(-22.9052092,-43.5232072),
+    infoWindow: InfoWindow(title: 'Le Bernardin'),
+    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet,),
+  );
+
+  Marker blueMarker = Marker(
+    markerId: MarkerId('bluehill'),
+    position: LatLng(-22.9152092,-43.5832072),
+    infoWindow: InfoWindow(title: 'Blue Hill'),
+    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet,),
+  );
+
+
   static final CameraPosition _position1 = CameraPosition(
     bearing: 192.833,
     target: LatLng(-22.8852092,-43.5232072),
@@ -33,6 +56,9 @@ class _MapsDemoState extends State<MapsDemo> {
 
   void _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
+    _markers.add(riodeJaneiroMarker);
+    _markers.add(bernardinMarker);
+    _markers.add(blueMarker);
   }
 
   void _onCameraMove(CameraPosition position) {
@@ -121,11 +147,39 @@ class _MapsDemoState extends State<MapsDemo> {
                   MyButton(_goToPosition1, Icons.location_searching),
                 ],),
               ),
-            )
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                margin: EdgeInsets.only(bottom: 10.0),
+                width: double.maxFinite,
+                height: 180,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: _markers.length,
+                  itemBuilder: (context, index){
+                    return Container(
+                      margin: EdgeInsets.all(8),
+                      child: Card(
+                        child: Center(
+                          child: Text(_markers.elementAt(index).markerId.value),
+                        ),
+                        elevation: 5,
+                      ),
+                      width: 200,
+                      height: 100,
+                    );
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+
+
 

@@ -1,5 +1,3 @@
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import 'posto_de_saude.dart';
 
 class Favela {
@@ -120,6 +118,8 @@ List<PostoDeSaude> postosdesaude = [
     nome: 'UPA Vila Kennedy',
     endereco: 'Praça Dolomitas, s/n - Vila Kennedy',
     telefone: '2405-0303 / 2405-0447',
+    lat: -22.9042218,
+    lng: -43.2614829,
     horariosDeFuncionamento: ['24 horas'],
   ),
   PostoDeSaude(
@@ -208,27 +208,6 @@ List<PostoDeSaude> postosdesaude = [
 // TODO: Duvida Bruno: Consigo colocar esses markers como itens dentro da Classe, Postos de Saude?
 // ou devo criar um Marker para cada posto de saude?
 
-
-Marker gramercyMarker = Marker(
-  markerId: MarkerId('gramercy'),
-  position: LatLng(40.738380, -73.988426),
-  infoWindow: InfoWindow(title: 'Gramercy Tavern'),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
-);
-
-Marker bernardinMarker = Marker(
-  markerId: MarkerId('bernardin'),
-  position: LatLng(40.761421, -73.981667),
-  infoWindow: InfoWindow(title: 'Le Bernardin'),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet,),
-);
-
-Marker blueMarker = Marker(
-  markerId: MarkerId('bluehill'),
-  position: LatLng(40.732128, -73.999619),
-  infoWindow: InfoWindow(title: 'Blue Hill'),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet,),
-);
 
 
 
