@@ -1,5 +1,6 @@
 import 'package:favelasemcorona/components/dharma_button.dart';
 import 'package:favelasemcorona/components/dharma_card.dart';
+import 'package:favelasemcorona/screens/arcgis_covid_screen.dart';
 import 'package:favelasemcorona/screens/wikipedia_reader_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +59,7 @@ class _MenuScreenState extends State<MenuScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             DharmaCard(titleOfButton: 'Fato ou Fake', onPressed: (){Navigator.pushNamed(context, QuizScreen.id);},),
-                            DharmaCard(titleOfButton: 'Em caso de Morte', onPressed: (){Navigator.pop(context);},),
+                            DharmaCard(titleOfButton: 'Ministério da Saúde', onPressed: (){Navigator.pushNamed(context, WikipediaExplorer.id);},),
                           ],
                         ),
                       ),
@@ -67,8 +68,8 @@ class _MenuScreenState extends State<MenuScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            DharmaCard(titleOfButton: 'Saiba Mais sobre o Coronavirus', onPressed: (){Navigator.pushNamed(context, WikipediaExplorer.id);},),
-                            DharmaCard(titleOfButton: 'Violencia Domestica', onPressed: (){Navigator.pop(context);},),
+                            DharmaCard(titleOfButton: 'Painel COVID-19 Rio', onPressed: (){Navigator.pushNamed(context, PainelCovidRioScreen.id);},),
+                            DharmaCard(titleOfButton: 'Tela Y', onPressed: (){Navigator.pop(context);},),
                           ],
                         ),
                       ),

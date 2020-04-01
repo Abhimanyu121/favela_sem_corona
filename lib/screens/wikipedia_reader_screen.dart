@@ -44,7 +44,7 @@ class _WikipediaExplorerState extends State<WikipediaExplorer> {
         ],
       ),
       body: WebView(
-        initialUrl: 'https://experience.arcgis.com/experience/38efc69787a346959c931568bd9e2cc4',
+        initialUrl: 'https://coronavirus.saude.gov.br/sobre-a-doenca#definicaodecaso',
         //initialUrl:
         javascriptMode: JavascriptMode.unrestricted,
         onWebViewCreated: (WebViewController webViewController) {

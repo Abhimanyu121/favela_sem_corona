@@ -1,3 +1,4 @@
+import 'package:favelasemcorona/screens/arcgis_covid_screen.dart';
 import 'package:favelasemcorona/screens/map_demo.dart';
 import 'package:favelasemcorona/screens/menu_screen.dart';
 import 'package:favelasemcorona/screens/quiz_screen.dart';
@@ -20,6 +21,7 @@ class FavelaSemCorona extends StatelessWidget {
         QuizScreen.id: (context) => QuizScreen(),
         WikipediaExplorer.id: (context) => WikipediaExplorer(),
         MapsDemo.id: (context) => MapsDemo(),
+        PainelCovidRioScreen.id: (context) => PainelCovidRioScreen(),
       },
     );
   }

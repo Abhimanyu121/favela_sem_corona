@@ -1,12 +1,18 @@
+import 'package:favelasemcorona/screens/posto_de_saude_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
 import 'package:favelasemcorona/constants.dart';
+import 'package:favelasemcorona/models/posto_de_saude_markers.dart';
+import 'package:favelasemcorona/models/posto_de_saude.dart';
 
 class MapsDemo extends StatefulWidget {
   static const id = 'maps_demo';
+
+  MapsDemo({this.postoDeSaude});
+  final PostoDeSaude postoDeSaude;
 
   @override
   _MapsDemoState createState() => _MapsDemoState();
@@ -15,31 +21,10 @@ class MapsDemo extends StatefulWidget {
 class _MapsDemoState extends State<MapsDemo> {
 
   Completer<GoogleMapController> _controller = Completer();
-  static const LatLng _center = LatLng(-22.8652092,-43.5232072);
+  static const LatLng _center = LatLng(-22.9892591,-43.2542239);
   final Set<Marker> _markers = {};
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
-
-  Marker riodeJaneiroMarker = Marker(
-    markerId: MarkerId('teste'),
-    position: LatLng(-22.8952092,-43.5332072),
-    infoWindow: InfoWindow(title: 'MarkerRio'),
-    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
-  );
-
-  Marker bernardinMarker = Marker(
-    markerId: MarkerId('bernardin'),
-    position: LatLng(-22.9052092,-43.5232072),
-    infoWindow: InfoWindow(title: 'Le Bernardin'),
-    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet,),
-  );
-
-  Marker blueMarker = Marker(
-    markerId: MarkerId('bluehill'),
-    position: LatLng(-22.9152092,-43.5832072),
-    infoWindow: InfoWindow(title: 'Blue Hill'),
-    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet,),
-  );
 
 
   static final CameraPosition _position1 = CameraPosition(
@@ -56,9 +41,10 @@ class _MapsDemoState extends State<MapsDemo> {
 
   void _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
-    _markers.add(riodeJaneiroMarker);
-    _markers.add(bernardinMarker);
-    _markers.add(blueMarker);
+    _markers.add(ps0Marker);
+    _markers.add(ps1Marker);
+    _markers.add(ps2Marker);
+    _markers.add(ps3Marker);
   }
 
   void _onCameraMove(CameraPosition position) {
@@ -156,18 +142,40 @@ class _MapsDemoState extends State<MapsDemo> {
                 height: 180,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: _markers.length,
-                  itemBuilder: (context, index){
-                    return Container(
-                      margin: EdgeInsets.all(8),
-                      child: Card(
-                        child: Center(
-                          child: Text(_markers.elementAt(index).markerId.value),
+                  itemCount: postosdesaude.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    PostoDeSaude postoDeSaude = postosdesaude[index];
+                    return GestureDetector(
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => PostoDeSaudeScreen(postoDeSaude: postoDeSaude,),),),
+                      child: Container(
+                        margin: EdgeInsets.all(8),
+                        width: 200,
+                        child: Stack(
+                          alignment: Alignment.topCenter,
+                          children: <Widget>[
+                            Positioned(bottom: 15,
+                            child: Container(
+                              height: 120,
+                              width: 200,
+                              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text('${postoDeSaude.nome}', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, letterSpacing: 0.2, color: Colors.indigo),),
+                                    SizedBox(height: 2.0,),
+                                    Text('${postoDeSaude.endereco}', style: TextStyle(color: Colors.grey, fontSize: 12),),
+                                    SizedBox(height: 2.0,),
+                                    Text('Tel: ${postoDeSaude.telefone}', style: TextStyle(color: Colors.black38, fontSize: 12),),
+                                  ],
+                                ),
+                              ),
+                            ),),
+                          ],
                         ),
-                        elevation: 5,
                       ),
-                      width: 200,
-                      height: 100,
                     );
                   },
                 ),
@@ -181,5 +189,19 @@ class _MapsDemoState extends State<MapsDemo> {
 }
 
 
+//itemCount: _markers.length,
+//itemBuilder: (context, index){
+//return Container(
+//margin: EdgeInsets.all(8),
+//child: Card(
+//child: Center(
+//child: Text(_markers.elementAt(index).markerId.value),
+//),
+//elevation: 5,
+//),
+//width: 200,
+//height: 100,
+//);
+//},
 
 
