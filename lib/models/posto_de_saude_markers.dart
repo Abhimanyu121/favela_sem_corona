@@ -1,14 +1,14 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:favelasemcorona/models/posto_de_saude.dart';
 
-//TODO: 1. Refactor this into a list of markers
+
 
 List<Marker> postosdesaudemarkers = [
 Marker(
   markerId: MarkerId(postosdesaude[0].nome),
   position: LatLng(postosdesaude[0].lat,postosdesaude[0].lng),
-  infoWindow: InfoWindow(title: postosdesaude[0].nome, snippet: postosdesaude[0].endereco),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+  infoWindow: InfoWindow(title: postosdesaude[0].nome, snippet: postosdesaude[0].createSnippet()),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
 ),
 
  Marker(
@@ -18,26 +18,29 @@ Marker(
   icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed,),
 ),
 
+
+
 ];
+
 
 Marker ps0Marker = Marker(
   markerId: MarkerId(postosdesaude[0].nome),
   position: LatLng(postosdesaude[0].lat,postosdesaude[0].lng),
-  infoWindow: InfoWindow(title: postosdesaude[0].nome, snippet: postosdesaude[0].endereco),
+  infoWindow: InfoWindow(title: postosdesaude[0].nome, snippet: postosdesaude[0].createSnippet()),
   icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
 );
 
 Marker ps1Marker =  Marker(
   markerId: MarkerId(postosdesaude[1].nome),
   position: LatLng(postosdesaude[1].lat,postosdesaude[1].lng),
-  infoWindow: InfoWindow(title: postosdesaude[1].nome, snippet: postosdesaude[1].endereco),
+  infoWindow: InfoWindow(title: postosdesaude[1].nome, snippet: postosdesaude[1].createSnippet()),
   icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed,),
 );
 
 Marker ps2Marker =  Marker(
   markerId: MarkerId(postosdesaude[2].nome),
   position: LatLng(postosdesaude[2].lat,postosdesaude[2].lng),
-  infoWindow: InfoWindow(title: postosdesaude[2].nome, snippet: postosdesaude[2].endereco),
+  infoWindow: InfoWindow(title: postosdesaude[2].nome, snippet: postosdesaude[2].createSnippet()),
   icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed,),
 );
 

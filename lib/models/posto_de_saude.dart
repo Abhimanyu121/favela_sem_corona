@@ -1,3 +1,4 @@
+
 class PostoDeSaude {
 
   PostoDeSaude({
@@ -16,7 +17,22 @@ class PostoDeSaude {
   double lat;
   double lng;
   int totalDeMedicos;
+
+  String createSnippet(){
+    String snippet;
+    snippet = endereco+"\n";
+    snippet += telefone+"\n";
+
+    return snippet;
+
+  }
+
+
+
+
 }
+
+
 
 List<PostoDeSaude> postosdesaude = [
   PostoDeSaude(

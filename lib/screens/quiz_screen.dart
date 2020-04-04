@@ -32,8 +32,8 @@ class _QuizPageState extends State<QuizPage> {
 
   List<Icon> scoreKeeper =[];
 
-  void checkAnswer(bool userPickedAnswer){
-    bool correctAnswer = quizBrain.getCorrectAnswer();
+  void checkAnswer(int userPickedAnswer){
+    bool correctAnswer = quizBrain.getCorrectAnswer(userPickedAnswer);
 
     setState(() {
       if (quizBrain.isFinished() == true){
@@ -77,31 +77,8 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
         ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.all(15),
-            child: FlatButton(
-              textColor: Colors.white,
-              color: Colors.green,
-              child: Text('FATO', style: TextStyle(color: Colors.white, fontSize: 20.0),),
-              onPressed: (){
-                checkAnswer(true);
-              },
-            ),
-          ),
-        ),
-        Expanded(
-          child: Padding(
-          padding: EdgeInsets.all(15),
-          child: FlatButton(
-            textColor: Colors.white,
-            color: Colors.red,
-            child: Text('FAKE', style: TextStyle(color: Colors.white, fontSize: 20.0),),
-            onPressed: (){
-              checkAnswer(false);
-            },
-          ),
-        ),),
+//TODO: paramos aqui
+//        quizBrain.getPossibleAnswers().map((item)=>{})
         Row(
           children: scoreKeeper,
         ),

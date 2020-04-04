@@ -5,8 +5,8 @@ import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
 import 'package:favelasemcorona/constants.dart';
-import 'package:favelasemcorona/models/posto_de_saude_markers.dart';
 import 'package:favelasemcorona/models/posto_de_saude.dart';
+
 
 class MapsDemo extends StatefulWidget {
   static const id = 'maps_demo';
@@ -19,19 +19,35 @@ class MapsDemo extends StatefulWidget {
 }
 
 class _MapsDemoState extends State<MapsDemo> {
-
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = LatLng(-22.9892591,-43.2542239);
   final Set<Marker> _markers = {};
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
-
-
   static final CameraPosition _position1 = CameraPosition(
     bearing: 192.833,
     target: LatLng(-22.8852092,-43.5232072),
     zoom: 13,
   );
+
+
+  @override
+  void initState() {
+
+    int index = 0;
+
+    while(index < postosdesaude.length){
+      _markers.add(Marker(
+        markerId: MarkerId(postosdesaude[index].nome),
+        position: LatLng(postosdesaude[index].lat, postosdesaude[index].lng),
+        infoWindow: InfoWindow(title: postosdesaude[index].nome,
+            snippet: postosdesaude[index].createSnippet()),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),));
+      index++;
+    }
+  }
+
+
 
   // ignore: missing_return
   Future<void> _goToPosition1() async {
@@ -41,10 +57,7 @@ class _MapsDemoState extends State<MapsDemo> {
 
   void _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
-    _markers.add(ps0Marker);
-    _markers.add(ps1Marker);
-    _markers.add(ps2Marker);
-    _markers.add(ps3Marker);
+    setState(() {});
   }
 
   void _onCameraMove(CameraPosition position) {
