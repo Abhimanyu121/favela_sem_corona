@@ -69,7 +69,7 @@ class _MenuScreenState extends State<MenuScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             DharmaCard(titleOfButton: 'Painel COVID-19 Rio', onPressed: (){Navigator.pushNamed(context, PainelCovidRioScreen.id);},),
-                            DharmaCard(titleOfButton: 'Tela Y', onPressed: (){Navigator.pop(context);},),
+                            DharmaCard(titleOfButton: 'Payment Integration', onPressed: (){Navigator.pop(context);},),
                           ],
                         ),
                       ),
