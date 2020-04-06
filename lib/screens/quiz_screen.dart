@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:favelasemcorona/models/quiz_brain.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:favelasemcorona/constants.dart';
 
 QuizBrain quizBrain = QuizBrain();
 
@@ -11,11 +12,22 @@ class QuizScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.black,
         body: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: QuizPage(),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: <Color>[
+                  Colors.red,
+                  Colors.redAccent,
+                  kDharma4,
+                  kDharma5,
+                ],
+              )
+            ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: QuizPage(),
+            ),
           ),
         ),
       ),
@@ -71,7 +83,7 @@ class _QuizPageState extends State<QuizPage> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
             ),
