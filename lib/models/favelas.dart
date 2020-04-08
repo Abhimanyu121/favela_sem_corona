@@ -8,6 +8,7 @@ class Favela{
     this.imageUrl,
     this.photoCredits,
     this.populacao,
+    https://pcrj.maps.arcgis.com/apps/MapJournal/index.html?appid=2910ea44348f49cea4ab130f2f7f8cd5&section=2,10
     this.residencias,
     this.totalDeCasos,
     //TODO: Consegue pegar o numero de casos que vem dessa API da ARCGIS? - Ex: Andarai tem 2 casos confirmados
@@ -35,7 +36,14 @@ class Favela{
 
 
   List<Favela> favelas = [
-    Favela(),
+    Favela(
+      nome: 'Andarai',
+      description: 'Localizado no bairro de mesmo nome, o complexo que compõe a UPP Andaraí se estende até o bairro do Grajaú e é formado pelos morros do Andaraí, Arrelia, Jamelão, Nova Divineia, João Paulo II, Juscelino Kubitschek e Vila Rica. A ocupação da área teve início na década de 1930, nas encostas da Serra do Andaraí, mas a história da ocupação da região confunde-se com a história dos bairros do entorno. Até o século XVII, toda a área era repleta de sítios e fazendas destinados à produção agrícola. Em meados do século XIX, a produção agrícola entrou em declínio e as propriedades rurais foram loteadas e vendidas. Uma das primeiras ruas abertas durante esse período foi a Borda do Mato, onde está localizada a comunidade Vila Rica, a primeira a ser ocupada na área. A UPP Andaraí é a décima primeira estado. Ela foi inaugurada em 28 de julho de 2010. UPP Social chegou oficialmente em 23 de setembro de 2011',
+      populacao: 9695,
+      residencias: 2693,
+      casosAtivos: 4,
+      imageUrl: 'images/favelaAnd'
+    ),
   ];
 
 
