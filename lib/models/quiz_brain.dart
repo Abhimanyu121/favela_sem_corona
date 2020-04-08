@@ -15,7 +15,7 @@ class Question{
 
 class QuizBrain {
 
-  int _questionNumber = 0;
+  int questionNumber = 0;
 
   List<Question> questions = [
     Question(questionText: 'Não existe um medicamento para a COVID-19, por isso as pessoas não se curam.',
@@ -132,10 +132,10 @@ class QuizBrain {
   ];
 
   void nextQuestion() {
-    if (_questionNumber < questions.length - 1) {
-      _questionNumber++;
+    if (questionNumber < questions.length - 1) {
+      questionNumber++;
     }
-    print(_questionNumber);
+    print(questionNumber);
     print(questions.length);
   }
 
@@ -157,26 +157,26 @@ class QuizBrain {
 
 
   String getQuestionText() {
-    return questions[_questionNumber].questionText;
+    return questions[questionNumber].questionText;
   }
 
   List<String> getPossibleAnswers() {
-    return questions[_questionNumber].possibleAnswers;
+    return questions[questionNumber].possibleAnswers;
   }
 
   bool getCorrectAnswer(answer) {
-    return questions[_questionNumber].questionAnswer == answer;
+    return questions[questionNumber].questionAnswer == answer;
   }
 
   bool isFinished() {
-    if (_questionNumber >= questions.length - 1) {
+    if (questionNumber >= questions.length - 1) {
       return true;
     } else {
       return false;
     }
   }
 
-  void reset() {_questionNumber = 0;
+  void reset() {questionNumber = 0;
   }
 
 }
