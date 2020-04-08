@@ -18,6 +18,7 @@ dependencies:
   webview_flutter: ^0.3.19+9
   url_launcher: ^5.4.2
   dio: ^3.0.9
+  insta_html_parser: ^0.1.1
 
 dev_dependencies:
   flutter_test:

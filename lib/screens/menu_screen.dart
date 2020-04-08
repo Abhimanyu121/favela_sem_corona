@@ -2,7 +2,7 @@ import 'package:favelasemcorona/components/dharma_button.dart';
 import 'package:favelasemcorona/components/dharma_card.dart';
 import 'package:favelasemcorona/screens/arcgis_covid_screen.dart';
 import 'package:favelasemcorona/screens/iml_screen.dart';
-import 'package:favelasemcorona/screens/wikipedia_reader_screen.dart';
+import 'package:favelasemcorona/screens/min_saude_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:favelasemcorona/screens/map_demo.dart';
@@ -59,8 +59,8 @@ class _MenuScreenState extends State<MenuScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            DharmaCard(titleOfButton: 'Fato ou Fake', onPressed: (){Navigator.pushNamed(context, QuizScreen.id);},),
-                            DharmaCard(titleOfButton: 'Ministério da Saúde', onPressed: (){Navigator.pushNamed(context, WikipediaExplorer.id);},),
+                            DharmaCard(titleOfButton: 'Jogo', onPressed: (){Navigator.pushNamed(context, QuizScreen.id);},),
+                            DharmaCard(titleOfButton: 'Ministério da Saúde', onPressed: (){Navigator.pushNamed(context, MinSaudeScreen.id);},),
                           ],
                         ),
                       ),
