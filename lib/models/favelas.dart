@@ -8,7 +8,7 @@ class Favela{
     this.imageUrl,
     this.photoCredits,
     this.populacao,
-    https://pcrj.maps.arcgis.com/apps/MapJournal/index.html?appid=2910ea44348f49cea4ab130f2f7f8cd5&section=2,10
+//    https://pcrj.maps.arcgis.com/apps/MapJournal/index.html?appid=2910ea44348f49cea4ab130f2f7f8cd5&section=2,10
     this.residencias,
     this.totalDeCasos,
     //TODO: Consegue pegar o numero de casos que vem dessa API da ARCGIS? - Ex: Andarai tem 2 casos confirmados
