@@ -33,11 +33,11 @@ class Favela{
   FavelaResident favelaResident;
 }
 
-class FavelasBrain {
+
   List<Favela> favelas = [
     Favela(),
   ];
-}
+
 
 
 
