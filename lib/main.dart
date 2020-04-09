@@ -5,7 +5,6 @@ import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 import 'package:favelasemcorona/screens/menu_screen.dart';
 import 'package:favelasemcorona/screens/posto_de_saude_screen.dart';
 import 'package:favelasemcorona/screens/quiz_screen.dart';
-import 'package:favelasemcorona/screens/social_media_screen.dart';
 import 'package:favelasemcorona/screens/welcome_screen.dart';
 import 'package:favelasemcorona/screens/min_saude_screen.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +23,6 @@ class FavelaSemCorona extends StatelessWidget {
         MenuIconsScreen.id: (context) => MenuIconsScreen(),
         MenuScreen.id: (context) => MenuScreen(),
         QuizScreen.id: (context) => QuizScreen(),
-        InstagramScreen.id: (context) => InstagramScreen(),
         MinSaudeScreen.id: (context) => MinSaudeScreen(),
         MapsDemo.id: (context) => MapsDemo(),
         PainelCovidRioScreen.id: (context) => PainelCovidRioScreen(),

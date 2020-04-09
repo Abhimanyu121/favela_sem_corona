@@ -1,7 +1,6 @@
 import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:favelasemcorona/models/quiz_brain.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:favelasemcorona/constants.dart';
 
 QuizBrain quizBrain = QuizBrain();
