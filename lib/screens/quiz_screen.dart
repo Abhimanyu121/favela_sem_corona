@@ -1,6 +1,8 @@
+import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:favelasemcorona/models/quiz_brain.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:favelasemcorona/constants.dart';
 
 QuizBrain quizBrain = QuizBrain();
 
@@ -11,14 +13,14 @@ class QuizScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.black,
         body: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: QuizPage(),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: QuizPage(),
+            ),
           ),
         ),
-      ),
+
     );
   }
 }
@@ -31,26 +33,42 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
 
   List<Icon> scoreKeeper =[];
+  bool displayInfo = false;
+  String note = '';
 
   void checkAnswer(int userPickedAnswer){
     bool correctAnswer = quizBrain.getCorrectAnswer(userPickedAnswer);
 
     setState(() {
-      if (quizBrain.isFinished() == true){
-        Alert(
-          context: context,
-          title: 'Fim!',
-          desc: 'Parabéns você terminou o jogo.').show();
-          quizBrain.reset();
-          scoreKeeper = [];
+      if (quizBrain.isFinished() == true)
+      {
+        showDialog(context: context, builder: (context){
+         return AlertDialog(
+           content: Text('Parabens voce terminou o jogo!'),
+           title: Text("FIM"),
+           actions: <Widget>[
+             FlatButton(
+           child: Text('OK'),
+           onPressed: (){
+             quizBrain.reset();
+             scoreKeeper = [];
+             Navigator.pushReplacementNamed(context, 'menu_icons_screen');
+           },
+         ),
+           ],
+         );
+        });
         }
       else {
-        if (userPickedAnswer == correctAnswer){
-          scoreKeeper.add(Icon(Icons.thumb_up, color: Colors.green, size: 15,));
+        if (correctAnswer){
+          scoreKeeper.add(Icon(Icons.thumb_up, color: Colors.green, size: 20,));
         } else {
-          scoreKeeper.add(Icon(Icons.close, color: Colors.red,size: 15,));
+          scoreKeeper.add(Icon(Icons.close, color: Colors.red,size: 20,));
         }
-        quizBrain.nextQuestion();
+        setState(() {
+          displayInfo = false;
+          quizBrain.nextQuestion();
+        });
       }
     });
   }
@@ -61,24 +79,64 @@ class _QuizPageState extends State<QuizPage> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        Expanded(
-          flex: 5,
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Center(
-              child: Text(
-                quizBrain.getQuestionText(),
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 25.0,
-                  color: Colors.white,
-                ),
+        SizedBox(height: 100,),
+        Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Center(
+            child: Text(
+              quizBrain.getQuestionText(),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 25.0,
+                color: Colors.black,
               ),
             ),
           ),
         ),
-//TODO: paramos aqui
-//        quizBrain.getPossibleAnswers().map((item)=>{})
+        (displayInfo) ? Text('${note}') : SizedBox(),
+      Container(
+        height: 300,
+        color: Colors.redAccent,
+        child: ListView.builder(itemCount: quizBrain.getPossibleAnswers().length,
+        itemBuilder: (context, index){
+          return Card(
+            color: displayInfo? Colors.blue : Colors.white,
+            elevation: 5,
+            child: ListTile(
+              leading: Icon(Icons.adjust),
+              title: Text(quizBrain.getPossibleAnswers()[index],),
+              onTap: (){
+                int questionIndex = quizBrain.questionNumber;
+                if(quizBrain.questions[questionIndex].note != ''){
+                  if(displayInfo){
+                    checkAnswer(index);
+                  }else{
+                    setState(() {
+                      displayInfo = true;
+                      note = quizBrain.questions[questionIndex].note;
+                    });
+                  }
+                } else {
+                  checkAnswer(index);
+                };
+
+              }, //onTap
+            ),
+          );
+        },),
+      ),
+
+//       Container(
+//         height: 300,
+//         child: Row(
+//           children:  quizBrain.getPossibleAnswers().map((item){
+//             return ListTile(
+//               title: Text(item),
+//
+//             );
+//           }).toList(),
+//         ),
+//       ),
         Row(
           children: scoreKeeper,
         ),
