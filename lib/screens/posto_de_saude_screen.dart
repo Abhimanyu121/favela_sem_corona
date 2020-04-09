@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PostoDeSaudeScreen extends StatefulWidget {
+  static const String id = 'listview_screen';
   final PostoDeSaude postoDeSaude;
 
   PostoDeSaudeScreen({this.postoDeSaude});
@@ -44,10 +45,6 @@ class _PostoDeSaudeScreenState extends State<PostoDeSaudeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   IconButton(icon: Icon(Icons.arrow_back, color: Colors.indigo,size: 30.0), onPressed: () => Navigator.pop(context),),
-                  Row(children: <Widget>[
-                    IconButton(icon: Icon(Icons.search, color: Colors.indigo,size: 30.0), onPressed: () => Navigator.pop(context),),
-                    IconButton(icon: Icon(Icons.filter_list, color: Colors.indigo,size: 30.0), onPressed: () => Navigator.pop(context),),
-                  ],)
                 ],),
             ),
             Positioned(
@@ -56,12 +53,12 @@ class _PostoDeSaudeScreenState extends State<PostoDeSaudeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('UPA Rocinha', style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w600, color: Colors.teal,),),
+                  Text('Rocinha', style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w600, color: Colors.teal,),),
                   Row(
                     children: <Widget>[
                       Icon(Icons.edit_location, size: 15.0, color: Colors.white,),
                       SizedBox(width: 5.0,),
-                      Text('Comunidade da Rocinha', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600, color: Colors.tealAccent),),
+                      Text('Zona Oeste', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600, color: Colors.tealAccent),),
                     ],
                   ),
                 ],),
