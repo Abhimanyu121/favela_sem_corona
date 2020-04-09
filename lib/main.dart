@@ -1,4 +1,5 @@
 import 'package:favelasemcorona/screens/arcgis_covid_screen.dart';
+import 'package:favelasemcorona/screens/favelas_screen.dart';
 import 'package:favelasemcorona/screens/iml_screen.dart';
 import 'package:favelasemcorona/screens/map_demo.dart';
 import 'package:favelasemcorona/screens/menu_icons_screen.dart';
@@ -28,6 +29,7 @@ class FavelaSemCorona extends StatelessWidget {
         PainelCovidRioScreen.id: (context) => PainelCovidRioScreen(),
         IMLScreen.id: (context) => IMLScreen(),
         PostoDeSaudeScreen.id: (context) => PostoDeSaudeScreen(),
+        FavelasScreen.id: (context) => FavelasScreen(),
       },
     );
   }

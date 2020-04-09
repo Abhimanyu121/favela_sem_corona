@@ -20,7 +20,8 @@ class MenuIconsScreen extends StatelessWidget {
 
   Widget line() {
     return SizedBox(
-      width: 200,
+      height: 1,
+      width: 100,
       child: Divider(color: Colors.grey.shade400,
       ),
     );
@@ -56,7 +57,7 @@ class MenuIconsScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 4,
+                flex: 5,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
@@ -64,11 +65,11 @@ class MenuIconsScreen extends StatelessWidget {
                       padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
                       child: Image.asset(
                         'images/logo.png',
-                        width: 200,
-                        height: 150,
+                        width: 100,
+                        height: 90,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 5),
                     line(),
                     MenuItem(Icons.dashboard, "PAINEL RIO COVID19",
                             () => {Navigator.pushNamed(context, 'painelcovidrio_screen')}),
@@ -76,7 +77,8 @@ class MenuIconsScreen extends StatelessWidget {
                     MenuItem(Icons.flash_on, "PRINCIPAIS DÚVIDAS", () => {Navigator.pushNamed(context, 'min_saude_screen')}),
                     MenuItem(Icons.filter_hdr, "ASSITÊNCIA FUNERÁRIA", () => {Navigator.pushNamed(context, 'iml_screen')}),
                     line(),
-                    MenuItem(Icons.directions_run, "SUA COMUNIDADE", () => {Navigator.pushNamed(context, 'listview_screen')}),
+                    MenuItem(Icons.directions_run, "SUA COMUNIDADE", () =>
+                    {Navigator.pushNamed(context, 'favelas_screen')}),
                     MenuItem(Icons.contacts, "LIVES & EVENTOS", () => {}),
                     MenuItem(Icons.pan_tool, "STOP COVID19", () => {Navigator.pushNamed(context, 'quiz_screen')}),
                     MenuItem(Icons.touch_app, "NOSSAS MÍDIAS SOCIAIS", () => {Navigator.pushNamed(context, 'instagram_screen')}),
