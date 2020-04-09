@@ -1,188 +1,100 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import 'dart:async';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:favelasemcorona/constants.dart';
 
-//precisa da completer e do future builder
 
-void main() => runApp(MaterialApp(home: WikipediaExplorer()));
+void main() => runApp(MaterialApp(home: IMLScreen()));
 
-class WikipediaExplorer extends StatefulWidget {
+class IMLScreen extends StatefulWidget {
   static const String id = 'iml_screen';
 
   @override
-  _WikipediaExplorerState createState() => _WikipediaExplorerState();
+  _IMLScreenState createState() => _IMLScreenState();
 }
 
-class _WikipediaExplorerState extends State<WikipediaExplorer> {
-  Completer<WebViewController> _controller = Completer<WebViewController>();
-  final Set<String> _favorites = Set<String>();
+class _IMLScreenState extends State<IMLScreen> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.deepOrange,
-        title: const Text('IML do Rio de Janeiro'),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.red,
-                    Colors.redAccent,
-                    kDharma4,
-                    kDharma5,]
-              )
-          ),
+        appBar: AppBar(
+          backgroundColor: Colors.grey,
+          title: const Text('IML do Rio de Janeiro'),
         ),
-        // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
-        actions: <Widget>[
-          NavigationControls(_controller.future),
-          Menu(_controller.future, () => _favorites),
-        ],
-      ),
-      body: WebView(
-        initialUrl: 'https://noticias.uol.com.br/cotidiano/ultimas-noticias/2020/03/24/covid-19-iml-rj-corta-autopsia-de-presos-e-a-oab-investiga-subnotificacao.htm',
-        onWebViewCreated: (WebViewController webViewController) {
-          _controller.complete(webViewController);
-        },
-      ),
-      floatingActionButton: _bookmarkButton(),
-    );
-  }
-
-  _bookmarkButton() {
-    return FutureBuilder<WebViewController>(
-      future: _controller.future,
-      builder:
-          (BuildContext context, AsyncSnapshot<WebViewController> controller) {
-        if (controller.hasData) {
-          return FloatingActionButton(
-            onPressed: () async {
-              var url = await controller.data.currentUrl();
-              _favorites.add(url);
-              Scaffold.of(context).showSnackBar(
-                SnackBar(content: Text('Saved $url for later reading.')),
-              );
-            },
-            child: Icon(Icons.favorite),
-          );
-        }
-        return Container();
-      },
-    );
-  }
-}
-
-class Menu extends StatelessWidget {
-  Menu(this._webViewControllerFuture, this.favoritesAccessor);
-  final Future<WebViewController> _webViewControllerFuture;
-  // TODO(efortuna): Come up with a more elegant solution for an accessor to this than a callback.
-  final Function favoritesAccessor;
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _webViewControllerFuture,
-      builder:
-          (BuildContext context, AsyncSnapshot<WebViewController> controller) {
-        if (!controller.hasData) return Container();
-        return PopupMenuButton<String>(
-          onSelected: (String value) async {
-            if (value == 'Email link') {
-              var url = await controller.data.currentUrl();
-              await launch(
-                  'mailto:?subject=Check out this cool Wikipedia page&body=$url');
-            } else {
-              var newUrl = await Navigator.push(context,
-                  MaterialPageRoute(builder: (BuildContext context) {
-                    return FavoritesPage(favoritesAccessor());
-                  }));
-              Scaffold.of(context).removeCurrentSnackBar();
-              if (newUrl != null) controller.data.loadUrl(newUrl);
-            }
-          },
-          itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
-            const PopupMenuItem<String>(
-              value: 'Email link',
-              child: Text('Email link'),
-            ),
-            const PopupMenuItem<String>(
-              value: 'See Favorites',
-              child: Text('See Favorites'),
-            ),
-          ],
-        );
-      },
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            child: Text(
+                'Sepultamento Gratuito - Orientações \n '
+                '\n'
+                'Referente a sua consulta sobre a gratuidade de sepultamento, informamos que houve recomendação da ANVISA sobre o assunto e que a Defensoria Pública emitirá recomendação às concessionárias \n'
+                'e aos Municípios reforçando a orientação de que a gratuidade do sepultamento permanece com as concessionárias e com os municípios. \n'
+                '\n'
+                'Portanto, não é necessário de ofício da Defensoria para a obtenção da gratuidade para sepultamento, pois a análise da solicitação\n'
+                    'permanece com as concessionárias do serviço e com os municípios.\n'
+                'Caso a gratuidade seja negada o assistido pode entrar em contato conosco, para ser encaminhado ao serviço de urgência da Defensoria Pública. \n'
+                '\n'
+                'Atualmente existem duas novas empresas (consórcios) administrando os cemitérios públicos do RJ, \n'
+                'a RIO PAX e a REVIVER. \n'
+                '\n'
+                'CONSÓRCIO RIO PAX\n'
+                'Administra os cemitérios do Lote 2 e tem serviço funerário próprio.\n'
+                '\n'
+                'Campo Grande\n'
+                'Inhaúma\n'
+                'Irajá\n'
+                'Jacarepaguá\n'
+                'Piabas\n'
+                'São João Batista\n'
+                '\n'
+                'CONSÓRCIO REVIVER\n'
+                'Administra os cemitérios públicos do Lote 1 e também possui serviço funerário para atendimento ao público.\n'
+                'Ilha do Governador\n'
+                'Paquetá\n'
+                'Realengo\n'
+                'Ricardo de Albuquerque\n'
+                'São Francisco Xavier\n'
+                'Santa Cruz\n'
+                'Guaratiba\n'
+                'Crematório São Francisco Xavier\n'
+                '\n'
+                'OBS: O Pedido pode ser feito completo, ou seja: GRATUIDADE PARA SERVIÇO FUNERÁRIO (caixão, remoção) e\n'
+                'PARA O SERVIÇO CEMITERIAL (aluguel de capela, de jazigo e demais tarifas cemiteriais).\n'
+                '\n'
+                'Documentos Necessários (ORIGINAL E CÓPIA) para pleitar a gratuidade de sepultamento: \n'
+                '- Certidão de Nascimento ou Casamento (Caso o usuário seja divorciado ou separado judicialmente,\n'
+                ' deverá apresentar a certidão de casamento com a averbação) \n'
+                '- RG ou Carteira Profissional \n'
+                '- CPF \n'
+                '- Comprovante de renda para que seja verificado o direito à gratuidade de justiça \n'
+                '– Art. 34 da Deliberação CS 88/2012\n'
+                'São documentos hábeis a comprovação de renda, a escolha do assistido:\n'
+                'I - Contracheque; ou\n'
+                'II - Carteira Profissional; ou\n'
+                'III - Declaração de próprio punho do empregador ou do sindicato profissional, devidamente subscrita; e\n'
+                'Para comprovar sua condição de hipossuficiente, além da apresentação de um dos documentos acima mencionados,\n'
+                'o assistido deverá, obrigatoriamente, apresentar cópia de sua última declaração de Imposto de Renda, \n'
+                'caso a tenha entregue.\n'
+                'Obs: a obrigatoriedade da apresentação da última Declaração do Imposto de Renda foi estabelecida após \n'
+                'realização de reunião da Coordenação dos Núcleos com o Defensores Públicos dos Núcleos de 1º atendimento \n'
+    '(email da Dra. Fátima Saraiva do dia 24/01/2014) \n'
+    '- Comprovante de residência em seu nome – Art. 37 § 2° da Deliberação CS 88/2012 \n'
+    'São documentos hábeis a comprovação do domicílio, a escolha do assistido:\n'
+    'I - Contas emitidas por concessionários de serviços públicos datadas de até três meses;\n'
+    'II - Qualquer correspondência de empresas privadas e/ou órgãos públicos, datada de até três meses;\n'
+    'III - Declaração da Associação de Moradores datada de até três meses;\n'
+    'IV - Contratos de aluguel vigente;\n'
+    'V - Declaração e/ou com cópia de identidade do declarante, desde que acompanhada de um dos documentos previstos\n'
+    ' nas alíneas anteriores exigidos pelo Defensor Público, que avaliará os casos excepcionais, decidindo sobre \n'
+    'a viabilidade do atendimento.\n'
+    '- Identidade do falecido\n'
+    '- CPF do falecido\n'
+    '- Comprovante de residência do falecido\n'
+    '- Declaração de óbito\n'
+    'Central de Relacionamento com o Cidadão – CRC\n'
+    'Defensoria Pública do Estado do Rio de Janeiro Tel: 129', style: TextStyle(fontSize: 12),),
+          ),
+        )
     );
   }
 }
 
-class FavoritesPage extends StatelessWidget {
-  FavoritesPage(this.favorites);
-  final Set<String> favorites;
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Favorite pages')),
-      body: ListView(
-          children: favorites
-              .map((url) => ListTile(
-              title: Text(url), onTap: () => Navigator.pop(context, url)))
-              .toList()),
-    );
-  }
-}
-
-class NavigationControls extends StatelessWidget {
-  const NavigationControls(this._webViewControllerFuture)
-      : assert(_webViewControllerFuture != null);
-
-  final Future<WebViewController> _webViewControllerFuture;
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<WebViewController>(
-      future: _webViewControllerFuture,
-      builder:
-          (BuildContext context, AsyncSnapshot<WebViewController> snapshot) {
-        final bool webViewReady =
-            snapshot.connectionState == ConnectionState.done;
-        final WebViewController controller = snapshot.data;
-        return Row(
-          children: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.arrow_back_ios),
-              onPressed: !webViewReady
-                  ? null
-                  : () => navigate(context, controller, goBack: true),
-            ),
-            IconButton(
-              icon: const Icon(Icons.arrow_forward_ios),
-              onPressed: !webViewReady
-                  ? null
-                  : () => navigate(context, controller, goBack: false),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  navigate(BuildContext context, WebViewController controller,
-      {bool goBack: false}) async {
-    bool canNavigate =
-    goBack ? await controller.canGoBack() : await controller.canGoForward();
-    if (canNavigate) {
-      goBack ? controller.goBack() : controller.goForward();
-    } else {
-      Scaffold.of(context).showSnackBar(
-        SnackBar(
-            content: Text("No ${goBack ? 'back' : 'forward'} history item")),
-      );
-    }
-  }
-}

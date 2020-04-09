@@ -1,7 +1,8 @@
 import 'package:favelasemcorona/components/dharma_button.dart';
 import 'package:favelasemcorona/components/dharma_card.dart';
 import 'package:favelasemcorona/screens/arcgis_covid_screen.dart';
-import 'package:favelasemcorona/screens/wikipedia_reader_screen.dart';
+import 'package:favelasemcorona/screens/iml_screen.dart';
+import 'package:favelasemcorona/screens/min_saude_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:favelasemcorona/screens/map_demo.dart';
@@ -58,8 +59,8 @@ class _MenuScreenState extends State<MenuScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            DharmaCard(titleOfButton: 'Fato ou Fake', onPressed: (){Navigator.pushNamed(context, QuizScreen.id);},),
-                            DharmaCard(titleOfButton: 'Ministério da Saúde', onPressed: (){Navigator.pushNamed(context, WikipediaExplorer.id);},),
+                            DharmaCard(titleOfButton: 'Jogo', onPressed: (){Navigator.pushNamed(context, QuizScreen.id);},),
+                            DharmaCard(titleOfButton: 'Ministério da Saúde', onPressed: (){Navigator.pushNamed(context, MinSaudeScreen.id);},),
                           ],
                         ),
                       ),
@@ -69,7 +70,7 @@ class _MenuScreenState extends State<MenuScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             DharmaCard(titleOfButton: 'Painel COVID-19 Rio', onPressed: (){Navigator.pushNamed(context, PainelCovidRioScreen.id);},),
-                            DharmaCard(titleOfButton: 'Payment Integration', onPressed: (){Navigator.pop(context);},),
+                            DharmaCard(titleOfButton: 'IML', onPressed: (){Navigator.pushNamed(context, IMLScreen.id);},),
                           ],
                         ),
                       ),
@@ -79,7 +80,7 @@ class _MenuScreenState extends State<MenuScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             DharmaCard(titleOfButton: 'Apoio Psicológico', onPressed: (){Navigator.pop(context);},),
-                            DharmaCard(titleOfButton: 'Comunidade Favela Sem Corona', onPressed: (){Navigator.pop(context);},),
+                            DharmaCard(titleOfButton: 'Empresários da Comunidade', onPressed: (){Navigator.pop(context);},),
                           ],
                         ),
                       ),

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
-import 'package:favelasemcorona/constants.dart';
 import 'package:favelasemcorona/models/posto_de_saude.dart';
 
 
@@ -49,7 +48,7 @@ class _MapsDemoState extends State<MapsDemo> {
 
 
 
-  // ignore: missing_return
+//   ignore: missing_return
   Future<void> _goToPosition1() async {
     final GoogleMapController controller = await _controller.future;
     await controller.animateCamera(CameraUpdate.newCameraPosition(_position1));
@@ -95,35 +94,6 @@ class _MapsDemoState extends State<MapsDemo> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: (){
-              Navigator.pop(context);
-            },
-          ),
-          title: Text('Baixada Fluminense'),
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.red,
-                  Colors.redAccent,
-                  kDharma4,
-                  kDharma5,]
-              )
-            ),
-          ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: (){
-                //
-              },
-            )
-          ],
-        ),
         body: Stack(
           children: <Widget>[
             GoogleMap(
@@ -135,17 +105,12 @@ class _MapsDemoState extends State<MapsDemo> {
               onCameraMove: _onCameraMove,
             ),
             Padding(
-              padding: EdgeInsets.all(16),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: Column(children: <Widget>[
-                  MyButton(_onMapTypeButtonPressed, Icons.map),
-                  SizedBox(height: 16,),
-                  MyButton(_onAddMarkerButtonPressed, Icons.add_location),
-                  SizedBox(height: 16,),
-                  MyButton(_goToPosition1, Icons.location_searching),
-                ],),
-              ),
+              padding: const EdgeInsets.all(20.0),
+              child: IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  color: Colors.black,
+                  iconSize: 40,
+                  onPressed: (){Navigator.pop(context);}),
             ),
             Align(
               alignment: Alignment.bottomCenter,

@@ -2,47 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:favelasemcorona/constants.dart';
 
 //precisa da completer e do future builder
 
-void main() => runApp(MaterialApp(home: WikipediaExplorer()));
+void main() => runApp(MaterialApp(home: MinSaudeScreen()));
 
-class WikipediaExplorer extends StatefulWidget {
-  static const String id = 'wikipedia_screen';
+class MinSaudeScreen extends StatefulWidget {
+  static const String id = 'min_saude_screen';
 
   @override
-  _WikipediaExplorerState createState() => _WikipediaExplorerState();
+  _MinSaudeScreenState createState() => _MinSaudeScreenState();
 }
 
-class _WikipediaExplorerState extends State<WikipediaExplorer> {
+class _MinSaudeScreenState extends State<MinSaudeScreen> {
   Completer<WebViewController> _controller = Completer<WebViewController>();
-  final Set<String> _favorites = Set<String>();
+//  final Set<String> _favorites = Set<String>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.deepOrange,
-        title: const Text('Sobre o Coronavirus'),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.red,
-                    Colors.redAccent,
-                    kDharma4,
-                    kDharma5,]
-              )
-          ),
-        ),
-        // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
-        actions: <Widget>[
-          NavigationControls(_controller.future),
-          Menu(_controller.future, () => _favorites),
-        ],
-      ),
       body: WebView(
         initialUrl: 'https://coronavirus.saude.gov.br/sobre-a-doenca#definicaodecaso',
         //initialUrl:
@@ -51,37 +29,35 @@ class _WikipediaExplorerState extends State<WikipediaExplorer> {
           _controller.complete(webViewController);
         },
       ),
-      floatingActionButton: _bookmarkButton(),
     );
   }
 
-  _bookmarkButton() {
-    return FutureBuilder<WebViewController>(
-      future: _controller.future,
-      builder:
-          (BuildContext context, AsyncSnapshot<WebViewController> controller) {
-        if (controller.hasData) {
-          return FloatingActionButton(
-            onPressed: () async {
-              var url = await controller.data.currentUrl();
-              _favorites.add(url);
-              Scaffold.of(context).showSnackBar(
-                SnackBar(content: Text('Saved $url for later reading.')),
-              );
-            },
-            child: Icon(Icons.favorite),
-          );
-        }
-        return Container();
-      },
-    );
-  }
+//  _bookmarkButton() {
+//    return FutureBuilder<WebViewController>(
+//      future: _controller.future,
+//      builder:
+//          (BuildContext context, AsyncSnapshot<WebViewController> controller) {
+//        if (controller.hasData) {
+//          return FloatingActionButton(
+//            onPressed: () async {
+//              var url = await controller.data.currentUrl();
+//              _favorites.add(url);
+//              Scaffold.of(context).showSnackBar(
+//                SnackBar(content: Text('Saved $url for later reading.')),
+//              );
+//            },
+//            child: Icon(Icons.favorite),
+//          );
+//        }
+//        return Container();
+//      },
+//    );
+//  }
 }
 
 class Menu extends StatelessWidget {
   Menu(this._webViewControllerFuture, this.favoritesAccessor);
   final Future<WebViewController> _webViewControllerFuture;
-  // TODO(efortuna): Come up with a more elegant solution for an accessor to this than a callback.
   final Function favoritesAccessor;
 
   @override
