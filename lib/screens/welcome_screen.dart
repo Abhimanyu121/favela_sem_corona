@@ -30,8 +30,8 @@ class WelcomeScreen extends StatelessWidget {
             Expanded(
               child: Center(
                 child: Image.asset(
-                  'images/logo.png',
-                  width: 600,
+                  'images/stickers_fsc04.gif',
+                  width: 800,
                 ),
               ),
             ),

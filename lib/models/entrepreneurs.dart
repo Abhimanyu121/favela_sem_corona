@@ -29,7 +29,7 @@ List<FavelaResident> rocinhaEntrepreneurs =[
     businessType: 'Food - Home Bakery',
     businessName: 'Ale Dias Bolos',
     favela: 'Rocinha',
-    phone: 'n/a',
+    whatsApp: 'n/a',
     instagramUrl: '@alediasbolos'
   ),
   FavelaResident(
@@ -57,7 +57,7 @@ List<FavelaResident> rocinhaEntrepreneurs =[
     businessType: 'Food - Vegan',
     businessName: 'Trevo Vegetariano',
     whatsApp: '+55(21)99480-0724',
-    facebookUrl: 'https://www.facebook.com/bistrotrevovegetariano',
+    facebookUrl: 'https://facebook.com/bistrotrevovegetariano',
     instagramUrl: '@veganitinerante',
   ),
   FavelaResident(

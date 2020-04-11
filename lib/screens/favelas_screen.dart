@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:favelasemcorona/models/entrepreneurs.dart';
 import 'package:favelasemcorona/models/favelas.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,8 @@ class _FavelasScreenState extends State<FavelasScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  IconButton(icon: Icon(Icons.arrow_back, color: Colors.indigo,size: 30.0), onPressed: () => Navigator.pop(context),),
+                  IconButton(icon: Icon(Icons.arrow_back, color: Colors.white,
+                      size: 30.0), onPressed: () => Navigator.pop(context),),
                 ],),
             ),
             Positioned(
@@ -60,78 +62,66 @@ class _FavelasScreenState extends State<FavelasScreen> {
                   ),
                 ],),
             ),
-            Positioned(
-              right: 20.0,
-              bottom: 20.0,
-              child: Icon(Icons.location_on, color: Colors.white, size: 25.0),
-            )
           ],),
           Expanded(
             child: ListView.builder(
               padding: EdgeInsets.only(top: 10.0, bottom: 15.0),
-              itemCount: 2,
+              itemCount: rocinhaEntrepreneurs.length,
               itemBuilder: (BuildContext context, int index){
                 return Stack(
                   children: <Widget>[
                     Container(
-                      margin: EdgeInsets.fromLTRB(40, 5, 20, 5),
-                      height: 170,
+                      margin: EdgeInsets.fromLTRB(110, 5, 10, 5),
+                      height: 140,
                       width: double.infinity,
-                      decoration: BoxDecoration(color: Colors.white,
+                      decoration: BoxDecoration(color: Colors.grey
+                          .shade200,
                         borderRadius: BorderRadius.circular(20),),
                       child: Padding(
-                        padding: EdgeInsets.fromLTRB(100, 20, 20, 20),
+                        padding: EdgeInsets.all(15),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Container(width: 120,
-                                    child: Text('name', style: TextStyle
+                                Container(width: 140,
+                                    child: Text
+                                      ('${rocinhaEntrepreneurs[index].businessName}',
+                                      style:
+                                    TextStyle
                                       (fontSize: 16.0, fontWeight: FontWeight.w600),maxLines: 2, overflow: TextOverflow.ellipsis,)
                                 ),
-                                Column(
-                                  children: <Widget>[
-                                    Text('phone number', style: TextStyle
-                                      (fontWeight: FontWeight.w600),),
-                                    Text('aberto', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.black45),),
-                                  ],
-                                ),
+
+                                Text('${rocinhaEntrepreneurs[index].businessType}',
+                                  style:
+                                TextStyle
+                                  (fontSize:10, fontWeight: FontWeight.w600),),
                               ],),
-                            Text('text', style: TextStyle(color: Colors
-                                .black45),),
-//                            _buildRatingStars(activity.rating),
-                            SizedBox(height: 10.0,),
-                            Row(children: <Widget>[
-                              Container(
-                                padding: EdgeInsets.all(5.0),
-                                width: 75.0,
-                                decoration: BoxDecoration(
-                                    color: Colors.black12,
-                                    borderRadius: BorderRadius.circular(10.0)),
-                                child: Text('00:00', textAlign: TextAlign.center,),
-                              ),
-                              SizedBox(width: 10.0,),
-                              Container(
-                                padding: EdgeInsets.all(5.0),
-                                width: 75.0,
-                                decoration: BoxDecoration(
-                                    color: Colors.black12,
-                                    borderRadius: BorderRadius.circular(10.0)),
-                                child: Text('23:59', textAlign: TextAlign.center,),),
-                            ],)
+                            SizedBox(height: 8.0,),
+                            Text('WhatsApp: ${rocinhaEntrepreneurs[index]
+                                .whatsApp}', style: TextStyle(color: Colors.green),),
+                            SizedBox(height: 2.0,),
+                            Text('Instagram: ${rocinhaEntrepreneurs[index]
+                                .instagramUrl}', style: TextStyle(color:
+                            Colors.black54),),
+                            SizedBox(height: 2.0,),
+                            Text('${rocinhaEntrepreneurs[index]
+                                .facebookUrl}', style: TextStyle(color:
+                            Colors.black54),),
+                            SizedBox(height: 2.0,),
                           ],),
                       ),
                     ),
                     Positioned(
-                      left: 20.0,
-                      top: 15.0,
-                      bottom: 15.0,
+                      left: 10.0,
+                      top: 5.0,
+                      bottom: 5.0,
                       child: ClipRRect(borderRadius: BorderRadius.circular(20.0),
-                        child: Image(width: 110.0, image: AssetImage('logo.png'),
+                        child: Image(width: 100.0, image: AssetImage
+                          ('images/chef-logo.jpg'),
                           fit: BoxFit.cover,),),
                     )
                   ],

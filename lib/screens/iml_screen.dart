@@ -90,7 +90,8 @@ class _IMLScreenState extends State<IMLScreen> {
     '- Comprovante de residência do falecido\n'
     '- Declaração de óbito\n'
     'Central de Relacionamento com o Cidadão – CRC\n'
-    'Defensoria Pública do Estado do Rio de Janeiro Tel: 129', style: TextStyle(fontSize: 12),),
+    'Defensoria Pública do Estado do Rio de Janeiro Tel: 129', style:
+            TextStyle(fontSize: 14),),
           ),
         )
     );
