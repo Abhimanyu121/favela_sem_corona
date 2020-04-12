@@ -22,7 +22,8 @@ class MenuIconsScreen extends StatelessWidget {
     return SizedBox(
       height: 1,
       width: 300,
-      child: Divider(color: Colors.grey.shade400,
+      child: Divider(
+        color: Colors.grey.shade400,
       ),
     );
   }
@@ -55,30 +56,52 @@ class MenuIconsScreen extends StatelessWidget {
               ),
               Expanded(
                 flex: 5,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                      child: Image.asset(
-                        'images/logo.png',
-                        width: 100,
-                        height: 120,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                        child: Image.asset(
+                          'images/logo.png',
+                          width: 100,
+                          height: 120,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 5),
-                    MenuItem(Icons.dashboard, "PAINEL RIO COVID19",
-                            () => {Navigator.pushNamed(context, 'painelcovidrio_screen')}),
-                    MenuItem(Icons.local_hospital, "HOSPITAIS E UPAS", () => {Navigator.pushNamed(context, 'maps_demo')}),
-                    MenuItem(Icons.flash_on, "PRINCIPAIS DÚVIDAS", () => {Navigator.pushNamed(context, 'min_saude_screen')}),
-                    MenuItem(Icons.filter_hdr, "ASSISTÊNCIA FUNERÁRIA", () =>
-                    {Navigator.pushNamed(context, 'iml_screen')}),
-                    MenuItem(Icons.directions_run, "SUA COMUNIDADE", () =>
-                    {Navigator.pushNamed(context, 'favelas_screen')}),
-                    MenuItem(Icons.pan_tool, "STOP COVID19", () => {Navigator.pushNamed(context, 'quiz_screen')}),
-                    MenuItem(Icons.touch_app, "NOSSAS MÍDIAS SOCIAIS", () => {Navigator.pushNamed(context, 'instagram_screen')}),
-                    Image.asset('images/stickers_fsc01.gif', width: 170)
-                  ],
+                      SizedBox(height: 5),
+                      MenuItem(
+                          Icons.dashboard,
+                          "PAINEL RIO COVID19",
+                          () => {
+                                Navigator.pushNamed(
+                                    context, 'painelcovidrio_screen')
+                              }),
+                      MenuItem(Icons.local_hospital, "HOSPITAIS E UPAS",
+                          () => {Navigator.pushNamed(context, 'maps_demo')}),
+                      MenuItem(
+                          Icons.flash_on,
+                          "PRINCIPAIS DÚVIDAS",
+                          () => {
+                                Navigator.pushNamed(context, 'min_saude_screen')
+                              }),
+                      MenuItem(Icons.filter_hdr, "ASSISTÊNCIA FUNERÁRIA",
+                          () => {Navigator.pushNamed(context, 'iml_screen')}),
+                      MenuItem(
+                          Icons.directions_run,
+                          "SUA COMUNIDADE",
+                          () =>
+                              {Navigator.pushNamed(context, 'favelas_screen')}),
+                      MenuItem(Icons.pan_tool, "STOP COVID19",
+                          () => {Navigator.pushNamed(context, 'quiz_screen')}),
+                      MenuItem(
+                          Icons.touch_app,
+                          "NOSSAS MÍDIAS SOCIAIS",
+                          () => {
+                                Navigator.pushNamed(context, 'instagram_screen')
+                              }),
+                      Image.asset('images/stickers_fsc01.gif', width: 170)
+                    ],
+                  ),
                 ),
               ),
             ],
