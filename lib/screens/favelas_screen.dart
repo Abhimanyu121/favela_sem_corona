@@ -27,7 +27,7 @@ class _FavelasScreenState extends State<FavelasScreen> {
       body: Column(
         children: <Widget>[
           Stack(children: <Widget>[
-            Container(height: MediaQuery.of(context).size.width,
+            Container(height: 310,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: [BoxShadow(color: Colors.black26, offset: Offset(0.0, 2.0,), blurRadius: 6.0,),]),
@@ -94,7 +94,6 @@ class _FavelasScreenState extends State<FavelasScreen> {
                                     TextStyle
                                       (fontSize: 16.0, fontWeight: FontWeight.w600),maxLines: 2, overflow: TextOverflow.ellipsis,)
                                 ),
-
                                 Text('${rocinhaEntrepreneurs[index].businessType}',
                                   style:
                                 TextStyle

@@ -8,21 +8,21 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
-        bottomOpacity: 0.0,
-        actions: <Widget>[
-          IconButton(
-            onPressed: () => {Navigator.pushNamed(context, 'menu_icons_screen')},
-            icon: Icon(
-              Icons.list,
-              color: Colors.black,
-              size: 40.0,
-            ),
-          )
-        ],
-      ),
+//      appBar: AppBar(
+//        elevation: 0.0,
+//        backgroundColor: Colors.white,
+//        bottomOpacity: 0.0,
+//        actions: <Widget>[
+//          IconButton(
+//            onPressed: () => {Navigator.pushNamed(context, 'menu_icons_screen')},
+//            icon: Icon(
+//              Icons.list,
+//              color: Colors.black,
+//              size: 40.0,
+//            ),
+//          )
+//        ],
+//      ),
       body: Container(
         color: Colors.white,
         child: Column(
@@ -31,12 +31,11 @@ class WelcomeScreen extends StatelessWidget {
               child: Center(
                 child: Image.asset(
                   'images/stickers_fsc04.gif',
-                  width: 800,
                 ),
               ),
             ),
             DharmaButton(
-              titleOfButton: 'Entrar',
+              titleOfButton: '@favelasemcorona',
               onPressed: () {
                 Navigator.pushNamed(context, MenuIconsScreen.id);
               },

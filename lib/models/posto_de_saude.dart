@@ -24,13 +24,9 @@ class PostoDeSaude {
     snippet += telefone+"\n";
 
     return snippet;
-
   }
 
-
 }
-
-
 
 List<PostoDeSaude> postosdesaude = [
   PostoDeSaude(
@@ -249,6 +245,28 @@ List<PostoDeSaude> postosdesaude = [
     lng: -43.3302707,
     horariosDeFuncionamento: ['24 horas'],
   ),
+];
+
+List<PostoDeSaude> clinicasDaFamilia = [
+  PostoDeSaude(
+    nome: 'Clinica da Família - Maria do Socorro',
+    endereco: 'Estrada da Gávea, 522 - Rocinha',
+    telefone: '(21)3322-6694 / 97220-2793 / 99824-0927',
+    horariosDeFuncionamento: ['De Segunda a Sexta das 08h às 20h', 'Sábado das 08h às 12h']
+  ),
+  PostoDeSaude(
+      nome: 'Clinica da Família - Rinaldo de Lamare',
+      endereco: 'Av. Niemeyer, 776 - São Conrado',
+      telefone: '(21) 33242487 / 31111067 / 33225066',
+      horariosDeFuncionamento: ['De Segunda a Sexta das 08h às 20h', 'Sábado das 08h às 12h']
+  ),
+  PostoDeSaude(
+      nome: 'Clinica da Família - Albert Sabin',
+      endereco: 'Estrada da Gávea, 522 - Rocinha',
+      telefone: '(21) 3204-6088',
+      horariosDeFuncionamento: ['De Segunda a Sexta das 07h às 17h', 'Sábado '
+          'das 08h às 12h']
+  )
 ];
 
 
