@@ -49,7 +49,6 @@ class MenuIconsScreen extends StatelessWidget {
                       Image.asset('images/corona-dir.png'),
                       Image.asset('images/corona-esq.png'),
                       Image.asset('images/corona-dir.png'),
-                      Image.asset('images/corona-esq.png'),
                     ],
                   ),
                 ),
@@ -60,11 +59,11 @@ class MenuIconsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+                      padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                       child: Image.asset(
                         'images/logo.png',
-                        width: 200,
-                        height: 110,
+                        width: 100,
+                        height: 120,
                       ),
                     ),
                     SizedBox(height: 5),
@@ -72,16 +71,13 @@ class MenuIconsScreen extends StatelessWidget {
                             () => {Navigator.pushNamed(context, 'painelcovidrio_screen')}),
                     MenuItem(Icons.local_hospital, "HOSPITAIS E UPAS", () => {Navigator.pushNamed(context, 'maps_demo')}),
                     MenuItem(Icons.flash_on, "PRINCIPAIS DÚVIDAS", () => {Navigator.pushNamed(context, 'min_saude_screen')}),
-                    MenuItem(Icons.filter_hdr, "ASSITÊNCIA FUNERÁRIA", () => {Navigator.pushNamed(context, 'iml_screen')}),
+                    MenuItem(Icons.filter_hdr, "ASSISTÊNCIA FUNERÁRIA", () =>
+                    {Navigator.pushNamed(context, 'iml_screen')}),
                     MenuItem(Icons.directions_run, "SUA COMUNIDADE", () =>
                     {Navigator.pushNamed(context, 'favelas_screen')}),
-                    MenuItem(Icons.contacts, "LIVES & EVENTOS", () => {}),
                     MenuItem(Icons.pan_tool, "STOP COVID19", () => {Navigator.pushNamed(context, 'quiz_screen')}),
                     MenuItem(Icons.touch_app, "NOSSAS MÍDIAS SOCIAIS", () => {Navigator.pushNamed(context, 'instagram_screen')}),
-                    MenuItem(
-                        Icons.chat_bubble_outline, "APOIO PSICOLÓGICO", () => {}),
-                    MenuItem(Icons.record_voice_over, "DISK DENÚNCIA", () => {}),
-                    Image.asset('images/stickers_fsc01.gif', width: 200)
+                    Image.asset('images/stickers_fsc01.gif', width: 170)
                   ],
                 ),
               ),
