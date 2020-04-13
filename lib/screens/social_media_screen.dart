@@ -40,8 +40,7 @@ class _InstagramScreenState extends State<InstagramScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Nossas redes sociais'),
-        backgroundColor: Colors.grey,
+        title: Text('Nossas redes sociais'),
         // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
         actions: <Widget>[
 //          NavigationControls(_controller.future),

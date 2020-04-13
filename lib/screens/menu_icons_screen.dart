@@ -62,10 +62,9 @@ class MenuIconsScreen extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                        child: Image.asset(
-                          'images/logo.png',
-                          width: 100,
-                          height: 120,
+                        child: Hero(
+                          child: Container(child: Image.asset('images/logo.png', width: 100, height: 120,)),
+                          tag: 'logo-favelasemcorona'
                         ),
                       ),
                       SizedBox(height: 5),
@@ -73,31 +72,37 @@ class MenuIconsScreen extends StatelessWidget {
                           Icons.dashboard,
                           "PAINEL RIO COVID19",
                           () => {
-                                Navigator.pushNamed(
+                                Navigator.pushReplacementNamed(
                                     context, 'painelcovidrio_screen')
                               }),
                       MenuItem(Icons.local_hospital, "HOSPITAIS E UPAS",
-                          () => {Navigator.pushNamed(context, 'maps_demo')}),
+                          () => {Navigator.pushReplacementNamed(context, 'maps_demo')}),
                       MenuItem(
                           Icons.flash_on,
                           "PRINCIPAIS DÚVIDAS",
                           () => {
-                                Navigator.pushNamed(context, 'min_saude_screen')
+                                Navigator.pushReplacementNamed(context, 'min_'
+                                    'saude_screen')
                               }),
                       MenuItem(Icons.filter_hdr, "ASSISTÊNCIA FUNERÁRIA",
-                          () => {Navigator.pushNamed(context, 'iml_screen')}),
+                          () => {Navigator.pushReplacementNamed(context, 'iml_screen'
+                          )}),
                       MenuItem(
                           Icons.directions_run,
                           "SUA COMUNIDADE",
                           () =>
-                              {Navigator.pushNamed(context, 'favelas_screen')}),
+                              {Navigator.pushReplacementNamed(context, 'favel'
+                                  'as_screen')}),
                       MenuItem(Icons.pan_tool, "STOP COVID19",
-                          () => {Navigator.pushNamed(context, 'quiz_screen')}),
+                          () => {Navigator.pushReplacementNamed(context, 'quiz'
+                              '_screen'
+                          )}),
                       MenuItem(
                           Icons.touch_app,
                           "NOSSAS MÍDIAS SOCIAIS",
                           () => {
-                                Navigator.pushNamed(context, 'instagram_screen')
+                                Navigator.pushReplacementNamed(context, 'insta'
+                                    'gram_screen')
                               }),
                       Image.asset('images/stickers_fsc01.gif', width: 170)
                     ],

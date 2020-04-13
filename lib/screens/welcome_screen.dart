@@ -27,20 +27,16 @@ class WelcomeScreen extends StatelessWidget {
         color: Colors.white,
         child: Column(
           children: <Widget>[
-            Expanded(
-              child: Center(
-                child: Image.asset(
-                  'images/stickers_fsc04.gif',
-                ),
-              ),
-            ),
+            SizedBox(height: 40),
+            Hero(
+              child: Container(child: Image.asset('images/logo.png'), height:
+              550,),
+              tag: 'logo-favelasemcorona',),
             DharmaButton(
-              titleOfButton: '@favelasemcorona',
-              onPressed: () {
-                Navigator.pushNamed(context, MenuIconsScreen.id);
-              },
+              titleOfButton: 'Entrar',
+              onPressed: () => Navigator.pushReplacementNamed(context,
+                  MenuIconsScreen.id),
             ),
-            SizedBox(height: 80)
           ],
         ),
       ),
