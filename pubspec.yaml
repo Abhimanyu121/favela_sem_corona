@@ -30,3 +30,9 @@ flutter:
 
   assets:
   - images/
+
+
+  fonts:
+   - family: MontserratAlternates
+     fonts:
+       - asset: assets/fonts/MontserratAlternates-Regular.ttf

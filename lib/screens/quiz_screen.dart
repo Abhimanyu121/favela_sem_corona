@@ -1,7 +1,5 @@
-import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:favelasemcorona/models/quiz_brain.dart';
-import 'package:favelasemcorona/constants.dart';
 
 QuizBrain quizBrain = QuizBrain();
 
@@ -32,7 +30,7 @@ class _QuizPageState extends State<QuizPage> {
           context: context,
           builder: (context) {
             return AlertDialog(
-              content: Text('Parabens voce terminou o jogo!'),
+              content: Text('Parabéns voce terminou o jogo!'),
               title: Text("FIM"),
               actions: <Widget>[
                 FlatButton(
@@ -77,16 +75,18 @@ class _QuizPageState extends State<QuizPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           SizedBox(
-            height: 100,
+            height: 30,
           ),
+          Image.asset("images/stickers_fsc10.gif", height: 210,),
           Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(2.0),
             child: Center(
               child: Text(
                 quizBrain.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 25.0,
+                  fontFamily: 'MontserratAlternates',
+                  fontSize: 18.0,
                   color: Colors.black,
                 ),
               ),
@@ -94,13 +94,16 @@ class _QuizPageState extends State<QuizPage> {
           ),
           (displayInfo)
               ? Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text('${note}'),
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('${note}', style: TextStyle(
+                    fontFamily: 'MontserratAlternates',
+                    fontSize: 12.0,
+                  ),),
                 )
               : SizedBox(),
           Container(
-            height: 300,
-            margin: EdgeInsets.only(left: 16, right: 16),
+            height: 240,
+            margin: EdgeInsets.only(left: 10, right: 10),
             child: ListView.builder(
               itemCount: quizBrain.getPossibleAnswers().length,
               itemBuilder: (context, index) {
@@ -112,7 +115,10 @@ class _QuizPageState extends State<QuizPage> {
                     leading: Icon(Icons.adjust),
                     title: Text(
                       quizBrain.getPossibleAnswers()[index],
-                    ),
+                    style: TextStyle(
+                      fontFamily: 'MontserratAlternates',
+                      fontSize: 16.0,
+                    ),),
                     onTap: () {
                       if (selectedIndex != -1) {
                         checkAnswer();
