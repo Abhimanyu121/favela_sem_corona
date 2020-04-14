@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 void main() => runApp(MaterialApp(home: IMLScreen()));
 
 class IMLScreen extends StatefulWidget {
@@ -28,8 +27,7 @@ class _IMLScreenState extends State<IMLScreen> {
                   ],
               ),
             ),
-          ),
-        ),
+        ),),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(

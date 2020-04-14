@@ -30,8 +30,11 @@ class _QuizPageState extends State<QuizPage> {
           context: context,
           builder: (context) {
             return AlertDialog(
-              content: Text('Parabéns voce terminou o jogo!'),
-              title: Text("FIM"),
+              content: Text('Parabéns, você terminou o jogo! Nós do Favela '
+                  'Sem Corona estaremos sempre com você em nossas redes '
+                  'sociais.',
+                  style: TextStyle(fontFamily: 'ComicNeue'),),
+              title: Text("MUITO BEM!"),
               actions: <Widget>[
                 FlatButton(
                   child: Text('OK'),
@@ -75,9 +78,10 @@ class _QuizPageState extends State<QuizPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           SizedBox(
-            height: 30,
+            height: 20,
           ),
-          Image.asset("images/stickers_fsc10.gif", height: 210,),
+          Image.asset(quizBrain.questions[27].questionImage,
+            height: 210,),
           Padding(
             padding: EdgeInsets.all(2.0),
             child: Center(

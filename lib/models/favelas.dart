@@ -152,34 +152,6 @@ class Favela{
 
 
 
-
-//'Acari',
-//'Cidade de Deus',
-//'Parada de Lucas',
-//'Rocinha',
-//'Jacarezinho',
-//'Santa Marta',
-//'Complexo do Alemão (Penha)',
-//'Complexo da Coréia (Bangu)',
-//'Complexo da Coruja (Vila Laje)',
-//'Complexo do Caju',
-//'Complexo do Lins',
-//'Complexo da Lagoinha (Caramujo)',
-//'Complexo da Mangueira (São Cristóvão)',
-//'Complexo de Manguinhos (Bonsucesso)',
-//'Complexo da Maré (Bonsucesso)',
-//'Complexo da Penha',
-//'Complexo do São Carlos',
-//'Complexo da Pedreira',
-//'Complexo da Congonha',
-//'Complexo da Serrinha',
-//'Complexo do 18',
-//'Complexo Menino de Deus (Rocha)',
-//'Complexo do Mutuapira (Mutuá)',
-//'Complexo São Carlos (Estácio)',
-
-
-
 //Fazer mapa do COVID-19 nas favelas do município do Rio de Janeiro*
 //- Total de casos, casos ativos, casos recuperados e casos fatais (Por favela) DONE
 //- Percentual de casos ativos, casos recuperados e casos fatais (favela x asfalto) - Output

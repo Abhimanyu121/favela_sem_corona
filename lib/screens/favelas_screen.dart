@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:favelasemcorona/models/entrepreneurs.dart';
 import 'package:favelasemcorona/models/favelas.dart';
+import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +43,7 @@ class _FavelasScreenState extends State<FavelasScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   IconButton(icon: Icon(Icons.arrow_back, color: Colors.white,
-                      size: 30.0), onPressed: () => Navigator.pop(context),),
+                      size: 30.0), onPressed: () => Navigator.pushReplacementNamed(context, MenuIconsScreen.id)),
                 ],),
             ),
             Positioned(

@@ -1,16 +1,10 @@
-import 'package:favelasemcorona/screens/arcgis_covid_screen.dart';
-import 'package:favelasemcorona/screens/favelas_screen.dart';
 import 'package:favelasemcorona/screens/iml_screen.dart';
-import 'package:favelasemcorona/screens/map_demo.dart';
-import 'package:favelasemcorona/screens/min_saude_screen.dart';
-import 'package:favelasemcorona/screens/quiz_screen.dart';
-import 'package:favelasemcorona/screens/social_media_screen.dart';
-import 'package:favelasemcorona/screens/webview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MenuIconsScreen extends StatelessWidget {
-  static const String id = "menu_icons_screen";
+
+class UsefulInfoScreen extends StatelessWidget {
+  static const String id = "useful_info_screen";
 
   Widget MenuItem(IconData icon, String text, Function pressed) {
     return FlatButton(
@@ -50,7 +44,7 @@ class MenuIconsScreen extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Container(
-                  color: Colors.grey,
+                  color: Colors.black,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
@@ -72,28 +66,25 @@ class MenuIconsScreen extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                         child: Hero(
-                          child: Container(child: Image.asset('images/logo.png', width: 100, height: 120,)),
-                          tag: 'logo-favelasemcorona'
+                            child: Container(child: Image.asset('images/logo.png', width: 100, height: 120,)),
+                            tag: 'logo-favelasemcorona'
                         ),
                       ),
                       SizedBox(height: 5),
-                      MenuItem(Icons.dashboard, "PAINEL RIO COVID19",
-                          () => Navigator.pushReplacementNamed(context, PainelCovidRioScreen.id)),
-                      MenuItem(Icons.local_hospital, "HOSPITAIS E UPAS",
-                          () => Navigator.pushReplacementNamed(context, MapsDemo.id)),
-                      MenuItem(Icons.flash_on, "PRINCIPAIS DÚVIDAS",
-                          () => Navigator.pushReplacementNamed(context, MinSaudeScreen.id)),
+
+                      MenuItem(Icons.local_hospital, "DISQUE SAÚDE / SAMU",
+                              () => {Navigator.pushReplacementNamed(context, IMLScreen.id)}),
+                      //
+                      MenuItem(Icons.record_voice_over, "DISQUE DENÚNCIA",
+                              () => {Navigator.pushReplacementNamed(context, IMLScreen.id)}),
+                      //Tel 180 -
+                      MenuItem(Icons.supervised_user_circle, "APOIO PSICOLÓGICO",
+                              () => {Navigator.pushReplacementNamed(context, IMLScreen.id)}),
+                      //CVV >> atendimento 24h (site , chat, tel: 188) - A
+                      // chave da questao, online
                       MenuItem(Icons.filter_hdr, "ASSISTÊNCIA FUNERÁRIA",
-                          () => Navigator.pushReplacementNamed(context, IMLScreen.id)),
-                      MenuItem(Icons.directions_run, "SUA COMUNIDADE",
-                          () => Navigator.pushReplacementNamed(context, FavelasScreen.id)),
-                      MenuItem(Icons.pan_tool, "STOP COVID19",
-                          () => Navigator.pushReplacementNamed(context, QuizScreen.id)),
-                      MenuItem(Icons.touch_app, "NOSSAS MÍDIAS SOCIAIS",
-                          () => Navigator.pushReplacementNamed(context, InstagramScreen.id)),
-                      MenuItem(Icons.airline_seat_flat_angled, "testestesteste",
-                              () => Navigator.pushReplacementNamed(context, TestsWebView.id)),
-                      Image.asset('images/stickers_fsc05.gif', width: 200)
+                              () => {Navigator.pushReplacementNamed(context, IMLScreen.id)}),
+                      Image.asset('images/stickers_fsc03.gif', width: 170)
                     ],
                   ),
                 ),

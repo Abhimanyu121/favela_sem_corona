@@ -5,6 +5,8 @@ import 'package:favelasemcorona/screens/map_demo.dart';
 import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 import 'package:favelasemcorona/screens/posto_de_saude_screen.dart';
 import 'package:favelasemcorona/screens/quiz_screen.dart';
+import 'package:favelasemcorona/screens/useful_info_screen.dart';
+import 'package:favelasemcorona/screens/webview.dart';
 import 'package:favelasemcorona/screens/welcome_screen.dart';
 import 'package:favelasemcorona/screens/min_saude_screen.dart';
 import 'package:favelasemcorona/screens/social_media_screen.dart';
@@ -30,6 +32,8 @@ class FavelaSemCorona extends StatelessWidget {
         PostoDeSaudeScreen.id: (context) => PostoDeSaudeScreen(),
         FavelasScreen.id: (context) => FavelasScreen(),
         InstagramScreen.id: (context) => InstagramScreen(),
+        UsefulInfoScreen.id: (context) => UsefulInfoScreen(),
+        TestsWebView.id: (context) => TestsWebView(),
       },
     );
   }

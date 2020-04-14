@@ -29,8 +29,9 @@ class WelcomeScreen extends StatelessWidget {
           children: <Widget>[
             SizedBox(height: 40),
             Hero(
-              child: Container(child: Image.asset('images/logo.png'), height:
-              550,),
+              child: Container(child: Image.asset('images/stickers_fsc12.gif'),
+                height:
+              500,),
               tag: 'logo-favelasemcorona',),
             DharmaButton(
               titleOfButton: 'Entrar',
