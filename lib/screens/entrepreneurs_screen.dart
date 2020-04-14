@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:favelasemcorona/models/entrepreneurs.dart';
 import 'package:favelasemcorona/models/favelas.dart';
+import 'package:favelasemcorona/components/business_cards.dart';
 import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -69,62 +70,13 @@ class _EntrepreneursScreenState extends State<EntrepreneursScreen> {
               padding: EdgeInsets.only(top: 10.0, bottom: 15.0),
               itemCount: rocinhaEntrepreneurs.length,
               itemBuilder: (BuildContext context, int index){
-                return Stack(
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.fromLTRB(110, 5, 10, 5),
-                      height: 140,
-                      width: double.infinity,
-                      decoration: BoxDecoration(color: Colors.grey
-                          .shade200,
-                        borderRadius: BorderRadius.circular(20),),
-                      child: Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Container(width: 140,
-                                    child: Text
-                                      ('${rocinhaEntrepreneurs[index].businessName}',
-                                      style:
-                                      TextStyle
-                                        (fontSize: 16.0, fontWeight: FontWeight.w600),maxLines: 2, overflow: TextOverflow.ellipsis,)
-                                ),
-                                Text('${rocinhaEntrepreneurs[index].businessType}',
-                                  style:
-                                  TextStyle
-                                    (fontSize:10, fontWeight: FontWeight.w600),),
-                              ],),
-                            SizedBox(height: 8.0,),
-                            Text('WhatsApp: ${rocinhaEntrepreneurs[index]
-                                .whatsApp}', style: TextStyle(color: Colors.green),),
-                            SizedBox(height: 2.0,),
-                            Text('Instagram: ${rocinhaEntrepreneurs[index]
-                                .instagramUrl}', style: TextStyle(color:
-                            Colors.black54),),
-                            SizedBox(height: 2.0,),
-                            Text('${rocinhaEntrepreneurs[index]
-                                .facebookUrl}', style: TextStyle(color:
-                            Colors.black54),),
-                            SizedBox(height: 2.0,),
-                          ],),
-                      ),
-                    ),
-                    Positioned(
-                      left: 10.0,
-                      top: 5.0,
-                      bottom: 5.0,
-                      child: ClipRRect(borderRadius: BorderRadius.circular(20.0),
-                        child: Image(width: 100.0, image: AssetImage
-                          ('images/chef-logo.jpg'),
-                          fit: BoxFit.cover,),),
-                    )
-                  ],
+                return BusinessCards(
+                  businessName: '${rocinhaEntrepreneurs[index].businessName}',
+                  businessType: '${rocinhaEntrepreneurs[index].businessType}',
+                  whatsApp:'WhatsApp: ${rocinhaEntrepreneurs[index].whatsApp}' ,
+                  instagram: 'Instagram: ${rocinhaEntrepreneurs[index].instagramUrl}',
+                  facebook:'${rocinhaEntrepreneurs[index].facebookUrl}',
+                  businessPicture: 'images/chef-logo.jpg',
                 );
               },
             ),
@@ -134,3 +86,4 @@ class _EntrepreneursScreenState extends State<EntrepreneursScreen> {
     );
   }
 }
+

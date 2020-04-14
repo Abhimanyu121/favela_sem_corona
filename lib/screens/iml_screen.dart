@@ -124,7 +124,9 @@ class _IMLScreenState extends State<IMLScreen> {
     '\n'
     'Central de Relacionamento com o Cidadão – CRC\n'
     'Defensoria Pública do Estado do Rio de Janeiro '
-    '\nTel: 129')
+    '\nTel: 129',
+        color1: Colors.grey,
+        color2: Colors.white,)
     );
   }
 }

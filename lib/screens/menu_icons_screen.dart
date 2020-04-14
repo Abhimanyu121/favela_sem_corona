@@ -90,14 +90,13 @@ class MenuIconsScreen extends StatelessWidget {
                     MenuItem(FontAwesomeIcons.ambulance, "ASSISTÊNCIA",
                         () => Navigator.pushReplacementNamed(context, UsefulInfoScreen.id)),
                     MenuItem(FontAwesomeIcons.peopleCarry, "SUA COMUNIDADE",
-                        () => Navigator.pushReplacementNamed(context, EntrepreneursScreen.id)),
+                        () => Navigator.pushReplacementNamed(context, FavelasScreen.id)),
                     MenuItem(FontAwesomeIcons.gamepad, "STOP COVID19",
                         () => Navigator.pushReplacementNamed(context, QuizScreen.id)),
-                    MenuItem(FontAwesomeIcons.instagramSquare, "NOSSAS MÍDIAS "
-                        "SOCIAIS",
+                    MenuItem(FontAwesomeIcons.instagramSquare, "NOSSAS MÍDIAS SOCIAIS",
                         () => Navigator.pushReplacementNamed(context, InstagramScreen.id)),
                     MenuItem(FontAwesomeIcons.appStore, "Testing Screen",
-                            () => Navigator.pushReplacementNamed(context, FavelasScreen.id)),
+                            () => Navigator.pushReplacementNamed(context, EntrepreneursScreen.id)),
                     Image.asset('images/stickers_fsc04.gif', width: 240)
                   ],
                 ),

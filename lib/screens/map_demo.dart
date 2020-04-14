@@ -124,6 +124,7 @@ class _MapsDemoState extends State<MapsDemo> {
                   itemCount: postosdesaude.length,
                   itemBuilder: (BuildContext context, int index) {
                     PostoDeSaude postoDeSaude = postosdesaude[index];
+                    //TODO: como eu tiro essa navegacao para o PostoDeSaudeScreen daqui?
                     return GestureDetector(
                       onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => PostoDeSaudeScreen(postoDeSaude: postoDeSaude,),),),
                       child: Container(

@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:favelasemcorona/models/posto_de_saude.dart';
+import 'package:favelasemcorona/screens/favelas_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,9 @@ class _PostoDeSaudeScreenState extends State<PostoDeSaudeScreen> {
         child: Column(
           children: <Widget>[
             Stack(children: <Widget>[
-              Container(height: 360, width: 400,
+              Container(
+                height: 360,
+                width: 400,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [BoxShadow(color: Colors.black26, offset: Offset
@@ -77,6 +80,13 @@ class _PostoDeSaudeScreenState extends State<PostoDeSaudeScreen> {
                 ],
             )),
             SizedBox(height: 10,),
+            IconButton(
+              icon: Image.asset('images/stickers_fsc03.gif'),
+              iconSize: 170,
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, FavelasScreen.id);
+              },
+            ),
           ],
         ),
       ),

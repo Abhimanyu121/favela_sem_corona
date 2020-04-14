@@ -48,6 +48,16 @@ class _InstagramScreenState extends State<InstagramScreen> {
           SampleMenu(_controller.future),
           IconButton(icon: Icon(Icons.arrow_back, color: Colors.white, size: 30.0), onPressed: () => Navigator.pushReplacementNamed(context, MenuIconsScreen.id)),
         ],
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.deepOrangeAccent,
+                Colors.purple,
+              ],
+            ),
+          ),
+        ),
       ),
       // We're using a Builder here so we have a context that is below the Scaffold
       // to allow calling Scaffold.of(context) so we can show a snackbar.

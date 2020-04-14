@@ -68,7 +68,7 @@ class Favela{
       residences: 3734,
       activeCases: 1,
       deaths: 0,
-      imageUrl: 'images/favelaBorel.jpeg'
+      imageUrl: 'images/Borel.jpeg'
     ),
     Favela(
       communityName: 'Cidade de Deus',
