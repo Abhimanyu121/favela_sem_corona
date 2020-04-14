@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 
 const String kNavigationExamplePage = '''
 <!DOCTYPE html><html>
@@ -45,6 +46,7 @@ class _InstagramScreenState extends State<InstagramScreen> {
         actions: <Widget>[
 //          NavigationControls(_controller.future),
           SampleMenu(_controller.future),
+          IconButton(icon: Icon(Icons.arrow_back, color: Colors.white, size: 30.0), onPressed: () => Navigator.pushReplacementNamed(context, MenuIconsScreen.id)),
         ],
       ),
       // We're using a Builder here so we have a context that is below the Scaffold

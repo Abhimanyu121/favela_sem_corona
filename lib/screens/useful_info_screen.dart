@@ -1,4 +1,5 @@
 import 'package:favelasemcorona/screens/iml_screen.dart';
+import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +45,7 @@ class UsefulInfoScreen extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Container(
-                  color: Colors.black,
+                  color: Colors.transparent,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
@@ -53,6 +54,7 @@ class UsefulInfoScreen extends StatelessWidget {
                       Image.asset('images/corona-dir.png'),
                       Image.asset('images/corona-esq.png'),
                       Image.asset('images/corona-dir.png'),
+                      Image.asset('images/corona-esq.png'),
                     ],
                   ),
                 ),
@@ -66,15 +68,15 @@ class UsefulInfoScreen extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                         child: Hero(
-                            child: Container(child: Image.asset('images/logo.png', width: 100, height: 120,)),
+                            child: Container(child: Image.asset('images/logo'
+                                '.png', width: 150, height: 150,)),
                             tag: 'logo-favelasemcorona'
                         ),
                       ),
-                      SizedBox(height: 5),
-
+                      SizedBox(height: 30),
+                      //TODO: "disk saude, disk denuncia, apoio psicologico"
                       MenuItem(Icons.local_hospital, "DISQUE SAÚDE / SAMU",
                               () => {Navigator.pushReplacementNamed(context, IMLScreen.id)}),
-                      //
                       MenuItem(Icons.record_voice_over, "DISQUE DENÚNCIA",
                               () => {Navigator.pushReplacementNamed(context, IMLScreen.id)}),
                       //Tel 180 -
@@ -84,7 +86,13 @@ class UsefulInfoScreen extends StatelessWidget {
                       // chave da questao, online
                       MenuItem(Icons.filter_hdr, "ASSISTÊNCIA FUNERÁRIA",
                               () => {Navigator.pushReplacementNamed(context, IMLScreen.id)}),
-                      Image.asset('images/stickers_fsc03.gif', width: 170)
+                      SizedBox(height: 30),
+
+                      MenuItem(Icons.subway, "MENU INICIAL",
+                              () => {Navigator.pushReplacementNamed(context,
+                                  MenuIconsScreen.id)}),
+
+                      Image.asset('images/stickers_fsc03.gif', width: 300)
                     ],
                   ),
                 ),

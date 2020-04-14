@@ -27,9 +27,9 @@ class WelcomeScreen extends StatelessWidget {
         color: Colors.white,
         child: Column(
           children: <Widget>[
-            SizedBox(height: 40),
+            SizedBox(height: 120),
             Hero(
-              child: Container(child: Image.asset('images/stickers_fsc12.gif'),
+              child: Container(child: Image.asset('images/logo.png'),
                 height:
               500,),
               tag: 'logo-favelasemcorona',),
