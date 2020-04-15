@@ -1,4 +1,6 @@
 import 'package:favelasemcorona/screens/arcgis_covid_screen.dart';
+import 'package:favelasemcorona/screens/disk_covid_screen.dart';
+import 'package:favelasemcorona/screens/disk_domestic_violence_screen.dart';
 import 'package:favelasemcorona/screens/entrepreneurs_screen.dart';
 import 'package:favelasemcorona/screens/favelas_screen.dart';
 import 'package:favelasemcorona/screens/map_demo.dart';
@@ -24,16 +26,6 @@ class MenuIconsScreen extends StatelessWidget {
           SizedBox(width: 20),
           Text(text)
         ],
-      ),
-    );
-  }
-
-  Widget line() {
-    return SizedBox(
-      height: 1,
-      width: 300,
-      child: Divider(
-        color: Colors.grey.shade400,
       ),
     );
   }
@@ -96,7 +88,7 @@ class MenuIconsScreen extends StatelessWidget {
                     MenuItem(FontAwesomeIcons.instagramSquare, "NOSSAS MÍDIAS SOCIAIS",
                         () => Navigator.pushReplacementNamed(context, InstagramScreen.id)),
                     MenuItem(FontAwesomeIcons.appStore, "Testing Screen",
-                            () => Navigator.pushReplacementNamed(context, EntrepreneursScreen.id)),
+                            () => Navigator.pushReplacementNamed(context, DiskDomesticViolenceScreen.id)),
                     Image.asset('images/stickers_fsc04.gif', width: 240)
                   ],
                 ),
@@ -108,3 +100,4 @@ class MenuIconsScreen extends StatelessWidget {
     );
   }
 }
+

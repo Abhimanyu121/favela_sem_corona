@@ -1,3 +1,5 @@
+import 'package:favelasemcorona/screens/disk_covid_screen.dart';
+import 'package:favelasemcorona/screens/disk_domestic_violence_screen.dart';
 import 'package:favelasemcorona/screens/iml_screen.dart';
 import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -76,9 +78,9 @@ class UsefulInfoScreen extends StatelessWidget {
                       SizedBox(height: 30),
                       //TODO: "disk saude, disk denuncia, apoio psicologico"
                       MenuItem(Icons.local_hospital, "DISQUE SAÚDE / SAMU",
-                              () => {Navigator.pushReplacementNamed(context, IMLScreen.id)}),
+                              () => {Navigator.pushReplacementNamed(context, DiskCovidScreen.id)}),
                       MenuItem(Icons.record_voice_over, "DISQUE DENÚNCIA",
-                              () => {Navigator.pushReplacementNamed(context, IMLScreen.id)}),
+                              () => {Navigator.pushReplacementNamed(context, DiskDomesticViolenceScreen.id)}),
                       //Tel 180 -
                       MenuItem(Icons.supervised_user_circle, "APOIO PSICOLÓGICO",
                               () => {Navigator.pushReplacementNamed(context, IMLScreen.id)}),
