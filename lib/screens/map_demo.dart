@@ -1,3 +1,4 @@
+import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 import 'package:favelasemcorona/screens/posto_de_saude_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -110,7 +111,7 @@ class _MapsDemoState extends State<MapsDemo> {
                   icon: Icon(Icons.arrow_back),
                   color: Colors.black,
                   iconSize: 40,
-                  onPressed: (){Navigator.pop(context);}),
+                  onPressed: (){Navigator.pushReplacementNamed(context, MenuIconsScreen.id);}),
             ),
             Align(
               alignment: Alignment.bottomCenter,
@@ -123,6 +124,7 @@ class _MapsDemoState extends State<MapsDemo> {
                   itemCount: postosdesaude.length,
                   itemBuilder: (BuildContext context, int index) {
                     PostoDeSaude postoDeSaude = postosdesaude[index];
+                    //TODO: como eu tiro essa navegacao para o PostoDeSaudeScreen daqui?
                     return GestureDetector(
                       onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => PostoDeSaudeScreen(postoDeSaude: postoDeSaude,),),),
                       child: Container(

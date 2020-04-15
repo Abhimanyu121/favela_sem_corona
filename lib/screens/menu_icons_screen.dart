@@ -1,5 +1,15 @@
+import 'package:favelasemcorona/screens/arcgis_covid_screen.dart';
+import 'package:favelasemcorona/screens/entrepreneurs_screen.dart';
+import 'package:favelasemcorona/screens/favelas_screen.dart';
+import 'package:favelasemcorona/screens/map_demo.dart';
+import 'package:favelasemcorona/screens/min_saude_screen.dart';
+import 'package:favelasemcorona/screens/quiz_screen.dart';
+import 'package:favelasemcorona/screens/social_media_screen.dart';
+import 'package:favelasemcorona/screens/useful_info_screen.dart';
+//import 'package:favelasemcorona/screens/webview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MenuIconsScreen extends StatelessWidget {
   static const String id = "menu_icons_screen";
@@ -11,7 +21,7 @@ class MenuIconsScreen extends StatelessWidget {
         children: <Widget>[
           SizedBox(width: 40),
           Icon(icon, color: Colors.grey),
-          SizedBox(width: 10),
+          SizedBox(width: 20),
           Text(text)
         ],
       ),
@@ -20,8 +30,10 @@ class MenuIconsScreen extends StatelessWidget {
 
   Widget line() {
     return SizedBox(
-      width: 200,
-      child: Divider(color: Colors.grey.shade400,
+      height: 1,
+      width: 300,
+      child: Divider(
+        color: Colors.grey.shade400,
       ),
     );
   }
@@ -29,68 +41,68 @@ class MenuIconsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SafeArea(
-        child: Scaffold(
-          body: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            verticalDirection: VerticalDirection.up,
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: Colors.grey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-//                      IconButton(
-//                        onPressed: () => {Navigator.pop(context)},
-//                        icon: Icon(
-//                          Icons.arrow_back,
-//                          color: Colors.white,
-//                          size: 40,
-//                        ),
-//                      ),
-                    ],
-                  ),
+      theme: ThemeData(fontFamily: 'MontserratAlternates' ),
+      home: Scaffold(
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          verticalDirection: VerticalDirection.up,
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: Container(
+                color: Colors.grey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Image.asset('images/corona-dir.png'),
+                    Image.asset('images/corona-esq.png'),
+                    Image.asset('images/corona-dir.png'),
+                    Image.asset('images/corona-esq.png'),
+                    Image.asset('images/corona-dir.png'),
+                    Image.asset('images/corona-esq.png'),
+                    Image.asset('images/corona-dir.png'),
+                  ],
                 ),
               ),
-              Expanded(
-                flex: 4,
+            ),
+            Expanded(
+              flex: 5,
+              child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
-                      child: Image.asset(
-                        'images/logo.png',
-                        width: 200,
-                        height: 150,
+                      padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                      child: Hero(
+                        child: Container(child: Image.asset('images/logo'
+                            '.png', width: 180, height: 180,)),
+                        tag: 'logo-favelasemcorona'
                       ),
                     ),
-                    SizedBox(height: 20),
-                    line(),
-                    MenuItem(Icons.dashboard, "PAINEL RIO COVID19",
-                            () => {Navigator.pushNamed(context, 'painelcovidrio_screen')}),
-                    MenuItem(Icons.local_hospital, "HOSPITAIS E UPAS", () => {Navigator.pushNamed(context, 'maps_demo')}),
-                    MenuItem(Icons.flash_on, "PRINCIPAIS DÚVIDAS", () => {Navigator.pushNamed(context, 'min_saude_screen')}),
-                    MenuItem(Icons.filter_hdr, "ASSITÊNCIA FUNERÁRIA", () => {Navigator.pushNamed(context, 'iml_screen')}),
-                    line(),
-                    MenuItem(Icons.directions_run, "SUA COMUNIDADE", () => {Navigator.pushNamed(context, 'listview_screen')}),
-                    MenuItem(Icons.contacts, "LIVES & EVENTOS", () => {}),
-                    MenuItem(Icons.pan_tool, "STOP COVID19", () => {Navigator.pushNamed(context, 'quiz_screen')}),
-                    MenuItem(Icons.touch_app, "NOSSAS MÍDIAS SOCIAIS", () => {Navigator.pushNamed(context, 'instagram_screen')}),
-                    line(),
-                    MenuItem(
-                        Icons.chat_bubble_outline, "APOIO PSICOLÓGICO", () => {}),
-                    MenuItem(Icons.record_voice_over, "DISK DENÚNCIA", () => {}),
-                    line(),
-                    MenuItem(Icons.exit_to_app, "LOGOUT", () => {Navigator.pop(context)})
+                    SizedBox(height: 5),
+                    MenuItem(FontAwesomeIcons.chartLine, "PAINEL RIO COVID19",
+                        () => Navigator.pushReplacementNamed(context, PainelCovidRioScreen.id)),
+                    MenuItem(FontAwesomeIcons.hospital, "HOSPITAIS E UPAS",
+                        () => Navigator.pushReplacementNamed(context, MapsDemo.id)),
+                    MenuItem(FontAwesomeIcons.handsWash, "PRINCIPAIS DÚVIDAS",
+                        () => Navigator.pushReplacementNamed(context, MinSaudeScreen.id)),
+                    MenuItem(FontAwesomeIcons.ambulance, "ASSISTÊNCIA",
+                        () => Navigator.pushReplacementNamed(context, UsefulInfoScreen.id)),
+                    MenuItem(FontAwesomeIcons.peopleCarry, "SUA COMUNIDADE",
+                        () => Navigator.pushReplacementNamed(context, FavelasScreen.id)),
+                    MenuItem(FontAwesomeIcons.gamepad, "STOP COVID19",
+                        () => Navigator.pushReplacementNamed(context, QuizScreen.id)),
+                    MenuItem(FontAwesomeIcons.instagramSquare, "NOSSAS MÍDIAS SOCIAIS",
+                        () => Navigator.pushReplacementNamed(context, InstagramScreen.id)),
+                    MenuItem(FontAwesomeIcons.appStore, "Testing Screen",
+                            () => Navigator.pushReplacementNamed(context, EntrepreneursScreen.id)),
+                    Image.asset('images/stickers_fsc04.gif', width: 240)
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

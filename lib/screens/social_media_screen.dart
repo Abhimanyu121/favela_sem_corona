@@ -1,464 +1,349 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:insta_html_parser/insta_html_parser.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 
-//Essa pagina devera ser um display do Instagram e do Facebook. Ou pelo menos um link para que o usuario va para esses canais.
-//TODO: Consegue me dar uma mão com isso?
-//I added the insta_html_parser: ^0.1.1 as dependency here and this example. Not so sure if it's worthy.
+const String kNavigationExamplePage = '''
+<!DOCTYPE html><html>
+<head><title>Navigation Delegate Example</title></head>
+<body>
+<p>
+Siga o Favela Sem Corona em todas as nossas midias sociais. Faça parte, 
+divulgue nosso trabalho, participe de nossas lives. Fazemos tudo isso por você!
+</p>
 
-void main() {runApp(InstagramScreen());}
+<ul><a href="https://facebook.com/favelasemcorona/">FACEBOOK</a></ul>
+<ul>
+<ul><a href="https://www.twitter.com/favelasemcorona">TWITTER</a></ul>
+<ul>
+<ul><a href="https://www.instagram.com/favelasemcorona">INSTAGRAM</a></ul>
+<ul>
+
+
+</body>
+</html>
+''';
 
 class InstagramScreen extends StatefulWidget {
-  static const id = 'instagram_screen';
-  final GlobalKey<ScaffoldState> scaffoldKey;
-  InstagramScreen({Key key, this.scaffoldKey}) : super(key: key);
-
+  static const String id = 'instagram_screen';
+  
+  
   @override
   _InstagramScreenState createState() => _InstagramScreenState();
 }
 
 class _InstagramScreenState extends State<InstagramScreen> {
-  var _scaffoldKey = new GlobalKey<ScaffoldState>();
-  TextEditingController _profileUrlController = TextEditingController();
-  TextEditingController _postUrlController = TextEditingController();
-  TextStyle _textStyleBold = TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold);
-  TextStyle _textStyleUrl = TextStyle(fontSize: 16.0);
-  List<Widget> _parsedWidgets = [];
-
-  @override
-  void initState() {
-    super.initState();
-    _profileUrlController.text = 'https://www.instagram.com/contreirasgustavo/';
-    _postUrlController.text = 'https://www.instagram.com/p/BQQrPauBgvn/';
-  }
+  final Completer<WebViewController> _controller =
+  Completer<WebViewController>();
 
   @override
   Widget build(BuildContext context) {
-
-    return MaterialApp(
-        color: Colors.blue,
-        title: 'Insta HTML Parser',
-        home: Scaffold(
-          key: _scaffoldKey,
-          backgroundColor: Colors.purple[100],
-          appBar: AppBar(title: Text('Favela Sem Corona no Insta'), backgroundColor: Colors.purple[600],),
-          body: Center(
-            child: ListView(
-                children: [
-
-                  Container( // Profile url input field
-                      padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0, bottom: 16.0),
-                      child: Form(
-                          child: TextFormField(
-                              controller: _profileUrlController,
-                              decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.only(top: 2.0, bottom: 2.0),
-                                  labelText: 'Profile URL',
-                                  labelStyle: _textStyleUrl,
-                                  hintText: 'https://www.instagram.com/contreirasgustavo/',
-                                  hintStyle: TextStyle(color: Colors.grey[500], fontSize: 13)
-                              )
-                          )
-                      )
-                  ),
-
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-
-                      Container( // Profile avatar submit button
-                        width: 160,
-                        padding: EdgeInsets.only(left: 0.0, right: 0.0, bottom: 16.0),
-                        child: RaisedButton(
-                            child: Text('Get user data', style: _textStyleUrl,),
-                            onPressed: () async {
-
-                              List<Widget> _widgetsList = [];
-                              Map<String, String> _userData = await InstaParser.userDataFromProfile('${_profileUrlController.text}');
-
-                              // Divider
-                              _widgetsList.add(
-                                  Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                      child: Divider(height: 0.0, color: Colors.black)
-                                  )
-                              );
-
-                              // Is private?
-                              _widgetsList.add(Text('Private profile?', style: _textStyleBold));
-                              _widgetsList.add(Text('${_userData['isPrivate'] != null ? _userData['isPrivate'] : ''}', style: _textStyleUrl));
-
-                              // Divider
-                              _widgetsList.add(
-                                  Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                      child: Divider(height: 0.0, color: Colors.black)
-                                  )
-                              );
-
-                              // Is private?
-                              _widgetsList.add(Text('Verified profile?', style: _textStyleBold));
-                              _widgetsList.add(Text('${_userData['isVerified']  != null ? _userData['isVerified'] : ''}', style: _textStyleUrl));
-
-                              // Divider
-                              _widgetsList.add(
-                                  Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                      child: Divider(height: 0.0, color: Colors.black)
-                                  )
-                              );
-
-                              // Posts count
-                              _widgetsList.add(Text('Posts count:', style: _textStyleBold));
-                              _widgetsList.add(Text('${_userData['postsCount']  != null ? _userData['postsCount'] : ''}', style: _textStyleUrl));
-
-                              // Divider
-                              _widgetsList.add(
-                                  Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                      child: Divider(height: 0.0, color: Colors.black)
-                                  )
-                              );
-
-                              // Followers count
-                              _widgetsList.add(Text('Followers count:', style: _textStyleBold));
-                              _widgetsList.add(Text('${_userData['followersCount']  != null ? _userData['followersCount'] : ''}', style: _textStyleUrl));
-
-                              // Divider
-                              _widgetsList.add(
-                                  Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                      child: Divider(height: 0.0, color: Colors.black)
-                                  )
-                              );
-
-                              // Followings count
-                              _widgetsList.add(Text('Followings count:', style: _textStyleBold));
-                              _widgetsList.add(Text('${_userData['followingsCount']  != null ? _userData['followingsCount'] : ''}', style: _textStyleUrl));
-
-                              // Divider
-                              _widgetsList.add(
-                                  Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                      child: Divider(height: 0.0, color: Colors.black)
-                                  )
-                              );
-
-                              // Full name
-                              _widgetsList.add(Text('Full name:', style: _textStyleBold));
-                              _widgetsList.add(
-                                  GestureDetector(
-                                      child: Text('${_userData['fullName']  != null ? _userData['fullName'] : ''}', style: _textStyleUrl),
-                                      onTap: () async {
-                                        setState(() {});
-                                        Clipboard.setData(ClipboardData(text: '${_userData['fullName']}'));
-                                        _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Copied full name")));
-                                      }
-                                  )
-                              );
-
-                              // Divider
-                              _widgetsList.add(
-                                  Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                      child: Divider(height: 0.0, color: Colors.black)
-                                  )
-                              );
-
-                              // Username
-                              _widgetsList.add(Text('Username:', style: _textStyleBold));
-                              _widgetsList.add(
-                                  GestureDetector(
-                                      child: Text('${_userData['username'] != null ? _userData['username'] : ''}', style: _textStyleUrl),
-                                      onTap: () async {
-                                        setState(() {});
-                                        Clipboard.setData(ClipboardData(text: '${_userData['username']}'));
-                                        _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Copied username")));
-                                      }
-                                  )
-                              );
-
-                              // Divider
-                              _widgetsList.add(
-                                  Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                      child: Divider(height: 0.0, color: Colors.black)
-                                  )
-                              );
-
-                              // Biography
-                              _widgetsList.add(Text('Biography:', style: _textStyleBold));
-                              _widgetsList.add(
-                                  GestureDetector(
-                                      child: Text('${_userData['biography'] != null ? _userData['biography'] : ''}', style: _textStyleUrl,),
-                                      onTap: () async {
-                                        setState(() {});
-                                        Clipboard.setData(ClipboardData(text: '${_userData['biography']}'));
-                                        _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Copied biography")));
-                                      }
-                                  )
-                              );
-
-                              // Divider
-                              _widgetsList.add(
-                                  Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                      child: Divider(height: 0.0, color: Colors.black)
-                                  )
-                              );
-
-                              // Avatar photo url
-                              _widgetsList.add(Text('Avatar photo:', style: _textStyleBold));
-                              _widgetsList.add(
-                                  GestureDetector(
-                                      child: Text('${_userData['profilePicUrl'] != null ? _userData['profilePicUrl'] : ''}', style: _textStyleUrl,),
-                                      onTap: () async {
-                                        setState(() {});
-                                        Clipboard.setData(ClipboardData(text: '${_userData['profilePicUrl']}'));
-                                        _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Copied profile pic url")));
-                                      }
-                                  )
-                              );
-                              if (_userData['profilePicUrl'] != null) {
-                                _widgetsList.add(
-                                    Image.network('${_userData['profilePicUrl']}')
-                                );
-                              }
-
-                              // Divider
-                              _widgetsList.add(
-                                  Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                      child: Divider(height: 0.0, color: Colors.black)
-                                  )
-                              );
-
-                              // Avatar photo url hd
-                              _widgetsList.add(Text('Avatar photo (HD):', style: _textStyleBold));
-                              _widgetsList.add(
-                                  GestureDetector(
-                                      child: Text('${_userData['profilePicUrlHd'] != null ? _userData['profilePicUrlHd'] : ''}', style: _textStyleUrl,),
-                                      onTap: () async {
-                                        setState(() {});
-                                        Clipboard.setData(ClipboardData(text: '${_userData['profilePicUrlHd']}'));
-                                        _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Copied profile pic url hd")));
-                                      }
-                                  )
-                              );
-                              if (_userData['profilePicUrlHd'] != null) {
-                                _widgetsList.add(
-                                    Image.network('${_userData['profilePicUrlHd']}')
-                                );
-                              }
-
-                              _widgetsList.add(Padding(padding: EdgeInsets.only(bottom: 8.0),));
-
-                              setState(() => _parsedWidgets = _widgetsList);
-                            }
-                        ),
-                      ),
-
-                      Container( // Posts submit button
-                        width: 128,
-                        padding: EdgeInsets.only(left: 0.0, right: 0.0, bottom: 16.0),
-                        child: RaisedButton(
-                            child: Text('Get posts', style: _textStyleUrl,),
-                            onPressed: () async {
-
-                              List<Widget> _widgetsList = [];
-                              List<String> _postsUrls = await InstaParser.postsUrlsFromProfile('${_profileUrlController.text}');
-
-                              for (int i = 0; i < 12; i++) {
-
-                                // Divider
-                                _widgetsList.add(
-                                    Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                        child: Divider(height: 0.0, color: Colors.black)
-                                    )
-                                );
-
-                                // Post URL
-                                _widgetsList.add(Text('Post ${i+1}:', style: _textStyleBold));
-                                _widgetsList.add(
-                                    GestureDetector(
-                                        child: Text('${_postsUrls.length > 0 ? _postsUrls[i] : ''}', style: _textStyleUrl,),
-                                        onTap: () async {
-                                          setState(() {});
-                                          Clipboard.setData(ClipboardData(text: '${_postsUrls[i]}'));
-                                          _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Copied post url")));
-                                        }
-                                    )
-                                );
-
-                                if (i == _postsUrls.length-1) {
-                                  _widgetsList.add(Padding(padding: EdgeInsets.only(bottom: 8.0),));
-                                }
-                              }
-
-                              if (_postsUrls != null) {
-                                if (_postsUrls.length > 0) {
-                                  setState(() {
-                                    _postUrlController.text = _postsUrls[1];
-                                    _parsedWidgets = _widgetsList;
-                                  });
-                                }
-                              } else {
-                                setState(() => _parsedWidgets = _widgetsList);
-                              }
-                            }
-                        ),
-                      ),
-
-                    ],
-                  ),
-
-                  Container( // Post url input field
-                      padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0, bottom: 16.0),
-                      child: Form(
-                          child: TextFormField(
-                              controller: _postUrlController,
-                              decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.only(top: 2.0, bottom: 2.0),
-                                  labelText: 'Post URL',
-                                  labelStyle: _textStyleUrl,
-                                  hintText: 'https://www.instagram.com/p/BQQrPauBgvn/',
-                                  hintStyle: TextStyle(color: Colors.grey[500], fontSize: 13)
-                              )
-                          )
-                      )
-                  ),
-
-                  Row( // Photos and video submit button
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-
-                      Container( // Parse photos
-                        width: 160,
-                        padding: EdgeInsets.only(left: 0.0, right: 0.0, bottom: 16.0),
-                        child: RaisedButton(
-                          child: Text('Get photos', style: _textStyleUrl,),
-                          onPressed: () async {
-
-                            List<Widget> _widgetsList = [];
-                            Map<String, String> photosUrls = await InstaParser.photoUrlsFromPost('${_postUrlController.text}');
-
-                            // Divider
-                            _widgetsList.add(
-                                Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                    child: Divider(height: 0.0, color: Colors.black)
-                                )
-                            );
-
-                            // Small photo URL
-                            _widgetsList.add(Text('Small photo:', style: _textStyleBold));
-                            _widgetsList.add(
-                                GestureDetector(
-                                    child: Text('${photosUrls['small'] != null ? photosUrls['small'] : ''}', style: _textStyleUrl,),
-                                    onTap: () async {
-                                      setState(() {});
-                                      Clipboard.setData(ClipboardData(text: '${photosUrls['small']}'));
-                                      _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Copied small size photo url")));
-                                    }
-                                )
-                            );
-                            if (photosUrls['small'] != null) {
-                              _widgetsList.add(
-                                  Image.network(photosUrls['small'])
-                              );
-                            }
-
-                            // Divider
-                            _widgetsList.add(
-                                Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                    child: Divider(height: 0.0, color: Colors.black)
-                                )
-                            );
-
-                            // Medium photo URL
-                            _widgetsList.add(Text('Medium photo:', style: _textStyleBold));
-                            _widgetsList.add(
-                                GestureDetector(
-                                    child: Text('${photosUrls['medium'] != null ? photosUrls['medium'] : ''}', style: _textStyleUrl,),
-                                    onTap: () async {
-                                      setState(() {});
-                                      Clipboard.setData(ClipboardData(text: '${photosUrls['medium']}'));
-                                      _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Copied medium size photo url")));
-                                    }
-                                )
-                            );
-                            if (photosUrls['medium'] != null) {
-                              _widgetsList.add(
-                                  Image.network(photosUrls['medium'])
-                              );
-                            }
-
-                            // Divider
-                            _widgetsList.add(
-                                Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                    child: Divider(height: 0.0, color: Colors.black)
-                                )
-                            );
-
-                            // Large photo URL
-                            _widgetsList.add(Text('Large photo:', style: _textStyleBold));
-                            _widgetsList.add(
-                                GestureDetector(
-                                    child: Text('${photosUrls['large'] != null ? photosUrls['large'] : ''}', style: _textStyleUrl,),
-                                    onTap: () async {
-                                      setState(() {});
-                                      Clipboard.setData(ClipboardData(text: '${photosUrls['large']}'));
-                                      _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Copied large size photo url")));
-                                    }
-                                )
-                            );
-                            if (photosUrls['large'] != null) {
-                              _widgetsList.add(
-                                  Image.network(photosUrls['large'])
-                              );
-                            }
-
-                            setState(() => _parsedWidgets = _widgetsList);
-                          },
-                        ),
-                      ),
-
-                      Container( // Parse video
-                        width: 128,
-                        padding: EdgeInsets.only(left: 0.0, right: 0.0, bottom: 16.0),
-                        child: RaisedButton(
-                          child: Text('Get video', style: _textStyleUrl,),
-                          onPressed: () async {
-                            List<Widget> _widgetsList = [];
-                            String _videoUrl = await InstaParser.videoUrlFromPost('${_postUrlController.text}');
-
-                            // Divider
-                            _widgetsList.add(
-                                Container(padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                                    child: Divider(height: 0.0, color: Colors.black)
-                                )
-                            );
-
-                            // Video URL
-                            _widgetsList.add(Text('Video:', style: _textStyleBold));
-                            _widgetsList.add(
-                                GestureDetector(
-                                    child: Text('$_videoUrl\n', style: _textStyleUrl,),
-                                    onTap: () async {
-                                      setState(() {});
-                                      Clipboard.setData(ClipboardData(text: '$_videoUrl'));
-                                      _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Copied video url")));
-                                    }
-                                )
-                            );
-
-                            setState(() => _parsedWidgets = _widgetsList);
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Column(children: _parsedWidgets),
-                ]
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Nossas redes sociais'),
+        // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
+        actions: <Widget>[
+//          NavigationControls(_controller.future),
+          SampleMenu(_controller.future),
+          IconButton(icon: Icon(Icons.arrow_back, color: Colors.white, size: 30.0), onPressed: () => Navigator.pushReplacementNamed(context, MenuIconsScreen.id)),
+        ],
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.deepOrangeAccent,
+                Colors.purple,
+              ],
             ),
-          ) ,
-        )
+          ),
+        ),
+      ),
+      // We're using a Builder here so we have a context that is below the Scaffold
+      // to allow calling Scaffold.of(context) so we can show a snackbar.
+      body: Builder(builder: (BuildContext context) {
+        return WebView(
+          initialUrl: 'https://instagram.com/favelasemcorona',
+          javascriptMode: JavascriptMode.unrestricted,
+          onWebViewCreated: (WebViewController webViewController) {
+            _controller.complete(webViewController);
+          },
+          javascriptChannels: <JavascriptChannel>[
+            _toasterJavascriptChannel(context),
+          ].toSet(),
+          navigationDelegate: (NavigationRequest request) {
+            if (request.url.startsWith('https://www.youtube.com/')) {
+              print('blocking navigation to $request}');
+              return NavigationDecision.prevent;
+            }
+            print('allowing navigation to $request');
+            return NavigationDecision.navigate;
+          },
+          onPageStarted: (String url) {
+            print('Page started loading: $url');
+          },
+          onPageFinished: (String url) {
+            print('Page finished loading: $url');
+          },
+          gestureNavigationEnabled: true,
+        );
+      }),
+//      floatingActionButton: favoriteButton(),
     );
   }
 
+  JavascriptChannel _toasterJavascriptChannel(BuildContext context) {
+    return JavascriptChannel(
+        name: 'Toaster',
+        onMessageReceived: (JavascriptMessage message) {
+          Scaffold.of(context).showSnackBar(
+            SnackBar(content: Text(message.message)),
+          );
+        });
+  }
+
+  Widget favoriteButton() {
+    return FutureBuilder<WebViewController>(
+        future: _controller.future,
+        builder: (BuildContext context,
+            AsyncSnapshot<WebViewController> controller) {
+          if (controller.hasData) {
+            return FloatingActionButton(
+              onPressed: () async {
+                final String url = await controller.data.currentUrl();
+                Scaffold.of(context).showSnackBar(
+                  SnackBar(content: Text('Favorited $url')),
+                );
+              },
+              child: const Icon(Icons.favorite),
+            );
+          }
+          return Container();
+        });
+  }
+}
+
+enum MenuOptions {
+  showUserAgent,
+  listCookies,
+  clearCookies,
+  addToCache,
+  listCache,
+  clearCache,
+  navigationDelegate,
+}
+
+class SampleMenu extends StatelessWidget {
+  SampleMenu(this.controller);
+
+  final Future<WebViewController> controller;
+  final CookieManager cookieManager = CookieManager();
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<WebViewController>(
+      future: controller,
+      builder:
+          (BuildContext context, AsyncSnapshot<WebViewController> controller) {
+        return PopupMenuButton<MenuOptions>(
+          onSelected: (MenuOptions value) {
+            switch (value) {
+              case MenuOptions.showUserAgent:
+                _onShowUserAgent(controller.data, context);
+                break;
+              case MenuOptions.listCookies:
+                _onListCookies(controller.data, context);
+                break;
+              case MenuOptions.clearCookies:
+                _onClearCookies(context);
+                break;
+              case MenuOptions.addToCache:
+                _onAddToCache(controller.data, context);
+                break;
+              case MenuOptions.listCache:
+                _onListCache(controller.data, context);
+                break;
+              case MenuOptions.clearCache:
+                _onClearCache(controller.data, context);
+                break;
+              case MenuOptions.navigationDelegate:
+                _onNavigationDelegateExample(controller.data, context);
+                break;
+            }
+          },
+          itemBuilder: (BuildContext context) => <PopupMenuItem<MenuOptions>>[
+//            PopupMenuItem<MenuOptions>(
+//              value: MenuOptions.showUserAgent,
+//              child: const Text('Nossos canais'),
+//              enabled: controller.hasData,
+//            ),
+//            const PopupMenuItem<MenuOptions>(
+//              value: MenuOptions.listCookies,
+//              child: Text('List cookies'),
+//            ),
+//            const PopupMenuItem<MenuOptions>(
+//              value: MenuOptions.clearCookies,
+//              child: Text('Clear cookies'),
+//            ),
+//            const PopupMenuItem<MenuOptions>(
+//              value: MenuOptions.addToCache,
+//              child: Text('Add to cache'),
+//            ),
+//            const PopupMenuItem<MenuOptions>(
+//              value: MenuOptions.listCache,
+//              child: Text('List cache'),
+//            ),
+//            const PopupMenuItem<MenuOptions>(
+//              value: MenuOptions.clearCache,
+//              child: Text('Clear cache'),
+//            ),
+            const PopupMenuItem<MenuOptions>(
+              value: MenuOptions.navigationDelegate,
+              child: Text('Nossos outros canais'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _onShowUserAgent(
+      WebViewController controller, BuildContext context) async {
+    // Send a message with the user agent string to the Toaster JavaScript channel we registered
+    // with the WebView.
+    await controller.evaluateJavascript(
+        'Toaster.postMessage("User Agent: " + navigator.userAgent);');
+  }
+
+  void _onListCookies(
+      WebViewController controller, BuildContext context) async {
+    final String cookies =
+    await controller.evaluateJavascript('document.cookie');
+    Scaffold.of(context).showSnackBar(SnackBar(
+      content: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          const Text('Cookies:'),
+          _getCookieList(cookies),
+        ],
+      ),
+    ));
+  }
+
+  void _onAddToCache(WebViewController controller, BuildContext context) async {
+    await controller.evaluateJavascript(
+        'caches.open("test_caches_entry"); localStorage["test_localStorage"] = "dummy_entry";');
+    Scaffold.of(context).showSnackBar(const SnackBar(
+      content: Text('Added a test entry to cache.'),
+    ));
+  }
+
+  void _onListCache(WebViewController controller, BuildContext context) async {
+    await controller.evaluateJavascript('caches.keys()'
+        '.then((cacheKeys) => JSON.stringify({"cacheKeys" : cacheKeys, "localStorage" : localStorage}))'
+        '.then((caches) => Toaster.postMessage(caches))');
+  }
+
+  void _onClearCache(WebViewController controller, BuildContext context) async {
+    await controller.clearCache();
+    Scaffold.of(context).showSnackBar(const SnackBar(
+      content: Text("Cache cleared."),
+    ));
+  }
+
+  void _onClearCookies(BuildContext context) async {
+    final bool hadCookies = await cookieManager.clearCookies();
+    String message = 'There were cookies. Now, they are gone!';
+    if (!hadCookies) {
+      message = 'There are no cookies.';
+    }
+    Scaffold.of(context).showSnackBar(SnackBar(
+      content: Text(message),
+    ));
+  }
+
+  void _onNavigationDelegateExample(
+      WebViewController controller, BuildContext context) async {
+    final String contentBase64 =
+    base64Encode(const Utf8Encoder().convert(kNavigationExamplePage));
+    await controller.loadUrl('data:text/html;base64,$contentBase64');
+  }
+
+  Widget _getCookieList(String cookies) {
+    if (cookies == null || cookies == '""') {
+      return Container();
+    }
+    final List<String> cookieList = cookies.split(';');
+    final Iterable<Text> cookieWidgets =
+    cookieList.map((String cookie) => Text(cookie));
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisSize: MainAxisSize.min,
+      children: cookieWidgets.toList(),
+    );
+  }
+}
+
+class NavigationControls extends StatelessWidget {
+  const NavigationControls(this._webViewControllerFuture)
+      : assert(_webViewControllerFuture != null);
+
+  final Future<WebViewController> _webViewControllerFuture;
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<WebViewController>(
+      future: _webViewControllerFuture,
+      builder:
+          (BuildContext context, AsyncSnapshot<WebViewController> snapshot) {
+        final bool webViewReady =
+            snapshot.connectionState == ConnectionState.done;
+        final WebViewController controller = snapshot.data;
+        return Row(
+          children: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              onPressed: !webViewReady
+                  ? null
+                  : () async {
+                if (await controller.canGoBack()) {
+                  await controller.goBack();
+                } else {
+                  Scaffold.of(context).showSnackBar(
+                    const SnackBar(content: Text("No back history item")),
+                  );
+                  return;
+                }
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.arrow_forward_ios),
+              onPressed: !webViewReady
+                  ? null
+                  : () async {
+                if (await controller.canGoForward()) {
+                  await controller.goForward();
+                } else {
+                  Scaffold.of(context).showSnackBar(
+                    const SnackBar(
+                        content: Text("No forward history item")),
+                  );
+                  return;
+                }
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.replay),
+              onPressed: !webViewReady
+                  ? null
+                  : () {
+                controller.reload();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 }

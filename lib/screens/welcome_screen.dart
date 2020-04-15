@@ -8,40 +8,36 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
-        bottomOpacity: 0.0,
-        actions: <Widget>[
-          IconButton(
-            onPressed: () => {Navigator.pushNamed(context, 'menu_icons_screen')},
-            icon: Icon(
-              Icons.list,
-              color: Colors.black,
-              size: 40.0,
-            ),
-          )
-        ],
-      ),
+//      appBar: AppBar(
+//        elevation: 0.0,
+//        backgroundColor: Colors.white,
+//        bottomOpacity: 0.0,
+//        actions: <Widget>[
+//          IconButton(
+//            onPressed: () => {Navigator.pushNamed(context, 'menu_icons_screen')},
+//            icon: Icon(
+//              Icons.list,
+//              color: Colors.black,
+//              size: 40.0,
+//            ),
+//          )
+//        ],
+//      ),
       body: Container(
         color: Colors.white,
         child: Column(
           children: <Widget>[
-            Expanded(
-              child: Center(
-                child: Image.asset(
-                  'images/logo.png',
-                  width: 600,
-                ),
-              ),
-            ),
+            SizedBox(height: 120),
+            Hero(
+              child: Container(child: Image.asset('images/logo.png'),
+                height:
+              500,),
+              tag: 'logo-favelasemcorona',),
             DharmaButton(
               titleOfButton: 'Entrar',
-              onPressed: () {
-                Navigator.pushNamed(context, MenuIconsScreen.id);
-              },
+              onPressed: () => Navigator.pushReplacementNamed(context,
+                  MenuIconsScreen.id),
             ),
-            SizedBox(height: 80)
           ],
         ),
       ),

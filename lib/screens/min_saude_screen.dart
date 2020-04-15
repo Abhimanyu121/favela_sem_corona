@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 
 //precisa da completer e do future builder
 
@@ -21,6 +22,24 @@ class _MinSaudeScreenState extends State<MinSaudeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.arrow_back, color: Colors
+              .white,
+              size: 30.0), onPressed: () => Navigator.pushReplacementNamed(context, MenuIconsScreen.id)),
+        ],
+        title: Text('Ministério da Saúde'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.indigoAccent,
+                Colors.indigo,
+              ],
+            ),
+          ),
+        ),
+      ),
       body: WebView(
         initialUrl: 'https://coronavirus.saude.gov.br/sobre-a-doenca#definicaodecaso',
         //initialUrl:

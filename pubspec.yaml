@@ -13,12 +13,15 @@ dependencies:
   google_maps_flutter: ^0.5.11
   http: ^0.12.0+1
   json_serializable: ^2.0.2
-  cloud_firestore: ^0.9.13+1
-  rflutter_alert: ^1.0.3
+  cloud_firestore: ^0.13.4+2
   webview_flutter: ^0.3.19+9
+  flutter_webview_plugin: ^0.3.11
+  #TODO: pick one
+  #choose between webview_flutter or flutter_webview_plugin
   url_launcher: ^5.4.2
   dio: ^3.0.9
-  insta_html_parser: ^0.1.1
+  firebase_core: ^0.4.4+3
+  font_awesome_flutter: ^8.7.0
 
 dev_dependencies:
   flutter_test:
@@ -31,3 +34,13 @@ flutter:
 
   assets:
   - images/
+
+
+  fonts:
+   - family: MontserratAlternates
+     fonts:
+       - asset: assets/fonts/MontserratAlternates-Regular.ttf
+   - family: ComicNeue
+     fonts:
+       - asset: assets/fonts/ComicNeue-Regular.ttf
+
