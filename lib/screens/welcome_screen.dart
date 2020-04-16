@@ -3,7 +3,6 @@ import 'package:favelasemcorona/components/dharma_button.dart';
 import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 import 'package:flutter/material.dart';
 
-
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
 
@@ -12,15 +11,16 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
   }
 
-  void funcaox() async{
-    var response = await Dio().get('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/favelas.json');
+  void funcaox() async {
+    Response response = await Dio().get(
+        'https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/favelas.json');
+    print(response);
   }
 
   @override
@@ -47,14 +47,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: <Widget>[
             SizedBox(height: 120),
             Hero(
-              child: Container(child: Image.asset('images/logo.png'),
-                height:
-              500,),
-              tag: 'logo-favelasemcorona',),
+              child: Container(
+                child: Image.asset('images/logo.png'),
+//                height: 500,
+              ),
+              tag: 'logo-favelasemcorona',
+            ),
+            SizedBox(height: 10),
             DharmaButton(
               titleOfButton: 'Entrar',
-              onPressed: () => Navigator.pushReplacementNamed(context,
-                  MenuIconsScreen.id),
+              onPressed: () =>
+                  Navigator.pushReplacementNamed(context, MenuIconsScreen.id),
             ),
           ],
         ),
