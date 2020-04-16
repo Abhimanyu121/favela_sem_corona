@@ -50,9 +50,6 @@ class _DiskDomesticViolenceScreenState extends State<DiskDomesticViolenceScreen>
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,
-                          size: 30.0), onPressed: () => Navigator
-                          .pushReplacementNamed(context, UsefulInfoScreen.id)),
                       Image.asset('images/corona-dir.png'),
                       Image.asset('images/corona-esq.png'),
                       Image.asset('images/corona-dir.png'),

@@ -23,11 +23,6 @@ class _MinSaudeScreenState extends State<MinSaudeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.arrow_back, color: Colors
-              .white,
-              size: 30.0), onPressed: () => Navigator.pushReplacementNamed(context, MenuIconsScreen.id)),
-        ],
         title: Text('Ministério da Saúde'),
         flexibleSpace: Container(
           decoration: BoxDecoration(

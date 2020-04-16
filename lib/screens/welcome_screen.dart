@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:favelasemcorona/components/dharma_button.dart';
 import 'package:favelasemcorona/screens/menu_icons_screen.dart';
+import 'package:favelasemcorona/utils/api_helper.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -13,14 +14,13 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
   void funcaox() async {
-    Response response = await Dio().get(
-        'https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/favelas.json');
-    print(response);
+    var res = await ApiHelper.getRequest(context, "https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/favelas.json");
+    print(res[1]['title']);
+//    https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/favelas.json
   }
 
   @override

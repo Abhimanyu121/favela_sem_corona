@@ -46,7 +46,6 @@ class _InstagramScreenState extends State<InstagramScreen> {
         actions: <Widget>[
 //          NavigationControls(_controller.future),
           SampleMenu(_controller.future),
-          IconButton(icon: Icon(Icons.arrow_back, color: Colors.white, size: 30.0), onPressed: () => Navigator.pushReplacementNamed(context, MenuIconsScreen.id)),
         ],
         flexibleSpace: Container(
           decoration: BoxDecoration(
