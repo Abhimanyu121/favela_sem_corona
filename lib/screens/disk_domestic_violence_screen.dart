@@ -46,9 +46,9 @@ class _DiskDomesticViolenceScreenState extends State<DiskDomesticViolenceScreen>
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,
-                          size: 30.0), onPressed: () => Navigator
-                          .pushReplacementNamed(context, UsefulInfoScreen.id)),
+                      // IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,
+                      //     size: 30.0), onPressed: () => Navigator
+                      //     .pushReplacementNamed(context, UsefulInfoScreen.id)),
                       Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
                       Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
                       Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),

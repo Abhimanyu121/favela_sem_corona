@@ -41,8 +41,8 @@ class _FavelasScreenState extends State<FavelasScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  IconButton(icon: Icon(Icons.arrow_back, color: Colors.white,
-                      size: 30.0), onPressed: () => Navigator.pushReplacementNamed(context, MenuIconsScreen.id)),
+//                  IconButton(icon: Icon(Icons.arrow_back, color: Colors.white,
+//                      size: 30.0), onPressed: () => Navigator.pushReplacementNamed(context, MenuIconsScreen.id)),
                 ],),
             ),
           ],

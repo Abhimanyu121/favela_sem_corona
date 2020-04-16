@@ -78,20 +78,20 @@ class UsefulInfoScreen extends StatelessWidget {
                       SizedBox(height: 30),
                       //TODO: "disk saude, disk denuncia, apoio psicologico"
                       MenuItem(Icons.local_hospital, "DISQUE SAÚDE / SAMU",
-                              () => {Navigator.pushReplacementNamed(context, DiskCovidScreen.id)}),
+                              () => {Navigator.pushNamed(context, DiskCovidScreen.id)}),
                       MenuItem(Icons.record_voice_over, "DISQUE DENÚNCIA",
-                              () => {Navigator.pushReplacementNamed(context, DiskDomesticViolenceScreen.id)}),
+                              () => {Navigator.pushNamed(context, DiskDomesticViolenceScreen.id)}),
                       //Tel 180 -
                       MenuItem(Icons.supervised_user_circle, "APOIO PSICOLÓGICO",
-                              () => {Navigator.pushReplacementNamed(context, IMLScreen.id)}),
+                              () => {Navigator.pushNamed(context, IMLScreen.id)}),
                       //CVV >> atendimento 24h (site , chat, tel: 188) - A
                       // chave da questao, online
                       MenuItem(Icons.filter_hdr, "ASSISTÊNCIA FUNERÁRIA",
-                              () => {Navigator.pushReplacementNamed(context, IMLScreen.id)}),
+                              () => {Navigator.pushNamed(context, IMLScreen.id)}),
                       SizedBox(height: 30),
 
                       MenuItem(Icons.subway, "MENU INICIAL",
-                              () => {Navigator.pushReplacementNamed(context,
+                              () => {Navigator.pushNamed(context,
                                   MenuIconsScreen.id)}),
 
                       Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc03.gif', width: 300)

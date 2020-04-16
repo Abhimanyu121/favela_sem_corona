@@ -20,11 +20,6 @@ class _IMLScreenState extends State<IMLScreen> {
       backgroundColor: Colors.grey,
         appBar: AppBar(
           title: Center(child: Text('Assistência Funerária')),
-          actions: <Widget>[
-            IconButton(icon: Icon(Icons.arrow_back, color: Colors.white,
-                size: 30.0), onPressed: () => Navigator.pushReplacementNamed
-              (context, UsefulInfoScreen.id)),
-          ],
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
