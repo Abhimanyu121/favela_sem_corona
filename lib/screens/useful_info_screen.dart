@@ -51,12 +51,12 @@ class UsefulInfoScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      Image.asset('images/corona-dir.png'),
-                      Image.asset('images/corona-esq.png'),
-                      Image.asset('images/corona-dir.png'),
-                      Image.asset('images/corona-esq.png'),
-                      Image.asset('images/corona-dir.png'),
-                      Image.asset('images/corona-esq.png'),
+                      Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                      Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
+                      Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                      Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
+                      Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                      Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
                     ],
                   ),
                 ),
@@ -94,7 +94,7 @@ class UsefulInfoScreen extends StatelessWidget {
                               () => {Navigator.pushReplacementNamed(context,
                                   MenuIconsScreen.id)}),
 
-                      Image.asset('images/stickers_fsc03.gif', width: 300)
+                      Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc03.gif', width: 300)
                     ],
                   ),
                 ),

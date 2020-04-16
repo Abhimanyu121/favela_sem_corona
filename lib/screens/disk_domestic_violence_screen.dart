@@ -1,9 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:favelasemcorona/components/dharma_button.dart';
-import 'package:favelasemcorona/components/grey_line.dart';
 import 'package:favelasemcorona/components/menu_item_button.dart';
-import 'package:favelasemcorona/components/scroll_view.dart';
-import 'package:favelasemcorona/screens/map_demo.dart';
 import 'package:favelasemcorona/screens/useful_info_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -53,12 +49,12 @@ class _DiskDomesticViolenceScreenState extends State<DiskDomesticViolenceScreen>
                       IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,
                           size: 30.0), onPressed: () => Navigator
                           .pushReplacementNamed(context, UsefulInfoScreen.id)),
-                      Image.asset('images/corona-dir.png'),
-                      Image.asset('images/corona-esq.png'),
-                      Image.asset('images/corona-dir.png'),
-                      Image.asset('images/corona-esq.png'),
-                      Image.asset('images/corona-dir.png'),
-                      Image.asset('images/corona-esq.png'),
+                      Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                      Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
+                      Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                      Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
+                      Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                      Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
                     ],
                   ),
                 ),
@@ -72,7 +68,7 @@ class _DiskDomesticViolenceScreenState extends State<DiskDomesticViolenceScreen>
                       Container(
                         padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                         child: Container(child: Image.asset
-                          ('images/denuncie-180.png', width: 200, height:
+                          ('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/denuncie-180.png', width: 200, height:
                         200,)),
                       ),
                       Text("Disk Denuncia - 180", style: TextStyle(fontSize: 20,

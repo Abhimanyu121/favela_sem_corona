@@ -73,7 +73,7 @@ class _FavelasScreenState extends State<FavelasScreen> {
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                      child: Image.asset('images/virus1.png', 
+                      child: Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/virus1.png',
                        )),
                 ),
                 Column(
@@ -110,14 +110,14 @@ class _FavelasScreenState extends State<FavelasScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               IconButton(
-                icon: Image.asset('images/doctor.png'),
+                icon: Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/doctor.png'),
                 iconSize: 120,
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, PostoDeSaudeScreen.id);
                 },
               ),
               IconButton(
-                icon: Image.asset('images/mask.png'),
+                icon: Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/mask.png'),
                 iconSize: 120,
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, EntrepreneursScreen.id);

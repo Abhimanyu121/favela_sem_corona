@@ -47,13 +47,13 @@ class MenuIconsScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    Image.asset('images/corona-dir.png'),
-                    Image.asset('images/corona-esq.png'),
-                    Image.asset('images/corona-dir.png'),
-                    Image.asset('images/corona-esq.png'),
-                    Image.asset('images/corona-dir.png'),
-                    Image.asset('images/corona-esq.png'),
-                    Image.asset('images/corona-dir.png'),
+                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
+                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
+                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
+                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
                   ],
                 ),
               ),
@@ -89,7 +89,7 @@ class MenuIconsScreen extends StatelessWidget {
                         () => Navigator.pushReplacementNamed(context, InstagramScreen.id)),
                     MenuItem(FontAwesomeIcons.appStore, "Testing Screen",
                             () => Navigator.pushReplacementNamed(context, DiskDomesticViolenceScreen.id)),
-                    Image.asset('images/stickers_fsc04.gif', width: 240)
+                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc04.gif', width: 240)
                   ],
                 ),
               ),

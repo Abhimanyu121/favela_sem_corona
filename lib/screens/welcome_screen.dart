@@ -47,7 +47,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: <Widget>[
             SizedBox(height: 120),
             Hero(
-              child: Container(child: Image.asset('images/logo.png'),
+              child: Container(child: Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/logo.png'),
                 height:
               500,),
               tag: 'logo-favelasemcorona',),

@@ -32,7 +32,7 @@ class _PostoDeSaudeScreenState extends State<PostoDeSaudeScreen> {
                       (0.0, 2.0,), blurRadius: 6.0,),]),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(30.0),
-                  child: Image(image: AssetImage('images/doctor.png'),
+                  child: Image(image: AssetImage('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/doctor.png'),
                     fit: BoxFit.cover,),),
               ),
               Positioned(
@@ -81,7 +81,7 @@ class _PostoDeSaudeScreenState extends State<PostoDeSaudeScreen> {
             )),
             SizedBox(height: 10,),
             IconButton(
-              icon: Image.asset('images/stickers_fsc03.gif'),
+              icon: Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc03.gif'),
               iconSize: 170,
               onPressed: () {
                 Navigator.pushReplacementNamed(context, FavelasScreen.id);

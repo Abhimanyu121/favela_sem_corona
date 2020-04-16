@@ -80,7 +80,8 @@ class _QuizPageState extends State<QuizPage> {
           SizedBox(
             height: 20,
           ),
-          Image.asset(quizBrain.questions[27].questionImage,
+          //TODO: Bruno: como passa o [index] aqui nesse caso?
+          Image.asset(quizBrain.questions[0].questionImage,
             height: 210,),
           Padding(
             padding: EdgeInsets.all(2.0),
