@@ -70,8 +70,9 @@ class UsefulInfoScreen extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                         child: Hero(
-                            child: Container(child: Image.network('images/logo'
-                                '.png', width: 150, height: 150,)),
+                            child: Container(child: Image.network
+                              ('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/logo.png',
+                              width: 150, height: 150,)),
                             tag: 'logo-favelasemcorona'
                         ),
                       ),
@@ -91,8 +92,7 @@ class UsefulInfoScreen extends StatelessWidget {
                       SizedBox(height: 30),
 
                       MenuItem(Icons.subway, "MENU INICIAL",
-                              () => {Navigator.pushNamed(context,
-                                  MenuIconsScreen.id)}),
+                              () => {Navigator.pop(context)}),
 
                       Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc03.gif', width: 300)
                     ],

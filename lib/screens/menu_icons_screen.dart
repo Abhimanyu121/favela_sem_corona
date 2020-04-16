@@ -67,8 +67,7 @@ class MenuIconsScreen extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
                       child: Hero(
-                        child: Container(child: Image.network('images/logo'
-                            '.png', width: 180, height: 180,)),
+                        child: Container(child: Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/logo.png', width: 180, height: 180,)),
                         tag: 'logo-favelasemcorona'
                       ),
                     ),
