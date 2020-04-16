@@ -83,7 +83,8 @@ class _FavelasScreenState extends State<FavelasScreen> {
                     Text('${favelas[0].totalCases} Total de Casos', style: TextStyle(
                         fontFamily: 'MontserratAlternates',
                         fontSize: 14, fontWeight: FontWeight.bold)),
-                    Text('${favelas[0].activeCases} Casos Ativos', style: TextStyle(
+                    Text('${favelas[0].activeCases} Casos Ativos', style:
+                    TextStyle(
                         fontFamily: 'MontserratAlternates',
                         fontSize: 14)),
                     Text('${favelas[0].recoveredCases} Casos Recuperados', style: TextStyle(

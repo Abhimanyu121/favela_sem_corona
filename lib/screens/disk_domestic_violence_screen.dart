@@ -1,15 +1,36 @@
+import 'package:dio/dio.dart';
 import 'package:favelasemcorona/components/dharma_button.dart';
 import 'package:favelasemcorona/components/grey_line.dart';
+import 'package:favelasemcorona/components/menu_item_button.dart';
 import 'package:favelasemcorona/components/scroll_view.dart';
 import 'package:favelasemcorona/screens/map_demo.dart';
 import 'package:favelasemcorona/screens/useful_info_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class DiskDomesticViolenceScreen extends StatelessWidget {
+class DiskDomesticViolenceScreen extends StatefulWidget {
   static const String id = "disk_denuncia_screen";
 
-  //https://www.saude.gov.br/saude-de-a-z/servico-de-atendimento-movel-de-urgencia-samu-192
+  @override
+  _DiskDomesticViolenceScreenState createState() => _DiskDomesticViolenceScreenState();
+}
+
+class _DiskDomesticViolenceScreenState extends State<DiskDomesticViolenceScreen> {
+
+  @override
+  void initState() {
+
+    // TODO: implement initState
+    super.initState();
+  }
+
+
+  void callAPI() async{
+
+  var response = await Dio().get('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/favelas.json');
+  print(response);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +77,13 @@ class DiskDomesticViolenceScreen extends StatelessWidget {
                       ),
                       Text("Disk Denuncia - 180", style: TextStyle(fontSize: 20,
                           fontWeight: FontWeight.w700),),
-                      MyScrollView(
-                        longText: '',
-                        color1: Colors.transparent,
-                        color2: Colors.transparent,),
+                     MenuItem(
+                       icon: FontAwesomeIcons.ambulance,
+                       iconText: 'Press here',
+                       onPressed: (){
+                         callAPI();
+                       },
+                     ),
                     ],
                   ),
                 ),

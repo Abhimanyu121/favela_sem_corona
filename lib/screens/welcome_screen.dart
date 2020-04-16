@@ -1,9 +1,27 @@
+import 'package:dio/dio.dart';
 import 'package:favelasemcorona/components/dharma_button.dart';
 import 'package:favelasemcorona/screens/menu_icons_screen.dart';
 import 'package:flutter/material.dart';
 
-class WelcomeScreen extends StatelessWidget {
+
+class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
+
+  @override
+  _WelcomeScreenState createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  void funcaox() async{
+    var response = await Dio().get('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/favelas.json');
+  }
 
   @override
   Widget build(BuildContext context) {
