@@ -47,13 +47,13 @@ class MenuIconsScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
-                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
-                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
-                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
-                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
-                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
-                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                    Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                    Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
+                    Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                    Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
+                    Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                    Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
+                    Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
                   ],
                 ),
               ),
@@ -67,7 +67,7 @@ class MenuIconsScreen extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
                       child: Hero(
-                        child: Container(child: Image.asset('images/logo'
+                        child: Container(child: Image.network('images/logo'
                             '.png', width: 180, height: 180,)),
                         tag: 'logo-favelasemcorona'
                       ),
@@ -89,7 +89,7 @@ class MenuIconsScreen extends StatelessWidget {
                         () => Navigator.pushNamed(context, InstagramScreen.id)),
                     MenuItem(FontAwesomeIcons.appStore, "Testing Screen",
                             () => Navigator.pushReplacementNamed(context, DiskDomesticViolenceScreen.id)),
-                    Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc04.gif', width: 240)
+                    Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc04.gif', width: 240)
                   ],
                 ),
               ),

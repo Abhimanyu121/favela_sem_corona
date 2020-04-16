@@ -81,7 +81,7 @@ class _PostoDeSaudeScreenState extends State<PostoDeSaudeScreen> {
             )),
             SizedBox(height: 10,),
             IconButton(
-              icon: Image.asset('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc03.gif'),
+              icon: Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc03.gif'),
               iconSize: 170,
               onPressed: () {
                 Navigator.pushReplacementNamed(context, FavelasScreen.id);

@@ -50,7 +50,7 @@ class DiskCovidScreen extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                        child: Container(child: Image.asset
+                        child: Container(child: Image.network
                           ('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/disk-covid.png', width: 200, height: 200,)),
                       ),
                       MyScrollView(
