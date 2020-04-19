@@ -47,7 +47,7 @@ class UsefulInfoScreen extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Container(
-                  color: Colors.transparent,
+                  color: Colors.grey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
