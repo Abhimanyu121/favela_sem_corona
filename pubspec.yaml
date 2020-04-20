@@ -15,9 +15,6 @@ dependencies:
   json_serializable: ^2.0.2
   cloud_firestore: ^0.13.4+2
   webview_flutter: ^0.3.19+9
-  flutter_webview_plugin: ^0.3.11
-  #TODO: pick one
-  #choose between webview_flutter or flutter_webview_plugin
   url_launcher: ^5.4.2
   dio: ^3.0.9
   firebase_core: ^0.4.4+3

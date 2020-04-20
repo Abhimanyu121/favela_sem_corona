@@ -16,7 +16,9 @@ Widget build(BuildContext context) {
         SizedBox(width: 40),
         Icon(icon, color: Colors.grey),
         SizedBox(width: 20),
-        Text(iconText)
+        Text(iconText, style: TextStyle(fontFamily: 'MontserratAlternates',
+            fontWeight:
+        FontWeight.bold, color: Colors.grey.shade600, fontSize: 16))
       ],
     ),
   );

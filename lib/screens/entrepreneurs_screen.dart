@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:favelasemcorona/models/entrepreneurs.dart';
 import 'package:favelasemcorona/models/favelas.dart';
 import 'package:favelasemcorona/components/business_cards.dart';
-import 'package:favelasemcorona/screens/menu_icons_screen.dart';
+import 'package:favelasemcorona/screens/main_menu_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

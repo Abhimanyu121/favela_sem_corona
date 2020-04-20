@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:favelasemcorona/components/dharma_button.dart';
-import 'package:favelasemcorona/screens/menu_icons_screen.dart';
+import 'package:favelasemcorona/screens/main_menu_screen.dart';
 import 'package:favelasemcorona/utils/api_helper.dart';
 import 'package:flutter/material.dart';
 

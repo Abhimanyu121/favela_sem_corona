@@ -2,17 +2,19 @@ import 'package:favelasemcorona/screens/arcgis_covid_screen.dart';
 import 'package:favelasemcorona/screens/disk_covid_screen.dart';
 import 'package:favelasemcorona/screens/disk_domestic_violence_screen.dart';
 import 'package:favelasemcorona/screens/entrepreneurs_screen.dart';
+import 'package:favelasemcorona/screens/facebook_screen.dart';
 import 'package:favelasemcorona/screens/favelas_screen.dart';
 import 'package:favelasemcorona/screens/iml_screen.dart';
 import 'package:favelasemcorona/screens/map_demo.dart';
-import 'package:favelasemcorona/screens/menu_icons_screen.dart';
+import 'package:favelasemcorona/screens/main_menu_screen.dart';
 import 'package:favelasemcorona/screens/posto_de_saude_screen.dart';
+import 'package:favelasemcorona/screens/psychological_help_screen.dart';
 import 'package:favelasemcorona/screens/quiz_screen.dart';
 import 'package:favelasemcorona/screens/useful_info_screen.dart';
 import 'package:favelasemcorona/screens/webview.dart';
 import 'package:favelasemcorona/screens/welcome_screen.dart';
 import 'package:favelasemcorona/screens/min_saude_screen.dart';
-import 'package:favelasemcorona/screens/social_media_screen.dart';
+import 'package:favelasemcorona/screens/instagram_screen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -40,6 +42,8 @@ class FavelaSemCorona extends StatelessWidget {
         TestsWebView.id: (context) => TestsWebView(),
         DiskCovidScreen.id: (context) => DiskCovidScreen(),
         DiskDomesticViolenceScreen.id: (context) => DiskDomesticViolenceScreen(),
+        PsychologicalHelpScreen.id: (context) => PsychologicalHelpScreen(),
+        FacebookScreen.id: (context) => FacebookScreen(),
       },
     );
   }

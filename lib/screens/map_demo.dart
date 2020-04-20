@@ -1,4 +1,4 @@
-import 'package:favelasemcorona/screens/menu_icons_screen.dart';
+import 'package:favelasemcorona/screens/main_menu_screen.dart';
 import 'package:favelasemcorona/screens/posto_de_saude_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

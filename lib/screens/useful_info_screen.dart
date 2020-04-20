@@ -1,27 +1,30 @@
+import 'package:favelasemcorona/components/menu_item_button.dart';
 import 'package:favelasemcorona/screens/disk_covid_screen.dart';
 import 'package:favelasemcorona/screens/disk_domestic_violence_screen.dart';
 import 'package:favelasemcorona/screens/iml_screen.dart';
-import 'package:favelasemcorona/screens/menu_icons_screen.dart';
+import 'package:favelasemcorona/screens/main_menu_screen.dart';
+import 'package:favelasemcorona/screens/psychological_help_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class UsefulInfoScreen extends StatelessWidget {
   static const String id = "useful_info_screen";
-
-  Widget MenuItem(IconData icon, String text, Function pressed) {
-    return FlatButton(
-      onPressed: pressed,
-      child: Row(
-        children: <Widget>[
-          SizedBox(width: 40),
-          Icon(icon, color: Colors.grey),
-          SizedBox(width: 10),
-          Text(text)
-        ],
-      ),
-    );
-  }
+//
+//  Widget MenuItem(IconData icon, String text, Function pressed) {
+//    return FlatButton(
+//      onPressed: pressed,
+//      child: Row(
+//        children: <Widget>[
+//          SizedBox(width: 40),
+//          Icon(icon, color: Colors.grey),
+//          SizedBox(width: 10),
+//          Text(text)
+//        ],
+//      ),
+//    );
+//  }
 
   Widget line() {
     return SizedBox(
@@ -35,10 +38,7 @@ class UsefulInfoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(fontFamily: 'MontserratAlternates' ),
-      home: SafeArea(
-        child: Scaffold(
+    return Scaffold(
           body: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -57,6 +57,7 @@ class UsefulInfoScreen extends StatelessWidget {
                       Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
                       Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
                       Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
+                      Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
                     ],
                   ),
                 ),
@@ -68,41 +69,40 @@ class UsefulInfoScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                        padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
                         child: Hero(
                             child: Container(child: Image.network
                               ('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/logo.png',
-                              width: 150, height: 150,)),
+                              width: 180, height: 180,)),
                             tag: 'logo-favelasemcorona'
                         ),
                       ),
                       SizedBox(height: 30),
-                      //TODO: "disk saude, disk denuncia, apoio psicologico"
-                      MenuItem(Icons.local_hospital, "DISQUE SAÚDE / SAMU",
-                              () => {Navigator.pushNamed(context, DiskCovidScreen.id)}),
-                      MenuItem(Icons.record_voice_over, "DISQUE DENÚNCIA",
-                              () => {Navigator.pushNamed(context, DiskDomesticViolenceScreen.id)}),
-                      //Tel 180 -
-                      MenuItem(Icons.supervised_user_circle, "APOIO PSICOLÓGICO",
-                              () => {Navigator.pushNamed(context, IMLScreen.id)}),
-                      //CVV >> atendimento 24h (site , chat, tel: 188) - A
-                      // chave da questao, online
-                      MenuItem(Icons.filter_hdr, "ASSISTÊNCIA FUNERÁRIA",
-                              () => {Navigator.pushNamed(context, IMLScreen.id)}),
-                      SizedBox(height: 30),
-
-                      MenuItem(Icons.subway, "MENU INICIAL",
-                              () => {Navigator.pop(context)}),
-
-                      Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc03.gif', width: 300)
+                      MenuItem(icon: FontAwesomeIcons.ambulance,
+                        iconText: "DISQUE SAÚDE / SAMU",
+                        onPressed: () => Navigator.pushNamed(context, DiskCovidScreen.id),),
+                      MenuItem(icon: FontAwesomeIcons.bullhorn,
+                        iconText: 'DISQUE DENÚNCIA',
+                        onPressed: () => Navigator.pushNamed(context, DiskDomesticViolenceScreen.id),),
+                      MenuItem(icon: FontAwesomeIcons.handHoldingHeart,
+                        iconText: 'APOIO PSICOLÓGICO',
+                        onPressed: () => Navigator.pushNamed(context, PsychologicalHelpScreen.id),),
+                      MenuItem(icon: FontAwesomeIcons.crow,
+                        iconText: 'ASSISTÊNCIA FUNERÁRIA',
+                        onPressed: () => Navigator.pushNamed(context, IMLScreen.id),),
+                      MenuItem(icon: FontAwesomeIcons.backward,
+                      iconText: 'MENU',
+                      onPressed: ()=> Navigator.pop(context),),
+                      SizedBox(height: 60,),
+                      Image.network('https://raw.githubusercontent'
+                          '.com/itsencrypted/favela_sem_corona_api/master'
+                          '/images/stickers_fsc03.gif', width: 240)
                     ],
                   ),
                 ),
               ),
             ],
           ),
-        ),
-      ),
     );
   }
 }

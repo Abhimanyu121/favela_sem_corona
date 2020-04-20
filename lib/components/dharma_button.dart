@@ -14,7 +14,7 @@ class DharmaButton extends StatelessWidget {
         textColor: Colors.white,
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(20),
             gradient: LinearGradient(
               colors: <Color>[
                 Colors.red,
@@ -27,7 +27,7 @@ class DharmaButton extends StatelessWidget {
           padding: EdgeInsets.all(15.0),
           child: Text(
             titleOfButton,
-            style: TextStyle(fontSize: 20.0),
+            style: TextStyle(fontSize: 15.0, fontFamily: '',),
           ),
         ));
   }
