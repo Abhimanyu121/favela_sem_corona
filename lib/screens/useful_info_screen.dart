@@ -2,7 +2,6 @@ import 'package:favelasemcorona/components/menu_item_button.dart';
 import 'package:favelasemcorona/screens/disk_covid_screen.dart';
 import 'package:favelasemcorona/screens/disk_domestic_violence_screen.dart';
 import 'package:favelasemcorona/screens/iml_screen.dart';
-import 'package:favelasemcorona/screens/main_menu_screen.dart';
 import 'package:favelasemcorona/screens/psychological_help_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -96,7 +95,7 @@ class UsefulInfoScreen extends StatelessWidget {
                       SizedBox(height: 60,),
                       Image.network('https://raw.githubusercontent'
                           '.com/itsencrypted/favela_sem_corona_api/master'
-                          '/images/stickers_fsc03.gif', width: 240)
+                          '/images/stickers_fsc08.gif', width: 240)
                     ],
                   ),
                 ),
