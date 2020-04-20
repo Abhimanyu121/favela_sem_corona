@@ -33,7 +33,6 @@ class MenuIconsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'MontserratAlternates' ),
       home: Scaffold(
         body: Row(
           mainAxisAlignment: MainAxisAlignment.start,

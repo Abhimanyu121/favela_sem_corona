@@ -109,15 +109,12 @@ bool isloading = false;
             child: Column(
               children: <Widget>[
                 Text(communityName, style: TextStyle(
-                    fontFamily: 'MontserratAlternates',
-                    fontSize: 30,
+                                       fontSize: 30,
                     fontWeight: FontWeight.w600),),
                 Text('${population} moradores', style: TextStyle(
-                  fontFamily: 'MontserratAlternates',
-                  fontSize: 16)),
+                                  fontSize: 16)),
                 Text('${residences} residências', style: TextStyle(
-                    fontFamily: 'MontserratAlternates',
-                    fontSize: 16)),
+                                      fontSize: 16)),
               ],
             ),
           ),
@@ -139,18 +136,14 @@ bool isloading = false;
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text('${totalCases} Total de Casos', style: TextStyle(
-                        fontFamily: 'MontserratAlternates',
-                        fontSize: 14, fontWeight: FontWeight.bold)),
+                                                fontSize: 14, fontWeight: FontWeight.bold)),
                     Text('${activeCases} Casos Ativos', style:
                     TextStyle(
-                        fontFamily: 'MontserratAlternates',
-                        fontSize: 14)),
+                                               fontSize: 14)),
                     Text('${recoveredCases} Casos Recuperados', style: TextStyle(
-                        fontFamily: 'MontserratAlternates',
-                        fontSize: 14)),
+                                               fontSize: 14)),
                     Text('${deaths} Mortes', style: TextStyle(
-                        fontFamily: 'MontserratAlternates',
-                        fontSize: 14)),
+                                              fontSize: 14)),
                   ],
                 ),
 
