@@ -31,21 +31,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     funcaox();
 
     return Scaffold(
-//      appBar: AppBar(
-//        elevation: 0.0,
-//        backgroundColor: Colors.white,
-//        bottomOpacity: 0.0,
-//        actions: <Widget>[
-//          IconButton(
-//            onPressed: () => {Navigator.pushNamed(context, 'menu_icons_screen')},
-//            icon: Icon(
-//              Icons.list,
-//              color: Colors.black,
-//              size: 40.0,
-//            ),
-//          )
-//        ],
-//      ),
+      appBar: AppBar(
+        brightness: Brightness.light,
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+        bottomOpacity: 0.0,
+        actions: <Widget>[
+          IconButton(
+            onPressed: () => {Navigator.pushNamed(context, 'menu_icons_screen')},
+            icon: Icon(
+              Icons.list,
+              color: Colors.black,
+              size: 40.0,
+            ),
+          )
+        ],
+      ),
       body: Container(
         color: Colors.white,
         child: Column(
