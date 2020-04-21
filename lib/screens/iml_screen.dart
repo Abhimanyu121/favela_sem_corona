@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
+
 
 void main() => runApp(MaterialApp(home: IMLScreen()));
 
@@ -16,9 +18,12 @@ class _IMLScreenState extends State<IMLScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.grey,
-          title: const Text('IML do Rio de Janeiro'),
+          backgroundColor: nearlyWhite,
+          brightness: Brightness.light,
+          iconTheme: IconThemeData(color:Colors.black),
+          title: Text("IML do Rio de Janeiro", style: TextStyle(color: Colors.black),),
         ),
+
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(

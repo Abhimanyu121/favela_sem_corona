@@ -3,6 +3,8 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../constants.dart';
+
 //precisa da completer e do future builder
 
 void main() => runApp(MaterialApp(home: MinSaudeScreen()));
@@ -21,6 +23,12 @@ class _MinSaudeScreenState extends State<MinSaudeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: nearlyWhite,
+        brightness: Brightness.light,
+        iconTheme: IconThemeData(color:Colors.black),
+        title: Text("Ministery of Health", style: TextStyle(color: Colors.black),),
+      ),
       body: WebView(
         initialUrl: 'https://coronavirus.saude.gov.br/sobre-a-doenca#definicaodecaso',
         //initialUrl:
