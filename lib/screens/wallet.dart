@@ -24,6 +24,9 @@ class WalletState extends State<Wallet>{
       });
     }
   }
+  _createWallet(){
+    
+  }
   @override
   void initState() {
     _checkWalletStatus();
