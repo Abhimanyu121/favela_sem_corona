@@ -10,19 +10,35 @@ import 'package:favelasemcorona/screens/main_menu_screen.dart';
 import 'package:favelasemcorona/screens/posto_de_saude_screen.dart';
 import 'package:favelasemcorona/screens/psychological_help_screen.dart';
 import 'package:favelasemcorona/screens/quiz_screen.dart';
+<<<<<<< HEAD
 import 'package:favelasemcorona/screens/useful_info_screen.dart';
+=======
+import 'package:favelasemcorona/screens/wallet.dart';
+>>>>>>> 4f83af5... Added status bar and nav bar tint and some constants
 import 'package:favelasemcorona/screens/welcome_screen.dart';
 import 'package:favelasemcorona/screens/min_saude_screen.dart';
 import 'package:favelasemcorona/screens/instagram_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'constants.dart';
 
 
 void main() => runApp(FavelaSemCorona());
 
 class FavelaSemCorona extends StatelessWidget {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        systemNavigationBarColor: notWhite, // navigation bar color
+        statusBarColor: notWhite,
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.light,
+        systemNavigationBarDividerColor: background,
+        systemNavigationBarIconBrightness: Brightness.dark// status bar color
+    ));
     return MaterialApp(
       initialRoute: WelcomeScreen.id,
       routes: {
@@ -34,6 +50,7 @@ class FavelaSemCorona extends StatelessWidget {
         PainelCovidRioScreen.id: (context) => PainelCovidRioScreen(),
         IMLScreen.id: (context) => IMLScreen(),
         PostoDeSaudeScreen.id: (context) => PostoDeSaudeScreen(),
+        Wallet.id: (context) => Wallet(),
         FavelasScreen.id: (context) => FavelasScreen(),
         EntrepreneursScreen.id: (context) => EntrepreneursScreen(),
         InstagramScreen.id: (context) => InstagramScreen(),
