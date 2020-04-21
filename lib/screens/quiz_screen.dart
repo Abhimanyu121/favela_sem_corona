@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:favelasemcorona/models/quiz_brain.dart';
 
+import '../constants.dart';
+
 QuizBrain quizBrain = QuizBrain();
 
 class QuizScreen extends StatelessWidget {
@@ -74,6 +76,12 @@ class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: nearlyWhite,
+        brightness: Brightness.light,
+        iconTheme: IconThemeData(color:Colors.black),
+        title: Text("Stop COVID-19", style: TextStyle(color: Colors.black),),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,

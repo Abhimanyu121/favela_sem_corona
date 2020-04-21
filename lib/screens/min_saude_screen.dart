@@ -4,6 +4,8 @@ import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:favelasemcorona/screens/main_menu_screen.dart';
 
+import '../constants.dart';
+
 //precisa da completer e do future builder
 
 void main() => runApp(MaterialApp(home: MinSaudeScreen()));
