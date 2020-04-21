@@ -10,14 +10,16 @@ class QuizScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: QuizPage(),
-            ),
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: nearlyWhite,
+        brightness: Brightness.light,
+        iconTheme: IconThemeData(color:Colors.black),
+        title: Text("Stop COVID-19", style: TextStyle(color: Colors.black),),
+      ),
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: QuizPage(),
         ),
 
     );

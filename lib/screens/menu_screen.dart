@@ -19,8 +19,7 @@ class MenuScreen extends StatefulWidget {
 class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SafeArea(
+    return SafeArea(
         child: Scaffold(
           body: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -99,7 +98,6 @@ class _MenuScreenState extends State<MenuScreen> {
             ],
           ),
         ),
-      ),
     );
   }
 }
