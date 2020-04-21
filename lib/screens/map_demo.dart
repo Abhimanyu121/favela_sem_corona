@@ -92,8 +92,7 @@ class _MapsDemoState extends State<MapsDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         body: Stack(
           children: <Widget>[
             GoogleMap(
@@ -161,8 +160,7 @@ class _MapsDemoState extends State<MapsDemo> {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }
 

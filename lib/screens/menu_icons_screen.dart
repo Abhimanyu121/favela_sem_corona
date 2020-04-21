@@ -1,3 +1,4 @@
+import 'package:favelasemcorona/screens/wallet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -28,8 +29,7 @@ class MenuIconsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SafeArea(
+    return  SafeArea(
         child: Scaffold(
           body: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -75,6 +75,7 @@ class MenuIconsScreen extends StatelessWidget {
                     MenuItem(Icons.local_hospital, "HOSPITAIS E UPAS", () => {Navigator.pushNamed(context, 'maps_demo')}),
                     MenuItem(Icons.flash_on, "PRINCIPAIS DÚVIDAS", () => {Navigator.pushNamed(context, 'min_saude_screen')}),
                     MenuItem(Icons.filter_hdr, "ASSITÊNCIA FUNERÁRIA", () => {Navigator.pushNamed(context, 'iml_screen')}),
+                    MenuItem(Icons.account_balance_wallet, "Carteira", () => {Navigator.pushNamed(context, Wallet.id)}),
                     line(),
                     MenuItem(Icons.directions_run, "SUA COMUNIDADE", () => {Navigator.pushNamed(context, 'listview_screen')}),
                     MenuItem(Icons.contacts, "LIVES & EVENTOS", () => {}),
@@ -92,7 +93,6 @@ class MenuIconsScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
