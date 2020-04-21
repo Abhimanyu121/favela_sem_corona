@@ -57,8 +57,8 @@ class MenuIconsScreen extends StatelessWidget {
               ),
               Expanded(
                 flex: 4,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                child: ListView(
+                  cacheExtent: 100,
                   children: <Widget>[
                     Container(
                       padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
