@@ -31,6 +31,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     funcaox();
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         brightness: Brightness.light,
         elevation: 0.0,

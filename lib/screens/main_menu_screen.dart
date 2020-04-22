@@ -15,8 +15,7 @@ class MenuIconsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         body: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -92,7 +91,6 @@ class MenuIconsScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 }
