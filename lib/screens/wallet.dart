@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:favelasemcorona/constants.dart';
 import 'package:favelasemcorona/utils/ethWrapper.dart';
 import 'package:favelasemcorona/utils/keyInterface.dart';
@@ -5,12 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:qrscan/qrscan.dart' as scanner;
 class Wallet extends StatefulWidget{
   static const id ="wallet";
   @override
   WalletState createState() => WalletState();
 }
 class WalletState extends State<Wallet>{
+  Uint8List addressBytes = Uint8List(0);
   bool walletStatus = false;
   String privateKey = "";
   String address="";
@@ -43,7 +47,9 @@ class WalletState extends State<Wallet>{
   }
   _fetchBalance()async {
     var string = await EthWrapper.checkBalanceRopsten();
+    Uint8List result = await scanner.generateBarCode(address);
     setState(() {
+      addressBytes  = result;
       walletBalance = string;
       walletStatus = true;
     });
@@ -86,6 +92,7 @@ class WalletState extends State<Wallet>{
                     padding: const EdgeInsets.fromLTRB(16,15,5,10),
                     child: Text("Scan to get paid",style: TextStyle(fontSize:25,color: grey, fontWeight: FontWeight.bold),),
                   ),
+                  Center(child: SizedBox(height:MediaQuery.of(context).size.height*0.3,width: MediaQuery.of(context).size.width*0.5,child: Image.memory(addressBytes)))
                 ],
               )
             ],
@@ -108,7 +115,7 @@ class WalletState extends State<Wallet>{
               height: MediaQuery.of(context).size.height*0.05,
             ),
             Text("Creating a wallet for you:)", style: TextStyle(color: Colors.black),)
-            
+
           ],
         ),
       ),
