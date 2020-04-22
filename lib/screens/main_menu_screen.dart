@@ -4,6 +4,7 @@ import 'package:favelasemcorona/screens/map_demo.dart';
 import 'package:favelasemcorona/screens/min_saude_screen.dart';
 import 'package:favelasemcorona/screens/quiz_screen.dart';
 import 'package:favelasemcorona/screens/instagram_screen.dart';
+import 'package:favelasemcorona/screens/test_test_screen.dart';
 import 'package:favelasemcorona/screens/useful_info_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -82,6 +83,9 @@ class MenuIconsScreen extends StatelessWidget {
                       iconText: 'FACEBOOK',
                       onPressed: () => Navigator.pushNamed(context,
                           FacebookScreen.id),),
+                    MenuItem(icon: FontAwesomeIcons.appStore,
+                    iconText: 'TEST**TEST**',
+                    onPressed: () => Navigator.pushNamed(context, TestTestScreen.id),),
                     Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc04.gif', width: 240)
                   ],
                 ),
