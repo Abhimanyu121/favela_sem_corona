@@ -47,8 +47,9 @@ class UsefulInfoScreen extends StatelessWidget {
                 flex: 1,
                 child: Container(
                   color: Colors.grey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                  child: ListView(
+                    physics: NeverScrollableScrollPhysics(),
+                    //mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
                       Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),

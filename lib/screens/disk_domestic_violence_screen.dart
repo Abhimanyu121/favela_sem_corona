@@ -17,6 +17,7 @@ class _DiskDomesticViolenceScreenState extends State<DiskDomesticViolenceScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         title: Text('Disque 180'),
         flexibleSpace: Container(
           decoration: BoxDecoration(

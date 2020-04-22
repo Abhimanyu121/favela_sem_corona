@@ -25,6 +25,7 @@ class _MinSaudeScreenState extends State<MinSaudeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         title: Text('Ministério da Saúde'),
         flexibleSpace: Container(
           decoration: BoxDecoration(

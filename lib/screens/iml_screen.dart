@@ -1,3 +1,4 @@
+import 'package:favelasemcorona/constants.dart';
 import 'package:favelasemcorona/screens/useful_info_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +18,9 @@ class _IMLScreenState extends State<IMLScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: nearlyWhite,
         appBar: AppBar(
+          brightness: Brightness.light,
           title: Center(child: Text('Assistência Funerária')),
           flexibleSpace: Container(
             decoration: BoxDecoration(
