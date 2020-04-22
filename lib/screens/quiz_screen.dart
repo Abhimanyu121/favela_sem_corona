@@ -82,9 +82,9 @@ class _QuizPageState extends State<QuizPage> {
         iconTheme: IconThemeData(color:Colors.black),
         title: Text("Stop COVID-19", style: TextStyle(color: Colors.black),),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: ListView(
+        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           SizedBox(
             height: 20,
@@ -154,10 +154,14 @@ class _QuizPageState extends State<QuizPage> {
               },
             ),
           ),
-          Wrap(
-            children: scoreKeeper,
-          ),
+
         ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Wrap(
+          children: scoreKeeper,
+        ),
       ),
     );
   }
