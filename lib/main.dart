@@ -37,6 +37,7 @@ class FavelaSemCorona extends StatelessWidget {
         systemNavigationBarIconBrightness: Brightness.dark// status bar color
     ));
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: WelcomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),

@@ -5,6 +5,7 @@ import 'package:favelasemcorona/screens/min_saude_screen.dart';
 import 'package:favelasemcorona/screens/quiz_screen.dart';
 import 'package:favelasemcorona/screens/instagram_screen.dart';
 import 'package:favelasemcorona/screens/useful_info_screen.dart';
+import 'package:favelasemcorona/screens/wallet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:favelasemcorona/components/menu_item_button.dart';
@@ -75,6 +76,10 @@ class MenuIconsScreen extends StatelessWidget {
                         iconText: 'STOP COVID-19',
                         onPressed: () => Navigator.pushNamed(context,
                             QuizScreen.id),),
+                      MenuItem(icon: FontAwesomeIcons.wallet,
+                        iconText: 'Carteira',
+                        onPressed: () => Navigator.pushNamed(context,
+                            Wallet.id),),
                       MenuItem(icon: FontAwesomeIcons.instagramSquare,
                         iconText: 'INSTAGRAM',
                         onPressed: () => Navigator.pushNamed(context,
