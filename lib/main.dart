@@ -10,11 +10,8 @@ import 'package:favelasemcorona/screens/main_menu_screen.dart';
 import 'package:favelasemcorona/screens/posto_de_saude_screen.dart';
 import 'package:favelasemcorona/screens/psychological_help_screen.dart';
 import 'package:favelasemcorona/screens/quiz_screen.dart';
-<<<<<<< HEAD
 import 'package:favelasemcorona/screens/useful_info_screen.dart';
-=======
 import 'package:favelasemcorona/screens/wallet.dart';
->>>>>>> 4f83af5... Added status bar and nav bar tint and some constants
 import 'package:favelasemcorona/screens/welcome_screen.dart';
 import 'package:favelasemcorona/screens/min_saude_screen.dart';
 import 'package:favelasemcorona/screens/instagram_screen.dart';
