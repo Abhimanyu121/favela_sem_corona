@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:favelasemcorona/models/entrepreneurs.dart';
 import 'package:favelasemcorona/models/favelas.dart';
 import 'package:favelasemcorona/components/business_cards.dart';
-import 'package:favelasemcorona/screens/menu_icons_screen.dart';
+import 'package:favelasemcorona/screens/main_menu_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +35,7 @@ class _EntrepreneursScreenState extends State<EntrepreneursScreen> {
                   boxShadow: [BoxShadow(color: Colors.black26, offset: Offset(0.0, 2.0,), blurRadius: 6.0,),]),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(30.0),
-                child: Image(image: AssetImage('images/favelaRocinha.jpg'),
+                child: Image(image: AssetImage('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/favelaRocinha.jpg'),
                   fit: BoxFit.cover,),),
             ),
             Padding(
@@ -76,7 +76,7 @@ class _EntrepreneursScreenState extends State<EntrepreneursScreen> {
                   whatsApp:'WhatsApp: ${rocinhaEntrepreneurs[index].whatsApp}' ,
                   instagram: 'Instagram: ${rocinhaEntrepreneurs[index].instagramUrl}',
                   facebook:'${rocinhaEntrepreneurs[index].facebookUrl}',
-                  businessPicture: 'images/chef-logo.jpg',
+                  businessPicture: 'https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/chef-logo.jpg',
                 );
               },
             ),

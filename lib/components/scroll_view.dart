@@ -34,7 +34,7 @@ class MyScrollView extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Text(longText, style:
-                TextStyle(fontFamily: 'MontserratAlternates',
+                TextStyle(
                     fontSize: 14),),
               ),
             ),

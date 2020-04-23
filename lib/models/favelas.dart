@@ -50,7 +50,7 @@ class Favela{
       residences: 2693,
       activeCases: 4,
       deaths: 0,
-      imageUrl: 'images/favelaAndarai_MarceloHorn.jpg',
+      imageUrl: 'https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/favelaAndarai_MarceloHorn.jpg',
       photoCredits: 'Marcelo Horn',
     ),
     Favela(
@@ -86,7 +86,7 @@ class Favela{
       activeCases: 8,
       recoveredCases: 0,
       deaths: 1,
-      imageUrl: 'images/favelaCidadededeus.jpg'
+      imageUrl: 'https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/favelaCidadededeus.jpg'
     ),
     Favela(
       communityName: 'Complexo da Maré',
@@ -143,7 +143,7 @@ class Favela{
       deaths: 2,
       recoveredCases: 0,
       totalCases: 26,
-      imageUrl: 'images/favelaRocinha.jpg',
+      imageUrl: 'https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/favelaRocinha.jpg',
     ),
   ];
 

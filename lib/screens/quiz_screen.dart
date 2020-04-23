@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:favelasemcorona/models/quiz_brain.dart';
 
+import '../constants.dart';
+
 QuizBrain quizBrain = QuizBrain();
 
 class QuizScreen extends StatelessWidget {
@@ -9,6 +11,7 @@ class QuizScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return QuizPage();
+
   }
 }
 
@@ -73,14 +76,21 @@ class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      appBar: AppBar(
+        backgroundColor: nearlyWhite,
+        brightness: Brightness.light,
+        iconTheme: IconThemeData(color:Colors.black),
+        title: Text("Stop COVID-19", style: TextStyle(color: Colors.black),),
+      ),
+      body: ListView(
+        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           SizedBox(
             height: 20,
           ),
-          Image.asset(quizBrain.questions[27].questionImage,
+          Image.network(quizBrain.questions[quizBrain.questionNumber]
+              .questionImage,
             height: 210,),
           Padding(
             padding: EdgeInsets.all(2.0),
@@ -144,10 +154,14 @@ class _QuizPageState extends State<QuizPage> {
               },
             ),
           ),
-          Wrap(
-            children: scoreKeeper,
-          ),
+
         ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Wrap(
+          children: scoreKeeper,
+        ),
       ),
     );
   }

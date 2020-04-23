@@ -247,7 +247,7 @@ List<PostoDeSaude> postosdesaude = [
   ),
 ];
 
-List<PostoDeSaude> clinicasDaFamilia = [
+List<PostoDeSaude> clinicasDaFamiliaRocinha = [
   PostoDeSaude(
     nome: 'Clinica da Família - Maria do Socorro',
     endereco: 'Estrada da Gávea, 522 - Rocinha',

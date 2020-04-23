@@ -29,15 +29,15 @@ class DiskCovidScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,
-                          size: 30.0), onPressed: () => Navigator
-                          .pushReplacementNamed(context, UsefulInfoScreen.id)),
-                      Image.asset('images/corona-dir.png'),
-                      Image.asset('images/corona-esq.png'),
-                      Image.asset('images/corona-dir.png'),
-                      Image.asset('images/corona-esq.png'),
-                      Image.asset('images/corona-dir.png'),
-                      Image.asset('images/corona-esq.png'),
+                      // IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,
+                      //     size: 30.0), onPressed: () => Navigator
+                      //     .pushReplacementNamed(context, UsefulInfoScreen.id)),
+                      Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                      Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
+                      Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                      Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
+                      Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
+                      Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
                     ],
                   ),
                 ),
@@ -50,8 +50,8 @@ class DiskCovidScreen extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                        child: Container(child: Image.asset
-                          ('images/disk-covid.png', width: 200, height: 200,)),
+                        child: Container(child: Image.network
+                          ('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/disk-covid.png', width: 200, height: 200,)),
                       ),
                       MyScrollView(
                         longText: 'Ao ligar no Disque Saúde 136, gratuitamente, e escolhendo a opção número 1, '

@@ -32,7 +32,8 @@ class _PostoDeSaudeScreenState extends State<PostoDeSaudeScreen> {
                       (0.0, 2.0,), blurRadius: 6.0,),]),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(30.0),
-                  child: Image(image: AssetImage('images/doctor.png'),
+                  child: Image(image: NetworkImage('https://raw.githubusercontent'
+                      '.com/itsencrypted/favela_sem_corona_api/master/images/doctor.png'),
                     fit: BoxFit.cover,),),
               ),
               Positioned(
@@ -56,32 +57,32 @@ class _PostoDeSaudeScreenState extends State<PostoDeSaudeScreen> {
             Container(color: Colors.grey.shade100,
             child: Column(
               children: <Widget>[
-                Text('${clinicasDaFamilia[0].nome}', style: TextStyle(fontSize:
+                Text('${clinicasDaFamiliaRocinha[0].nome}', style: TextStyle(fontSize:
                 18, fontWeight: FontWeight.bold),),
-                Text('${clinicasDaFamilia[0].endereco}'),
-                Text('${clinicasDaFamilia[0].telefone}'),
-                Text('${clinicasDaFamilia[0].horariosDeFuncionamento[0]}'),
-                Text('${clinicasDaFamilia[0].horariosDeFuncionamento[1]}'),
+                Text('${clinicasDaFamiliaRocinha[0].endereco}'),
+                Text('${clinicasDaFamiliaRocinha[0].telefone}'),
+                Text('${clinicasDaFamiliaRocinha[0].horariosDeFuncionamento[0]}'),
+                Text('${clinicasDaFamiliaRocinha[0].horariosDeFuncionamento[1]}'),
                 Text(''),
-                Text('${clinicasDaFamilia[1].nome}', style: TextStyle(fontSize:
+                Text('${clinicasDaFamiliaRocinha[1].nome}', style: TextStyle(fontSize:
                 18, fontWeight: FontWeight.bold),),
-                Text('${clinicasDaFamilia[1].endereco}'),
-                Text('${clinicasDaFamilia[1].telefone}'),
-                Text('${clinicasDaFamilia[1].horariosDeFuncionamento[0]}'),
-                Text('${clinicasDaFamilia[1].horariosDeFuncionamento[1]}'),
+                Text('${clinicasDaFamiliaRocinha[1].endereco}'),
+                Text('${clinicasDaFamiliaRocinha[1].telefone}'),
+                Text('${clinicasDaFamiliaRocinha[1].horariosDeFuncionamento[0]}'),
+                Text('${clinicasDaFamiliaRocinha[1].horariosDeFuncionamento[1]}'),
                 Text(''),
-                Text('${clinicasDaFamilia[2].nome}', style: TextStyle(fontSize:
+                Text('${clinicasDaFamiliaRocinha[2].nome}', style: TextStyle(fontSize:
                 18, fontWeight: FontWeight.bold),),
-                Text('${clinicasDaFamilia[2].endereco}'),
-                Text('${clinicasDaFamilia[2].telefone}'),
-                Text('${clinicasDaFamilia[2].horariosDeFuncionamento[0]}'),
-                Text('${clinicasDaFamilia[2].horariosDeFuncionamento[1]}'),
+                Text('${clinicasDaFamiliaRocinha[2].endereco}'),
+                Text('${clinicasDaFamiliaRocinha[2].telefone}'),
+                Text('${clinicasDaFamiliaRocinha[2].horariosDeFuncionamento[0]}'),
+                Text('${clinicasDaFamiliaRocinha[2].horariosDeFuncionamento[1]}'),
                 Text(''),
                 ],
             )),
             SizedBox(height: 10,),
             IconButton(
-              icon: Image.asset('images/stickers_fsc03.gif'),
+              icon: Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc03.gif'),
               iconSize: 170,
               onPressed: () {
                 Navigator.pushReplacementNamed(context, FavelasScreen.id);

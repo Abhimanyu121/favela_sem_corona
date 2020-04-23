@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
 
-class PsychologicalHelpScreen extends StatefulWidget {
-  static const String id = "psychological_help_screen";
+class FacebookScreen extends StatefulWidget {
+  static const String id = "facebook_screen";
 
   @override
-  _PsychologicalHelpScreenState createState() => _PsychologicalHelpScreenState();
+  _FacebookScreenState createState() => _FacebookScreenState();
 }
 
-class _PsychologicalHelpScreenState extends State<PsychologicalHelpScreen> {
+class _FacebookScreenState extends State<FacebookScreen> {
   Completer<WebViewController> _controller = Completer<WebViewController>();
 
   @override
@@ -18,12 +18,12 @@ class _PsychologicalHelpScreenState extends State<PsychologicalHelpScreen> {
     return Scaffold(
       appBar: AppBar(
         brightness: Brightness.light,
-        title: Text('Apoio Psicológico'),
+        title: Text('Facebook - Favela sem Corona'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Colors.green.shade400,
+                Colors.blue,
                 Colors.indigo,
               ],
             ),
@@ -31,7 +31,7 @@ class _PsychologicalHelpScreenState extends State<PsychologicalHelpScreen> {
         ),
       ),
       body: WebView(
-        initialUrl: 'https://www.facebook.com/sevitrj/',
+        initialUrl: 'https://www.facebook.com/favelasemcorona',
         javascriptMode: JavascriptMode.unrestricted,
         onWebViewCreated: (WebViewController webViewController) {
           _controller.complete(webViewController);
