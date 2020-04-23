@@ -1,5 +1,6 @@
 import 'package:favelasemcorona/screens/arcgis_covid_screen.dart';
 import 'package:favelasemcorona/screens/facebook_screen.dart';
+import 'package:favelasemcorona/screens/favelas_screen.dart';
 import 'package:favelasemcorona/screens/map_demo.dart';
 import 'package:favelasemcorona/screens/min_saude_screen.dart';
 import 'package:favelasemcorona/screens/quiz_screen.dart';
@@ -86,6 +87,10 @@ class MenuIconsScreen extends StatelessWidget {
                     MenuItem(icon: FontAwesomeIcons.appStore,
                     iconText: 'TEST**TEST**',
                     onPressed: () => Navigator.pushNamed(context, TestTestScreen.id),),
+                    MenuItem(icon: FontAwesomeIcons.appStore,
+                      iconText: 'Favelas',
+                      onPressed: () => Navigator.pushNamed(context, FavelasScreen
+                          .id),),
                     Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc04.gif', width: 240)
                   ],
                 ),
