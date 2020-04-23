@@ -31,37 +31,44 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     funcaox();
 
     return Scaffold(
-//      appBar: AppBar(
-//        elevation: 0.0,
-//        backgroundColor: Colors.white,
-//        bottomOpacity: 0.0,
-//        actions: <Widget>[
-//          IconButton(
-//            onPressed: () => {Navigator.pushNamed(context, 'menu_icons_screen')},
-//            icon: Icon(
-//              Icons.list,
-//              color: Colors.black,
-//              size: 40.0,
-//            ),
-//          )
-//        ],
-//      ),
-      body: Container(
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[
-            SizedBox(height: 120),
-            Hero(
-              child: Container(child: Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/logo.png'),
-                height:
-              500,),
-              tag: 'logo-favelasemcorona',),
-            DharmaButton(
-              titleOfButton: 'Entrar',
-              onPressed: () =>
-                  Navigator.pushReplacementNamed(context, MenuIconsScreen.id),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        brightness: Brightness.light,
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+        bottomOpacity: 0.0,
+        actions: <Widget>[
+          IconButton(
+            onPressed: () => {Navigator.pushNamed(context, 'menu_icons_screen')},
+            icon: Icon(
+              Icons.list,
+              color: Colors.black,
+              size: 40.0,
             ),
-          ],
+          )
+        ],
+      ),
+      body: Center(
+        child: Container(
+          color: Colors.white,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              //SizedBox(height: MediaQuery.of(context).size.height*0.2),
+              Hero(
+                child: Container(child: Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/logo.png'),
+                  height:MediaQuery.of(context).size.height*0.35,),
+                tag: 'logo-favelasemcorona',
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height*0.06),
+              DharmaButton(
+                titleOfButton: 'Entrar',
+                onPressed: () =>
+                    Navigator.pushReplacementNamed(context, MenuIconsScreen.id),
+              ),
+            ],
+          ),
         ),
       ),
     );

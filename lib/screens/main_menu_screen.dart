@@ -7,6 +7,7 @@ import 'package:favelasemcorona/screens/quiz_screen.dart';
 import 'package:favelasemcorona/screens/instagram_screen.dart';
 import 'package:favelasemcorona/screens/test_test_screen.dart';
 import 'package:favelasemcorona/screens/useful_info_screen.dart';
+import 'package:favelasemcorona/screens/wallet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:favelasemcorona/components/menu_item_button.dart';
@@ -17,8 +18,7 @@ class MenuIconsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         body: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -28,8 +28,9 @@ class MenuIconsScreen extends StatelessWidget {
               flex: 1,
               child: Container(
                 color: Colors.grey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                child: ListView(
+                  physics: NeverScrollableScrollPhysics(),
+                 // mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-dir.png'),
                     Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/corona-esq.png'),
@@ -45,14 +46,16 @@ class MenuIconsScreen extends StatelessWidget {
             Expanded(
               flex: 5,
               child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
-                      child: Hero(
-                        child: Container(child: Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/logo.png', width: 180, height: 180,)),
-                        tag: 'logo-favelasemcorona'
+                child: Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                        child: Hero(
+                          child: Container(child: Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/logo.png', width: 180, height: 180,)),
+                          tag: 'logo-favelasemcorona'
+                        ),
                       ),
                     ),
                     SizedBox(height: 25),
@@ -76,6 +79,10 @@ class MenuIconsScreen extends StatelessWidget {
                       iconText: 'STOP COVID-19',
                       onPressed: () => Navigator.pushNamed(context,
                           QuizScreen.id),),
+                    MenuItem(icon: FontAwesomeIcons.wallet,
+                      iconText: 'Carteira',
+                      onPressed: () => Navigator.pushNamed(context,
+                            Wallet.id),),
                     MenuItem(icon: FontAwesomeIcons.instagramSquare,
                       iconText: 'INSTAGRAM',
                       onPressed: () => Navigator.pushNamed(context,
@@ -98,7 +105,6 @@ class MenuIconsScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 }

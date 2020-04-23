@@ -17,6 +17,7 @@ class _FacebookScreenState extends State<FacebookScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         title: Text('Facebook - Favela sem Corona'),
         flexibleSpace: Container(
           decoration: BoxDecoration(

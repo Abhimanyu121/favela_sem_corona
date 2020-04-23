@@ -17,6 +17,7 @@ class _InstagramScreenState extends State<InstagramScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         title: Text('Instagram- Favela sem Corona'),
         flexibleSpace: Container(
           decoration: BoxDecoration(

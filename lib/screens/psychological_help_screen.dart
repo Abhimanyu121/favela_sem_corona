@@ -17,6 +17,7 @@ class _PsychologicalHelpScreenState extends State<PsychologicalHelpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         title: Text('Apoio Psicológico'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
