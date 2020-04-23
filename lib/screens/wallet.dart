@@ -8,6 +8,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:toast/toast.dart';
 class Wallet extends StatefulWidget{
   static const id ="wallet";
   @override
@@ -92,7 +93,20 @@ class WalletState extends State<Wallet>{
                     padding: const EdgeInsets.fromLTRB(16,15,5,10),
                     child: Text("Scan to get paid",style: TextStyle(fontSize:25,color: grey, fontWeight: FontWeight.bold),),
                   ),
-                  Center(child: SizedBox(height:MediaQuery.of(context).size.height*0.3,width: MediaQuery.of(context).size.width*0.5,child: Image.memory(addressBytes)))
+                  Center(child: SizedBox(height:MediaQuery.of(context).size.height*0.3,width: MediaQuery.of(context).size.width*0.5,child: Image.memory(addressBytes))),
+                  RaisedButton(
+                    child: Text("Scan QR to pay"),
+                    onPressed: ()async{
+                      String photoScanResult = await scanner.scan();
+                      RegExp reg = RegExp(r'^0x([A-Fa-f0-9]{40})$');
+                      if(reg.hasMatch(photoScanResult)){
+                        print("match");
+                      }
+                      else{
+                        Toast.show("Invalid QR", context, duration: Toast.LENGTH_LONG);
+                      }
+                    },
+                  ),
                 ],
               )
             ],
