@@ -57,7 +57,6 @@ class MenuIconsScreen extends StatelessWidget {
                           tag: 'logo-favelasemcorona'
                         ),
                       ),
-                    ),
                     SizedBox(height: 25),
                     MenuItem(icon: FontAwesomeIcons.chartLine,
                       iconText: 'PAINEL RIO COVID19',
@@ -79,10 +78,6 @@ class MenuIconsScreen extends StatelessWidget {
                       iconText: 'STOP COVID-19',
                       onPressed: () => Navigator.pushNamed(context,
                           QuizScreen.id),),
-                    MenuItem(icon: FontAwesomeIcons.wallet,
-                      iconText: 'Carteira',
-                      onPressed: () => Navigator.pushNamed(context,
-                            Wallet.id),),
                     MenuItem(icon: FontAwesomeIcons.instagramSquare,
                       iconText: 'INSTAGRAM',
                       onPressed: () => Navigator.pushNamed(context,
@@ -91,19 +86,20 @@ class MenuIconsScreen extends StatelessWidget {
                       iconText: 'FACEBOOK',
                       onPressed: () => Navigator.pushNamed(context,
                           FacebookScreen.id),),
-                    MenuItem(icon: FontAwesomeIcons.appStore,
-                    iconText: 'TEST**TEST**',
-                    onPressed: () => Navigator.pushNamed(context, TestTestScreen.id),),
+                    MenuItem(icon: FontAwesomeIcons.wallet,
+                    iconText: 'WALLET',
+                    onPressed: () => Navigator.pushNamed(context, Wallet.id),),
                     MenuItem(icon: FontAwesomeIcons.appStore,
                       iconText: 'Favelas',
-                      onPressed: () => Navigator.pushNamed(context, FavelasScreen
+                      onPressed: () => Navigator.pushNamed(context, TestTestScreen
                           .id),),
                     Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc04.gif', width: 240)
                   ],
                 ),
               ),
             ),
-          ],
+            ),
+          ]
         ),
     );
   }
