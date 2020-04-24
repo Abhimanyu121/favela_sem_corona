@@ -1,6 +1,8 @@
 import 'dart:typed_data';
 
 import 'package:favelasemcorona/constants.dart';
+import 'package:favelasemcorona/models/payment_confirmation_model.dart';
+import 'package:favelasemcorona/screens/payment_amount.dart';
 import 'package:favelasemcorona/utils/ethWrapper.dart';
 import 'package:favelasemcorona/utils/keyInterface.dart';
 import 'package:flutter/material.dart';
@@ -24,17 +26,17 @@ class WalletState extends State<Wallet>{
     print("inside check status");
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var key = prefs.getString(prefPrivateKey);
-    if(key !="" || key !=null){
+    if(key =="" || key ==null){
       await Firestore.instance
           .collection('walletUsers')
-          .document('987456322')
+          .document('987456323')
           .get()
           .then((DocumentSnapshot ds)async  {
         if(!ds.exists){
           String keygen = await KeyInterface.generateKey();
           print("pvtkey:$keygen");
           var addr = prefs.getString(prefAddress);
-          await Firestore.instance.collection('walletUsers').document("987456322")
+          await Firestore.instance.collection('walletUsers').document("987456323")
               .setData({ prefPrivateKey: keygen,prefAddress: addr});
 
           setState(() {
@@ -128,7 +130,25 @@ class WalletState extends State<Wallet>{
                         String photoScanResult = await scanner.scan();
                         RegExp reg = RegExp(r'^0x([A-Fa-f0-9]{40})$');
                         if(reg.hasMatch(photoScanResult)){
-                          print("match");
+                          var str = await _asyncInputDialog(context);
+                          if(str!="cancel"){
+                            setState(() {
+                              walletStatus =true;
+                            });
+                            var tx =await EthWrapper.transferToken(photoScanResult, double.parse(str));
+                             await Navigator.pushNamed(
+                              context,
+                              PaymentTx.id,
+                              arguments: PaymentModel(
+                                  recpAddress: photoScanResult,
+                                  senderAddress: address,
+                                  amount: str,
+                                  tx: tx,
+                              ),
+                            ).then((val){
+                              _fetchBalance();
+                             });
+                          }
                         }
                         else{
                           Toast.show("Invalid QR", context, duration: Toast.LENGTH_LONG);
@@ -157,10 +177,55 @@ class WalletState extends State<Wallet>{
             SizedBox(
               height: MediaQuery.of(context).size.height*0.05,
             ),
-            Text("Creating a wallet for you:)", style: TextStyle(color: Colors.black),)
+            Text("Please Wait", style: TextStyle(color: Colors.black),)
           ],
         ),
       ),
+    );
+  }
+  Future<String> _asyncInputDialog(BuildContext context) async {
+    return showDialog<String>(
+      context: context,
+      barrierDismissible: false, // dialog is dismissible with a tap on the barrier
+      builder: (BuildContext context) {
+        TextEditingController _amount = TextEditingController();
+        return AlertDialog(
+          title: Text('Enter amount'),
+          content:  TextFormField(
+          keyboardType: TextInputType.number,
+            autovalidate: true,
+            validator: (val) =>(val==""?true: double.parse(val)<=double.parse(walletBalance))
+                ? null
+                : 'Invalid Amount.',
+            decoration: InputDecoration(
+              hintText: 'Enter Amount',
+              contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(3.0)),
+            ),
+            controller: _amount,
+          ),
+          actions: <Widget>[
+            FlatButton(
+                child: Text("Cancel"),
+                onPressed: () async {
+                  Navigator.of(context).pop("cancel");
+                }
+            ),
+            FlatButton(
+                child: Text("Confirm"),
+                onPressed: () async {
+                  if(double.parse(_amount.text)<=double.parse(walletBalance))
+                   {
+                     Navigator.of(context).pop(_amount.text);
+                   }
+                  else{
+                    Toast.show("Invalid Amount", context, duration: Toast.LENGTH_LONG);
+                  }
+                }),
+
+          ],
+        );
+      },
     );
   }
 
