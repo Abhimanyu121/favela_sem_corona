@@ -36,4 +36,36 @@ class EthWrapper{
     return retbal.toString();
 
   }
+  static Future<String> transferToken(String recipient, double amount)async{
+    var apiUrl = "https://ropsten.infura.io/v3/311ef590f7e5472a90edfa1316248cff";
+    final client = Web3Client(apiUrl, http.Client());
+    String txHash="";
+    await rootBundle.loadString("assets/StandardToken.json").then((abi)async{
+      await SharedPreferences.getInstance().then((prefs)async {
+        String privateKey = prefs.getString(prefPrivateKey);
+        Credentials credentials = EthPrivateKey.fromHex(privateKey);
+        final address = await credentials.extractAddress();
+        print(address);
+        final contract  =  DeployedContract(ContractAbi.fromJson(abi, "StandardTOken"),EthereumAddress.fromHex(moonRopsten));
+        var transfer = contract.function('transfer');
+        await client.sendTransaction(
+          credentials,
+          Transaction.callContract(
+              contract: contract,
+              function: transfer,
+              parameters: [EthereumAddress.fromHex(recipient),BigInt.from(amount*1000)*BigInt.from(1000000000000000)]
+          ),
+          chainId: 3,
+
+        ).then((hash){
+          print(BigInt.from(amount)*BigInt.from(1000000000000000000));
+          print("tx hash: "+ hash);
+          txHash = hash;
+
+        });
+      });
+    });
+    //await client.dispose();
+    return txHash;
+  }
 }

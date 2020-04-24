@@ -7,6 +7,7 @@ import 'package:favelasemcorona/screens/favelas_screen.dart';
 import 'package:favelasemcorona/screens/iml_screen.dart';
 import 'package:favelasemcorona/screens/map_demo.dart';
 import 'package:favelasemcorona/screens/main_menu_screen.dart';
+import 'package:favelasemcorona/screens/payment_amount.dart';
 import 'package:favelasemcorona/screens/posto_de_saude_screen.dart';
 import 'package:favelasemcorona/screens/psychological_help_screen.dart';
 import 'package:favelasemcorona/screens/quiz_screen.dart';
@@ -57,6 +58,7 @@ class FavelaSemCorona extends StatelessWidget {
         DiskDomesticViolenceScreen.id: (context) => DiskDomesticViolenceScreen(),
         PsychologicalHelpScreen.id: (context) => PsychologicalHelpScreen(),
         FacebookScreen.id: (context) => FacebookScreen(),
+        PaymentTx.id: (context) => PaymentTx(),
       },
     );
   }
