@@ -21,43 +21,41 @@ class WalletState extends State<Wallet>{
   String address="";
   var walletBalance = "0";
   _checkWalletStatus() async {
-    print("inside check status");
+    print("in checkStatus");
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var key = prefs.getString(prefPrivateKey);
-    if(key !="" || key !=null){
+   // if(key !="" || key !=null){
+      if(true){
+      print("here");
+      String keygen = await KeyInterface.generateKey();
+      print("pvtkey:$keygen");
+      var addr = prefs.getString(prefAddress);
       await Firestore.instance
           .collection('walletUsers')
           .document('987456322')
           .get()
-          .then((DocumentSnapshot ds)async  {
-        if(!ds.exists){
-          String keygen = await KeyInterface.generateKey();
-          print("pvtkey:$keygen");
-          var addr = prefs.getString(prefAddress);
-          await Firestore.instance.collection('walletUsers').document("987456322")
-              .setData({ prefPrivateKey: keygen,prefAddress: addr});
+          .then((DocumentSnapshot ds) {
+            if(ds==null){
+              print("data is null");
+            }
+            else{
+              print("snapshot data"+ds.data["privateKey"].toString());
 
-          setState(() {
-            address = addr;
-            privateKey = keygen;
-          });
-        }else {
-          await prefs.setString(prefPrivateKey, ds[prefPrivateKey]);
-          await prefs.setString(prefAddress, ds[prefAddress]);
-
-          print("fstore"+ds[prefAddress].toString());
-          setState(() {
-
-            address = ds[prefAddress];
-            privateKey = ds[prefPrivateKey];
-          });
-        }
+            }
+        // use ds as a snapshot
       });
+      await Firestore.instance.collection('walletUsers').document("987456321")
+          .setData({ prefPrivateKey: keygen,prefAddress: addr});
 
+      setState(() {
+        address = addr;
+        privateKey = keygen;
+      });
     }
     else {
       var addr = prefs.getString(prefAddress);
       setState(() {
+        print("in else");
         address = addr;
         privateKey = key;
       });
@@ -87,17 +85,17 @@ class WalletState extends State<Wallet>{
   }
   _wallet(){
     return Scaffold(
-      backgroundColor: nearlyWhite,
-      appBar: AppBar(
-        elevation: 0,
         backgroundColor: nearlyWhite,
-        brightness: Brightness.light,
-        title: Text("Wallet", style: TextStyle(color: Colors.black),),
-        iconTheme: IconThemeData(color: Colors.black),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: nearlyWhite,
+          brightness: Brightness.light,
+          title: Text("Wallet", style: TextStyle(color: Colors.black),),
+          iconTheme: IconThemeData(color: Colors.black),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView(
             children: <Widget>[
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,8 +137,8 @@ class WalletState extends State<Wallet>{
                 ],
               )
             ],
-        ),
-      )
+          ),
+        )
     );
   }
   _cerateWallet(){
@@ -158,6 +156,7 @@ class WalletState extends State<Wallet>{
               height: MediaQuery.of(context).size.height*0.05,
             ),
             Text("Creating a wallet for you:)", style: TextStyle(color: Colors.black),)
+
           ],
         ),
       ),
