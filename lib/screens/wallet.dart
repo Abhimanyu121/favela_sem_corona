@@ -7,9 +7,11 @@ import 'package:favelasemcorona/utils/ethWrapper.dart';
 import 'package:favelasemcorona/utils/keyInterface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+import 'package:barcode_scan/barcode_scan.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:qrscan/qrscan.dart' as scanner;
+//import 'package:qrscan/qrscan.dart' as scanner;
 import 'package:toast/toast.dart';
 class Wallet extends StatefulWidget{
   static const id ="wallet";
@@ -69,9 +71,9 @@ class WalletState extends State<Wallet>{
 
   _fetchBalance()async {
     var string = await EthWrapper.checkBalanceRopsten();
-    Uint8List result = await scanner.generateBarCode(address);
+   // Uint8List result = await scanner.generateBarCode(address);
     setState(() {
-      addressBytes  = result;
+    //  addressBytes  = result;
       walletBalance = string;
       walletStatus = true;
     });
@@ -114,7 +116,13 @@ class WalletState extends State<Wallet>{
                     padding: const EdgeInsets.fromLTRB(16,15,5,10),
                     child: Text("Scan to get paid",style: TextStyle(fontSize:25,color: grey, fontWeight: FontWeight.bold),),
                   ),
-                  Center(child: SizedBox(height:MediaQuery.of(context).size.height*0.3,width: MediaQuery.of(context).size.width*0.5,child: Image.memory(addressBytes))),
+                  Center(
+                    child: SizedBox(height:MediaQuery.of(context).size.height*0.3,width: MediaQuery.of(context).size.width*0.5,child:QrImage(
+                      data: address,
+                      version: QrVersions.auto,
+                      size: 200.0,
+                    ),) ,
+                  ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(16,15,5,10),
                     child: Text("Scan to get paid",style: TextStyle(fontSize:25,color: grey, fontWeight: FontWeight.bold),),
@@ -127,20 +135,21 @@ class WalletState extends State<Wallet>{
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Text("Scan QR to pay Someone"),
                       onPressed: ()async{
-                        String photoScanResult = await scanner.scan();
+                        String qrResult = await BarcodeScanner.scan();
+                        print(qrResult);
                         RegExp reg = RegExp(r'^0x([A-Fa-f0-9]{40})$');
-                        if(reg.hasMatch(photoScanResult)){
+                        if(reg.hasMatch(qrResult)){
                           var str = await _asyncInputDialog(context);
                           if(str!="cancel"){
                             setState(() {
                               walletStatus =true;
                             });
-                            var tx =await EthWrapper.transferToken(photoScanResult, double.parse(str));
+                            var tx =await EthWrapper.transferToken(qrResult, double.parse(str));
                              await Navigator.pushNamed(
                               context,
                               PaymentTx.id,
                               arguments: PaymentModel(
-                                  recpAddress: photoScanResult,
+                                  recpAddress: qrResult,
                                   senderAddress: address,
                                   amount: str,
                                   tx: tx,
