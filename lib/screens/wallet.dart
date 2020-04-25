@@ -44,7 +44,7 @@ class WalletState extends State<Wallet>{
           String keygen = await KeyInterface.generateKey();
           print("pvtkey:$keygen");
           var addr = prefs.getString(prefAddress);
-          await Firestore.instance.collection('walletUsers').document(prefEmail)
+          await Firestore.instance.collection('walletUsers').document(prefs.getString(prefEmail))
               .setData({ prefPrivateKey: keygen,prefAddress: addr});
 
           setState(() {
@@ -114,7 +114,29 @@ class WalletState extends State<Wallet>{
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.fromLTRB(16,5,5,10),
-                    child: Text("Your balance",style: TextStyle(fontSize:25,color: grey, fontWeight: FontWeight.bold),),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text("Your balance",style: TextStyle(fontSize:25,color: grey, fontWeight: FontWeight.bold),),
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: OutlineButton(
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+                            color: Colors.orange,
+                            child: Text("Refresh"),
+                            onPressed: (){
+                              setState(() {
+                                walletStatus = false;
+                              });
+                              _fetchBalance();
+                              setState(() {
+                                walletStatus =true;
+                              });
+                            },
+                          ),
+                        )
+                      ],
+                    )
                   ),
                   Center(child: Text(walletBalance, style: TextStyle(color: secondAppTheme, fontSize: 30, fontWeight: FontWeight.bold),)),
                   Center(child: Text("USD", style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),)),
