@@ -3,6 +3,8 @@ import 'package:favelasemcorona/screens/useful_info_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
+
 
 void main() => runApp(MaterialApp(home: IMLScreen()));
 
