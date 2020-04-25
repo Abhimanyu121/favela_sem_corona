@@ -14,6 +14,7 @@ class PainelCovidRioScreen extends StatefulWidget {
 
 class _PainelCovidRioScreenState extends State<PainelCovidRioScreen> {
   Completer<WebViewController> _controller = Completer<WebViewController>();
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +22,27 @@ class _PainelCovidRioScreenState extends State<PainelCovidRioScreen> {
       appBar: AppBar(
         backgroundColor: nearlyWhite,
         brightness: Brightness.light,
-        iconTheme: IconThemeData(color:Colors.black),
-        title: Text("Covid Data", style: TextStyle(color: Colors.black),),
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text(
+          "Covid Data",
+          style: TextStyle(color: Colors.black),
+        ),
       ),
-      body: WebView(
-        initialUrl: 'https://experience.arcgis.com/experience/38efc69787a346959c931568bd9e2cc4',
-        //initialUrl:
-        javascriptMode: JavascriptMode.unrestricted,
-        onWebViewCreated: (WebViewController webViewController) {
-          _controller.complete(webViewController);
-        },
+      body: Stack(
+        children: <Widget>[
+
+          WebView(
+              initialUrl:
+                  'https://experience.arcgis.com/experience/38efc69787a346959c931568bd9e2cc4',
+              //initialUrl:
+              javascriptMode: JavascriptMode.unrestricted,
+              onWebViewCreated: (WebViewController webViewController) {
+                _controller.complete(webViewController);
+              },
+              onPageStarted: (url) => setState(() => isLoading = true),
+              onPageFinished: (url) => setState(() => isLoading = false)),
+          (isLoading)? LinearProgressIndicator() : SizedBox()
+        ],
       ),
     );
   }
