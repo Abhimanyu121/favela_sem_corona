@@ -13,6 +13,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 //import 'package:qrscan/qrscan.dart' as scanner;
 import 'package:toast/toast.dart';
+
+import 'auth_for_wallet.dart';
 class Wallet extends StatefulWidget{
   static const id ="wallet";
   @override
@@ -27,18 +29,22 @@ class WalletState extends State<Wallet>{
   _checkWalletStatus() async {
     print("inside check status");
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    if(prefs.getString(prefEmail)==null||prefs.getString(prefEmail)==""){
+      await Navigator.pushNamed(context, Auth.id);
+      prefs = await SharedPreferences.getInstance();
+    }
     var key = prefs.getString(prefPrivateKey);
     if(key =="" || key ==null){
       await Firestore.instance
           .collection('walletUsers')
-          .document('987456323')
+          .document(prefs.getString(prefEmail))
           .get()
           .then((DocumentSnapshot ds)async  {
         if(!ds.exists){
           String keygen = await KeyInterface.generateKey();
           print("pvtkey:$keygen");
           var addr = prefs.getString(prefAddress);
-          await Firestore.instance.collection('walletUsers').document("987456323")
+          await Firestore.instance.collection('walletUsers').document(prefEmail)
               .setData({ prefPrivateKey: keygen,prefAddress: addr});
 
           setState(() {

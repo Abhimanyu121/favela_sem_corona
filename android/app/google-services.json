@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "90083384916-ib925j6bsj40c81c6qclm06gj24jabqg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.itsencrypted.favelasemcorona",
+            "certificate_hash": "6e0dd5891a9ed4396726690c27eab6130e782661"
+          }
+        },
+        {
           "client_id": "90083384916-046osigut85b91n18q8333barrcoouuh.apps.googleusercontent.com",
           "client_type": 3
         }

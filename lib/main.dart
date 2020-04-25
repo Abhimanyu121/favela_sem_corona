@@ -1,4 +1,5 @@
 import 'package:favelasemcorona/screens/arcgis_covid_screen.dart';
+import 'package:favelasemcorona/screens/auth_for_wallet.dart';
 import 'package:favelasemcorona/screens/disk_covid_screen.dart';
 import 'package:favelasemcorona/screens/disk_domestic_violence_screen.dart';
 import 'package:favelasemcorona/screens/entrepreneurs_screen.dart';
@@ -61,6 +62,7 @@ class FavelaSemCorona extends StatelessWidget {
         FacebookScreen.id: (context) => FacebookScreen(),
         TestTestScreen.id: (context) => TestTestScreen(),
         PaymentTx.id: (context) => PaymentTx(),
+        Auth.id: (context) => Auth(),
       },
     );
   }
