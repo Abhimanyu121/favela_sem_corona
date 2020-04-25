@@ -36,11 +36,11 @@ class _TestTestScreenState extends State<TestTestScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    funcaox();
+    getDataFromAPI();
     controller.addListener(onScroll);
   }
 
-  void funcaox() async {
+  void getDataFromAPI() async {
     setState(() {
       isloading = true;
     });
