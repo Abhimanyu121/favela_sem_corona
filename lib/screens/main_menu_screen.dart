@@ -58,6 +58,10 @@ class MenuIconsScreen extends StatelessWidget {
                         ),
                       ),
                     SizedBox(height: 25),
+                      MenuItem(icon: FontAwesomeIcons.city,
+                        iconText: 'SUA COMUNIDADE',
+                        onPressed: () => Navigator.pushNamed(context,
+                            FavelasScreen.id),),
                     MenuItem(icon: FontAwesomeIcons.chartLine,
                       iconText: 'PAINEL RIO COVID19',
                       onPressed: () => Navigator.pushNamed(context,
@@ -89,10 +93,6 @@ class MenuIconsScreen extends StatelessWidget {
                     MenuItem(icon: FontAwesomeIcons.wallet,
                     iconText: 'WALLET',
                     onPressed: () => Navigator.pushNamed(context, Wallet.id),),
-                    MenuItem(icon: FontAwesomeIcons.appStore,
-                      iconText: 'Favelas',
-                      onPressed: () => Navigator.pushNamed(context, TestTestScreen
-                          .id),),
                     Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc04.gif', width: 240)
                   ],
                 ),

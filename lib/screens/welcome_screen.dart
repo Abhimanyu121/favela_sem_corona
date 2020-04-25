@@ -35,7 +35,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     favelas_dropdown.add(
       DropdownMenuItem(
         value: 'selecione',
-        child: Text('Selecione uma favela'),
+        child: Text('Selecione sua comunidade'),
       ),
     );
 
