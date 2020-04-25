@@ -30,6 +30,7 @@ class _TestTestScreenState extends State<TestTestScreen> {
   int deaths;
   String description;
   bool isloading = false;
+  String last_update;
 
   @override
   void initState() {
@@ -47,36 +48,17 @@ class _TestTestScreenState extends State<TestTestScreen> {
     var infected = await ArcgisHelper.getConfirmedCases(favela);
     var deaths_res = await ArcgisHelper.getDeaths(favela);
     var recovered = await ArcgisHelper.getRecovered(favela);
+    DateTime today = new DateTime.now();
+    String dateSlug ="${today.day.toString().padLeft(2,'0')}/${today.month.toString().padLeft(2,'0')}";
+
+
     setState(() {
       totalCases = infected;
       deaths = deaths_res;
       recoveredCases = recovered;
+      last_update = dateSlug;
     });
 
-//    var res = await ApiHelper.getRequest(context, "https://services1.arcgis.com/OlP4dGNtIcnD3RYf/arcgis/rest/services/Casos_bairros_2/FeatureServer/0/query?f=json&where=Confirmados%20%3C%3E%200&returnGeometry=true&spatialRel=esriSpatialRelIntersects&maxAllowableOffset=152&geometry=%7B%22xmin%22%3A-4852834.0517760515%2C%22ymin%22%3A-2661231.576766394%2C%22xmax%22%3A-4774562.534812067%2C%22ymax%22%3A-2582960.0598024093%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%2C%22latestWkid%22%3A3857%7D%7D&geometryType=esriGeometryEnvelope&inSR=102100&outFields=*&outSR=102100&resultType=tile");
-//    var result = await ApiHelper.getRequest(context, "https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/favelas.json");
-//    print(res['features'][54]);
-
-//    int i = 0;
-//    while(i < res['features'].length){
-//      if(res['features'][i]['attributes']['Bairro'] == favela){
-//        setState(() {
-//          communityName = res['features'][i]['attributes']['Bairro'];
-//          totalCases = res['features'][i]['attributes']['Confirmados'];
-//          deaths = res['features'][i]['attributes']['Óbitos'];
-//          imageUrl = result.where((f) => f['title'].toLowerCase() ==
-//              favela.toLowerCase()).toList
-//            ()[0]['img'];
-//          population = favelas.where((f) => f.communityName.toLowerCase() == favela.toLowerCase()).toList()[0].population;
-//          residences = favelas.where((f) => f.communityName.toLowerCase() ==
-//              favela.toLowerCase()).toList()[0].residences;
-//          description = favelas.where((f) => f.communityName.toLowerCase() ==
-//              favela.toLowerCase()).toList()[0].description;
-//        });
-//        break;
-//      }
-//      i++;
-//    }
     setState(() {
       isloading = false;
     });
@@ -180,7 +162,7 @@ class _TestTestScreenState extends State<TestTestScreen> {
                                         fontWeight: FontWeight.bold),
                                   ),
                                   TextSpan(
-                                    text: "Atualizado em: 21/04",
+                                    text: "Atualizado em: ${last_update}",
                                     style: TextStyle(
                                       color: Colors.grey,
                                     ),
