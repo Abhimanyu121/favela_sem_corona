@@ -87,7 +87,7 @@ class UsefulInfoScreen extends StatelessWidget {
                       MenuItem(icon: FontAwesomeIcons.handHoldingHeart,
                         iconText: 'APOIO PSICOLÓGICO',
                         onPressed: () => Navigator.pushNamed(context, PsychologicalHelpScreen.id),),
-                      MenuItem(icon: FontAwesomeIcons.crow,
+                      MenuItem(icon: FontAwesomeIcons.skullCrossbones,
                         iconText: 'ASSISTÊNCIA FUNERÁRIA',
                         onPressed: () => Navigator.pushNamed(context, IMLScreen.id),),
                       MenuItem(icon: FontAwesomeIcons.backward,

@@ -22,6 +22,7 @@ class MinSaudeScreen extends StatefulWidget {
 class _MinSaudeScreenState extends State<MinSaudeScreen> {
   Completer<WebViewController> _controller = Completer<WebViewController>();
 //  final Set<String> _favorites = Set<String>();
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,14 +41,21 @@ class _MinSaudeScreenState extends State<MinSaudeScreen> {
           ),
         ),
       ),
-      body: WebView(
-        initialUrl: 'https://coronavirus.saude.gov.br/sobre-a-doenca#definicaodecaso',
-        //initialUrl:
-        javascriptMode: JavascriptMode.unrestricted,
-        onWebViewCreated: (WebViewController webViewController) {
-          _controller.complete(webViewController);
-        },
+      body: Stack(
+        children: <Widget>[
+          WebView(
+            initialUrl: 'https://coronavirus.saude.gov.br/sobre-a-doenca#definicaodecaso',
+            //initialUrl:
+            javascriptMode: JavascriptMode.unrestricted,
+            onWebViewCreated: (WebViewController webViewController) {
+              _controller.complete(webViewController);
+            },
+              onPageStarted: (url) => setState(() => isLoading = true),
+              onPageFinished: (url) => setState(() => isLoading = false)),
+          (isLoading)? LinearProgressIndicator() :SizedBox()
+        ],
       ),
+
     );
   }
 
