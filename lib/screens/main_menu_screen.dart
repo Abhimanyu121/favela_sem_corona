@@ -1,9 +1,11 @@
 import 'package:favelasemcorona/screens/arcgis_covid_screen.dart';
 import 'package:favelasemcorona/screens/facebook_screen.dart';
+import 'package:favelasemcorona/screens/favelas_screen.dart';
 import 'package:favelasemcorona/screens/map_demo.dart';
 import 'package:favelasemcorona/screens/min_saude_screen.dart';
 import 'package:favelasemcorona/screens/quiz_screen.dart';
 import 'package:favelasemcorona/screens/instagram_screen.dart';
+import 'package:favelasemcorona/screens/test_test_screen.dart';
 import 'package:favelasemcorona/screens/useful_info_screen.dart';
 import 'package:favelasemcorona/screens/wallet.dart';
 import 'package:flutter/cupertino.dart';
@@ -55,46 +57,49 @@ class MenuIconsScreen extends StatelessWidget {
                           tag: 'logo-favelasemcorona'
                         ),
                       ),
-                      SizedBox(height: 25),
-                      MenuItem(icon: FontAwesomeIcons.chartLine,
-                        iconText: 'PAINEL RIO COVID19',
-                        onPressed: () => Navigator.pushNamed(context,
-                            PainelCovidRioScreen.id),),
-                      MenuItem(icon: FontAwesomeIcons.hospital,
-                        iconText: 'HOSPITAIS E UPAs',
-                        onPressed: () => Navigator.pushNamed(context,
-                            MapsDemo.id),),
-                      MenuItem(icon: FontAwesomeIcons.handsWash,
-                        iconText: 'SOBRE O VÍRUS',
-                        onPressed: () => Navigator.pushNamed(context,
-                            MinSaudeScreen.id),),
-                      MenuItem(icon: FontAwesomeIcons.ambulance,
-                        iconText: 'ASSISTÊNCIA',
-                        onPressed: () => Navigator.pushNamed(context,
-                            UsefulInfoScreen.id),),
-                      MenuItem(icon: FontAwesomeIcons.gamepad,
-                        iconText: 'STOP COVID-19',
-                        onPressed: () => Navigator.pushNamed(context,
-                            QuizScreen.id),),
-                      MenuItem(icon: FontAwesomeIcons.wallet,
-                        iconText: 'Carteira',
-                        onPressed: () => Navigator.pushNamed(context,
-                            Wallet.id),),
-                      MenuItem(icon: FontAwesomeIcons.instagramSquare,
-                        iconText: 'INSTAGRAM',
-                        onPressed: () => Navigator.pushNamed(context,
-                            InstagramScreen.id),),
-                      MenuItem(icon: FontAwesomeIcons.facebookSquare,
-                        iconText: 'FACEBOOK',
-                        onPressed: () => Navigator.pushNamed(context,
-                            FacebookScreen.id),),
-                      Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc04.gif', width: 240)
-                    ],
-                  ),
+                    SizedBox(height: 25),
+                    MenuItem(icon: FontAwesomeIcons.chartLine,
+                      iconText: 'PAINEL RIO COVID19',
+                      onPressed: () => Navigator.pushNamed(context,
+                          PainelCovidRioScreen.id),),
+                    MenuItem(icon: FontAwesomeIcons.hospital,
+                      iconText: 'HOSPITAIS E UPAs',
+                      onPressed: () => Navigator.pushNamed(context,
+                          MapsDemo.id),),
+                    MenuItem(icon: FontAwesomeIcons.handsWash,
+                      iconText: 'SOBRE O VÍRUS',
+                      onPressed: () => Navigator.pushNamed(context,
+                          MinSaudeScreen.id),),
+                    MenuItem(icon: FontAwesomeIcons.ambulance,
+                      iconText: 'ASSISTÊNCIA',
+                      onPressed: () => Navigator.pushNamed(context,
+                          UsefulInfoScreen.id),),
+                    MenuItem(icon: FontAwesomeIcons.gamepad,
+                      iconText: 'STOP COVID-19',
+                      onPressed: () => Navigator.pushNamed(context,
+                          QuizScreen.id),),
+                    MenuItem(icon: FontAwesomeIcons.instagramSquare,
+                      iconText: 'INSTAGRAM',
+                      onPressed: () => Navigator.pushNamed(context,
+                          InstagramScreen.id),),
+                    MenuItem(icon: FontAwesomeIcons.facebookSquare,
+                      iconText: 'FACEBOOK',
+                      onPressed: () => Navigator.pushNamed(context,
+                          FacebookScreen.id),),
+                    MenuItem(icon: FontAwesomeIcons.wallet,
+                    iconText: 'WALLET',
+                    onPressed: () => Navigator.pushNamed(context, Wallet.id),),
+                    MenuItem(icon: FontAwesomeIcons.appStore,
+                      iconText: 'Favelas',
+                      onPressed: () => Navigator.pushNamed(context, TestTestScreen
+                          .id),),
+                    Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc04.gif', width: 240)
+                  ],
                 ),
               ),
             ),
-          ],
+            ),
+          ]
         ),
     );
   }

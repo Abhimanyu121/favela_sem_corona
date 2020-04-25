@@ -187,8 +187,6 @@ class WalletState extends State<Wallet>{
               height: MediaQuery.of(context).size.height*0.05,
             ),
             Text("Please Wait", style: TextStyle(color: Colors.black),)
-
-
           ],
         ),
       ),

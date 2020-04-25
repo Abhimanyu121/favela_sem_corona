@@ -18,11 +18,12 @@ class DharmaCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
               colors: <Color>[
-                Colors.red,
-                Colors.redAccent,
                 kDharma4,
                 kDharma5,
+                Colors.yellow,
               ],
             ),
           ),
