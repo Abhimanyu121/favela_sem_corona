@@ -57,7 +57,7 @@ class MenuIconsScreen extends StatelessWidget {
                           tag: 'logo-favelasemcorona'
                         ),
                       ),
-                    SizedBox(height: 25),
+                    SizedBox(height: 20),
                       MenuItem(icon: FontAwesomeIcons.city,
                         iconText: 'SUA COMUNIDADE',
                         onPressed: () => Navigator.pushNamed(context,
@@ -93,7 +93,9 @@ class MenuIconsScreen extends StatelessWidget {
                     MenuItem(icon: FontAwesomeIcons.wallet,
                     iconText: 'WALLET',
                     onPressed: () => Navigator.pushNamed(context, Wallet.id),),
-                    Image.network('https://raw.githubusercontent.com/itsencrypted/favela_sem_corona_api/master/images/stickers_fsc04.gif', width: 240)
+                    Image.network('https://raw.githubusercontent'
+                        '.com/itsencrypted/favela_sem_corona_api/master'
+                        '/images/stickers_fsc04.gif', width: 180)
                   ],
                 ),
               ),
