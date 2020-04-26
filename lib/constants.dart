@@ -16,3 +16,5 @@ const Color notWhite = Color(0xFFF2F2F2);
 //Strings
 const prefPrivateKey = "privatekey";
 const prefAddress = "address";
+const prefEmail = "email";
+const prefUser = "user";
