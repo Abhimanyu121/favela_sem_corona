@@ -6,6 +6,8 @@ import 'package:favelasemcorona/screens/entrepreneurs_screen.dart';
 import 'package:favelasemcorona/screens/facebook_screen.dart';
 import 'package:favelasemcorona/screens/favelas_screen.dart';
 import 'package:favelasemcorona/screens/iml_screen.dart';
+import 'package:favelasemcorona/screens/kyc_donation.dart';
+import 'package:favelasemcorona/screens/kyc_screen.dart';
 import 'package:favelasemcorona/screens/map_demo.dart';
 import 'package:favelasemcorona/screens/main_menu_screen.dart';
 import 'package:favelasemcorona/screens/payment_amount.dart';
@@ -63,6 +65,8 @@ class FavelaSemCorona extends StatelessWidget {
         TestTestScreen.id: (context) => TestTestScreen(),
         PaymentTx.id: (context) => PaymentTx(),
         Auth.id: (context) => Auth(),
+        Login_email.id :(context) => Login_email(),
+        DonationKyc.id :(context) => DonationKyc(),
       },
     );
   }
